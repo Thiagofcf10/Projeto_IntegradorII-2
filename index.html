@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Projeto de Estagio </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+ <!--////////////////////////////////////////css///////////////////////////////////////////-->
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: inline;
+        text-align: center;
+
+
+    }
+
+    header {
+        color: white;
+        background-color: #000044;
+        font-size: 15px;
+        padding-top: 1vh;
+        width: 100vw;
+
+    }
+
+    #logo {
+        height: 100px;
+        width: 100vw;
+        text-align: center;
+        margin-bottom: 3vh;
+    }
+
+    #logo h1 {
+        font-size: 30px;
+        display: inline;
+        font-family: Arial, Helvetica, sans-serif;
+
+
+    }
+
+    #logo img {
+        height: 110px;
+        width: 130px;
+
+    }
+
+    .tex {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+
+    }
+
+    .barra_de_menus a {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        color: #000044;
+        text-decoration: none;
+    }
+
+    .barra_de_menus ul {
+
+        padding-top: 1.5vh;
+        padding-bottom: 1.5vh;
+        background-color: #000044;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 30px;
+        list-style: none;
+
+
+
+    }
+
+    .barra_de_menus li {
+        border-radius: 4px;
+        background-color: #ffffff;
+        flex: 1 1 1;
+        width: 100px;
+        height: 35px;
+        align-content: center;
+
+
+
+    }
+
+    .barra_de_menus li:hover {
+        background-color: #6866f0;
+    }
+
+    p {
+        padding-left: 25px;
+        padding-right: 25px;
+
+    }
+
+    .mapa {
+        text-align: center;
+
+    }
+
+
+    @media screen and (max-width: 800px) {
+        header {
+            color: white;
+            background-color: #000044;
+            font-size: 15px;
+            padding-top: 1vh;
+            width: 100vw;
+
+        }
+
+        #logo {
+            height: 100px;
+            width: 100vw;
+            text-align: center;
+            margin-bottom: 5vh;
+        }
+
+        #logo h1 {
+            font-size: 25px;
+            display: inline;
+            font-family: Arial, Helvetica, sans-serif;
+
+
+        }
+
+        #logo img {
+            height: 80px;
+            width: 100px;
+
+        }
+
+        .barra_de_menus a {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            color: #000044;
+            text-decoration: none;
+        }
+
+        .barra_de_menus ul {
+
+            padding-top: 1.5vh;
+            padding-bottom: 1.5vh;
+            background-color: #000044;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            gap: 10px;
+            list-style: none;
+
+
+
+        }
+
+        .barra_de_menus li {
+            border-radius: 4px;
+            background-color: #ffffff;
+            flex: 1 1 1;
+            width: 100px;
+            height: 35px;
+            align-content: center;
+
+
+
+        }
+
+        .barra_de_menus li:hover {
+            background-color: #6866f0;
+        }
+    }
+
+</style>
+
+
+<header>
+
+    <div id="logo">
+
+        <img src="./imagens/logo.png">
+        <h1>PORTAL DO FUTEBOL BRASIL</h1>
+
+
+    </div>
+
+    <div class="barra_de_menus">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li> <a href="./html/artigos.html">Artigos</a> </li>
+                <li> <a href="./html/eventos.html">Eventos</a> </li>
+                <li><a href="./html/info.html">Informações Gerais</b></a> </li>
+                <li><a href="./html/sobre.html"> Contato </a></li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+
+<body>
+    <h2 class="tex">Topicos interessantes sobre o futebol</h2>
+
+
+    <!--////////////////////////////////Carrocel///////////////////////////// -->
+
+    <style>
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 40px auto;
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .item {
+            display: none;
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            width: 90%;
+            text-align: center;
+            margin: 10px auto;
+        }
+
+        .carousel-link {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 10px 20px;
+            background-color: #000044;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .carousel-link:hover {
+            background-color: #6866f0;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+            transform: translateY(-50%);
+            margin: 0;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+
+
+    <div id="topico-nav">
+        <div class="container">
+            <div class="carousel">
+                <div class="item">
+                    <img src="./imagens/fut.jpg">
+                    <div class="carousel-caption">
+                        <p>Segundo dados da Federação Internacional de Futebol (Fifa), cerca de 270 milhões de pessoas atuam em atividades diretamente relacionadas ao esporte</p>
+                        <a href="#" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="./imagens/fut.jpg" alt="grupo">
+                    <div class="carousel-caption">
+                        <p>O futebol é o esporte coletivo mais popular do planeta.</p>
+                        <a href="#" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="./imagens/bol.jpg">
+                    <div class="carousel-caption">
+                        <p>O futebol é um esporte cujo campo de grama apresenta 105 metros de comprimento por 68 metros de largura, uma padronização da Fifa.</p>
+                        <a href="#" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
+                    </div>
+                </div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+    </div>
+
+
+
+    <!--////////////////////////////////////////corpo///////////////////////////////////////////-->
+
+    <style>
+        #corpo {
+            height: 670px;
+            background-color: #f0f0f0;
+        }
+
+        .menu-noti ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu-noti li {
+            margin: 10px 0;
+        }
+
+        .menu-noti a {
+            display: block;
+            padding: 10px;
+            background-color: #000044;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .menu-noti a:hover {
+            background-color: #6866f0;
+        }
+    </style>
+
+    <div id="corpo">
+        <div class="container">
+            <div class="base" style="float: left; width: 70%;">
+                <img src="../../Projeto_IntegradorII-2/Projeto_IntegradorII-2/imagens/mapadopara3.png" alt="Lo" style="width: 350px; height: 270px;">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam consequatur debitis, molestias expedita reprehenderit vitae asperiores dolorem ducimus unde facere quia temporibus officia minus cum maiores repellendus pariatur tempora possimus.
+                </p>
+            </div>
+            <div class="menu-noti" style="float: right; width: 30%;">
+                <ul>
+                    <li><a href="./mapadobrasil.html">pagina mapa do brasil</a></li>
+                    <li><a href="#">Opção 2</a></li>
+                    <li><a href="#">Opção 3</a></li>
+                    <li><a href="#">Opção 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--////////////////////////////////////carrocel2//////////////////////////////-->
+
+    <style>
+        .carousel-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            justify-items: center;
+            align-items: center;
+            margin: 2vh 10vw 0 10vw;
+        }
+
+        .carousel-grid img {
+            width: 250px;
+            height: 140px;
+            border-radius: 5px;
+            border: #000044 solid 3px;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+            transform: translateY(-50%);
+            margin: 0;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .carousel-nav button {
+            padding: 10px 20px;
+            background-color: #000044;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .carousel-nav button:hover {
+            background-color: #6866f0;
+        }
+    </style>
+
+    <div id="carousel1" class="carousel-grid">
+        <img src="./imagens/img1.jpg" alt="Image 1" onclick="openModal(this)">
+        <img src="./imagens/img2.jpg" alt="Image 2" onclick="openModal(this)">
+        <img src="./imagens/img3.jpg" alt="Image 3" onclick="openModal(this)">
+        <img src="./imagens/img4.jpg" alt="Image 4" onclick="openModal(this)">
+        <img src="./imagens/img5.jpg" alt="Image 5" onclick="openModal(this)">
+        <img src="./imagens/img6.jpg" alt="Image 6" onclick="openModal(this)">
+        <img src="./imagens/img7.jpg" alt="Image 7" onclick="openModal(this)">
+        <img src="./imagens/img8.jpg" alt="Image 8" onclick="openModal(this)">
+    </div>
+
+    <div id="carousel2" class="carousel-grid" style="display: none;">
+        <img src="./imagens/img9.jpg" alt="Image 9" onclick="openModal(this)">
+        <img src="./imagens/img10.jpg" alt="Image 10" onclick="openModal(this)">
+        <img src="./imagens/img11.jpg" alt="Image 11" onclick="openModal(this)">
+        <img src="./imagens/img12.jpg" alt="Image 12" onclick="openModal(this)">
+        <img src="./imagens/img13.jpg" alt="Image 13" onclick="openModal(this)">
+        <img src="./imagens/img14.jpg" alt="Image 14" onclick="openModal(this)">
+        <img src="./imagens/img15.jpg" alt="Image 15" onclick="openModal(this)">
+        <img src="./imagens/img16.jpg" alt="Image 16" onclick="openModal(this)">
+    </div>
+
+    <div class="carousel-nav">
+        <button onclick="showCarousel(1)">1</button>
+        <button onclick="showCarousel(2)">2</button>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+        <a class="prev" onclick="moveModal(-1)">&#10094;</a>
+        <a class="next" onclick="moveModal(1)">&#10095;</a>
+    </div>
+
+    <script>
+        let currentImgIndex = 0;
+        const images = document.querySelectorAll('.carousel-grid img');
+
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+            captionText.innerHTML = element.alt;
+            currentImgIndex = Array.from(images).indexOf(element);
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        function moveModal(n) {
+            currentImgIndex += n;
+            if (currentImgIndex >= images.length) {
+                currentImgIndex = 0;
+            } else if (currentImgIndex < 0) {
+                currentImgIndex = images.length - 1;
+            }
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modalImg.src = images[currentImgIndex].src;
+            captionText.innerHTML = images[currentImgIndex].alt;
+        }
+
+        function showCarousel(n) {
+            document.getElementById('carousel1').style.display = n === 1 ? 'grid' : 'none';
+            document.getElementById('carousel2').style.display = n === 2 ? 'grid' : 'none';
+        }
+    </script>
+
+
+
+
+
+
+    <!--////////////////////////////////////////footer///////////////////////////////////////////-->
+    <style>
+        .footer {
+            height: 30vh;
+            width: 100vw;
+            background-color: #000044;
+            color: white;
+            text-align:center;
+            display: flex;
+            margin-top: 50px;
+        }
+
+        .ref {
+            flex: 1 1 0;
+            margin-top: 50px;
+        }
+
+        .ref img {
+            height: 80px;
+            width: 100px;
+            border-radius: 5px;
+
+        }
+
+        .infdev {
+            flex: 2 1 0;
+            border-right: #ffffff 4px solid;
+            border-left: #ffffff 4px solid;
+            text-align: center;
+            padding: 30px;
+        }
+        .infdev p {
+
+            font-size: 17px;
+            text-align: justify;
+            margin-bottom: 20px;
+
+        }
+
+        .infdev img {
+            max-height: 70px;
+            max-width: 110px;
+            border-radius: 6px;
+
+
+
+        }
+
+        .mediascot {
+            flex: 1 1 0;
+
+        }
+
+        .mediascot h1 {
+            font-size: 15px;
+
+        }
+
+        .mediascot a {
+            display: flex;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: #ffffff;
+            justify-content: center;
+            margin: 10px;
+
+        }
+
+        .mediascot img {
+            height: 45px;
+            width: 45px;
+            border-radius: 7px;
+
+        }
+
+        @media screen and (max-width: 800px) {
+
+            .footer {
+                height: 45vh;
+                width: 100vw;
+
+            }
+        }
+    </style>
+
+
+    <div class="footer">
+        <div class="ref">
+            <img src="./imagens/ifpa2.png">
+
+
+        </div>
+        <div class="infdev">
+            <p> Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores,
+                IFPA
+                Campus Tucuruí. Turma T325-6NH.</p>
+            <p> Responsaveis pelas atualizações e manutenção : Thiago Felipe, Marley Roberto, Talia Santos, Kaillane.
+                Discentes de Tecnologia em Redes de Computadores, IFPA
+                Campus Tucuruí. Turma T325-8NI. </p>
+            <img src="./imagens/academ2.png">
+            <img src="./imagens/brasil f logo2.png">
+            <img src="./imagens/logogov.jpeg">
+            <img src="./imagens/ministr.jpg">
+        </div>
+        <div class="mediascot">
+            <h1 id="contat">Contatos de médias sociais</h1>
+            <a href=""><img src="./imagens/facebook_2496095.png" alt="facebook"></a>
+            <a href=""><img src="./imagens/instagram_2111463.png" alt="instagram"></a>
+            <a href=""><img src="./imagens/youtube_2496113.png" alt="youtube"></a>
+
+        </div>
+    </div>
+
+    <!--////////////////////////////////////////script///////////////////////////////////////////-->
+    <script>
+        let slideIndex = 0;
+        showSlides(slideIndex);
+
+        function moveSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("item");
+            if (n >= slides.length) { slideIndex = 0 }
+            if (n < 0) { slideIndex = slides.length - 1 }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        function autoSlide() {
+            moveSlide(1);
+            setTimeout(autoSlide, 5000); // Change slide every 5 seconds
+        }
+
+        autoSlide();
+    </script>
+
+
+</body>
+
+</html>

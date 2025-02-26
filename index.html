@@ -8,7 +8,7 @@
 </head>
 
 
- <!--////////////////////////////////////////css///////////////////////////////////////////-->
+<!--////////////////////////////////////////css///////////////////////////////////////////-->
 <style>
     body {
         margin: 0;
@@ -22,35 +22,28 @@
         font-size: 15px;
         padding-top: 1vh;
         width: 100vw;
-
     }
 
     #logo {
-        height: 100px;
         width: 100vw;
         text-align: center;
-        margin-bottom: 3vh;
     }
 
     #logo h1 {
-        font-size: 30px;
+        font-size: 25px;
         display: inline;
         font-family: Arial, Helvetica, sans-serif;
         margin: 0 5vw 0 5vw;
-
-
     }
 
     #logo img {
-        height: 110px;
-        width: 130px;
-
+        height: 80px;
+        width: 100px;
     }
 
     .tex {
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
-
     }
 
     .barra_de_menus a {
@@ -61,30 +54,23 @@
     }
 
     .barra_de_menus ul {
-
         padding-top: 1.5vh;
         padding-bottom: 1.5vh;
         background-color: #fdd568;
         display: flex;
         text-align: center;
         justify-content: center;
-        gap: 30px;
+        gap: 10px;
         list-style: none;
-
-
-
     }
 
     .barra_de_menus li {
         border-radius: 4px;
         background-color: #ffffff;
         flex: 1 1 1;
-        width: 100px;
+        width: 80px;
         height: 35px;
         align-content: center;
-
-
-
     }
 
     .barra_de_menus li:hover {
@@ -92,84 +78,42 @@
     }
 
     p {
-        padding-left: 25px;
-        padding-right: 25px;
-
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
-
-
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 440px) {
         header {
-            color: rgb(0, 0, 0);
-            background-color: #fdd568;
-            font-size: 15px;
-            padding-top: 1vh;
-            width: 100vw;
-
-        }
-
-        #logo {
-            height: 100px;
-            width: 100vw;
-            text-align: center;
-            margin-bottom: 5vh;
+            font-size: 10px;
         }
 
         #logo h1 {
-            font-size: 25px;
-            display: inline;
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0 5vw 0 5vw;
-
-
+            font-size: 15px;
         }
 
         #logo img {
-            height: 80px;
-            width: 100px;
-
-        }
-
-        .barra_de_menus a {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 15px;
-            color: #000044;
-            text-decoration: none;
+            height: 40px;
+            width: 60px;
         }
 
         .barra_de_menus ul {
-
-            padding-top: 1.5vh;
-            padding-bottom: 1.5vh;
-            background-color: #fdd568;
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            gap: 10px;
-            list-style: none;
-
-
+            gap: 3px;
 
         }
 
         .barra_de_menus li {
-            border-radius: 4px;
-            background-color: #ffffff;
-            flex: 1 1 1;
-            width: 100px;
-            height: 35px;
-            align-content: center;
-
-
-
+            width: 70px;
         }
 
-        .barra_de_menus li:hover {
-            background-color: #6866f0;
+        .barra_de_menus a {
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .tex {
+            font-size: 17px;
         }
     }
-
 </style>
 
 
@@ -214,10 +158,10 @@
             text-align: center;
         }
 
-        .container{
+        .container {
             width: 89vw;
             margin: 40px 5vw 0 5vw;
-            padding: 0 ;
+            padding: 0;
         }
 
         .item {
@@ -257,7 +201,8 @@
             background-color: #6866f0;
         }
 
-        .prev, .next {
+        .prev,
+        .next {
             cursor: pointer;
             top: 50%;
             width: auto;
@@ -280,7 +225,8 @@
             border-radius: 3px 0 0 3px;
         }
 
-        .prev:hover, .next:hover {
+        .prev:hover,
+        .next:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
     </style>
@@ -291,7 +237,8 @@
                 <div class="item">
                     <img src="./imagens/fut.jpg">
                     <div class="carousel-caption">
-                        <p>Segundo dados da Federação Internacional de Futebol (Fifa), cerca de 270 milhões de pessoas atuam em atividades diretamente relacionadas ao esporte</p>
+                        <p>Segundo dados da Federação Internacional de Futebol (Fifa), cerca de 270 milhões de pessoas
+                            atuam em atividades diretamente relacionadas ao esporte</p>
                         <a href="#" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
                     </div>
                 </div>
@@ -305,7 +252,8 @@
                 <div class="item">
                     <img src="./imagens/bol.jpg">
                     <div class="carousel-caption">
-                        <p>O futebol é um esporte cujo campo de grama apresenta 105 metros de comprimento por 68 metros de largura, uma padronização da Fifa.</p>
+                        <p>O futebol é um esporte cujo campo de grama apresenta 105 metros de comprimento por 68 metros
+                            de largura, uma padronização da Fifa.</p>
                         <a href="#" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
                     </div>
                 </div>
@@ -314,7 +262,7 @@
                 <button class="next" onclick="moveSlide(1)">&#10095;</button>
             </div>
         </div>
-        
+
     </div>
 
 
@@ -322,8 +270,7 @@
     <!--////////////////////////////////////////corpo///////////////////////////////////////////-->
 
     <style>
-
-        .container2{
+        .container2 {
             height: 30vh;
             width: 89vw;
             margin: 40px 5vw 0 5vw;
@@ -357,7 +304,8 @@
             float: left;
             margin-right: 20px;
             max-width: 100%;
-            height: auto;
+            width: 340px;
+            height: 260px;
         }
 
         .base p {
@@ -366,7 +314,7 @@
             margin: 0;
         }
 
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 440px) {
             .base {
                 width: 100%;
                 float: none;
@@ -377,15 +325,40 @@
                 float: none;
                 margin-top: 20px;
             }
+
+            .menu-noti a {
+
+                font-size: 10px;
+                margin-left: 7vw;
+            }
+
+            .base img {
+                margin-right: 20px;
+                max-width: 100%;
+                width: 160px;
+                height: 110px;
+            }
+
+            .base p {
+                font-size: 1.1em;
+                text-align: justify;
+            }
+
+
         }
     </style>
 
     <div id="corpo">
         <div class="container2">
             <div class="base" style="float: left; width: 70%;">
-                <img src="../Projeto_IntegradorII-2/imagens/mapadopara3.png" alt="Lo" style="width: 340px; height: 260px;">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam consequatur debitis, molestias expedita reprehenderit vitae asperiores dolorem ducimus unde facere quia temporibus officia minus cum maiores repellendus pariatur tempora possimus. Lorem 
-                    ipsum dolor sit amet consectetur adipisicing elit. Doloribus, voluptate, quis exercitationem illo dolor quo nam corrupti, harum inventore amet repudiandae! Rem doloremque voluptas odio id molestiae. Laudantium, alias porro.
+                <img src="../Projeto_IntegradorII-2/imagens/mapadopara3.png" alt="Lo">
+
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam consequatur debitis, molestias
+                    expedita reprehenderit vitae asperiores dolorem ducimus unde facere quia temporibus officia minus
+                    cum maiores repellendus pariatur tempora possimus. Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. Doloribus, voluptate, quis exercitationem illo
+                    dolor quo nam corrupti, harum inventore amet repudiandae! Rem doloremque voluptas odio id molestiae.
+                    Laudantium, alias porro.
                 </p>
             </div>
             <div class="menu-noti" style="float: right; width: 30%;">
@@ -444,10 +417,12 @@
             max-width: 700px;
         }
 
-        .modal-content, #caption {
+        .modal-content,
+        #caption {
             animation-name: zoom;
             animation-duration: 0.6s;
         }
+
         .container3 {
             margin: 0 5vw 0 5vw;
             padding: 13vh 0 0 0;
@@ -455,8 +430,13 @@
         }
 
         @keyframes zoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
         }
 
         .close {
@@ -476,7 +456,8 @@
             cursor: pointer;
         }
 
-        .prev, .next {
+        .prev,
+        .next {
             cursor: pointer;
             position: absolute;
             top: 50%;
@@ -501,7 +482,8 @@
             border-radius: 3px 0 0 3px;
         }
 
-        .prev:hover, .next:hover {
+        .prev:hover,
+        .next:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
 
@@ -524,6 +506,11 @@
             background-color: #6866f0;
         }
 
+        .tex2 {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
         @media screen and (max-width: 880px) {
             .carousel-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -542,37 +529,60 @@
                 padding: 30vh 0 0 0;
             }
         }
+
+        @media screen and (max-width: 440px) {
+            .carousel-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                gap: 5px;
+                width: 100%;
+                height: auto;
+            }
+
+            .carousel-grid img {
+                max-width: 130px;
+                max-height: 80px;
+            }
+
+            .container3 {
+                padding: 10vh 0 0 0;
+            }
+
+            .tex2 {
+                font-size: 17px;
+            }
+        }
     </style>
-<div class="container3">
-    <h2 class="tex2">Mural de fotos</h2>
-    <div id="carousel1" class="carousel-grid">
-        <img src="./imagens/bol.jpg" alt="Image 1" onclick="openModal(this)">
-        <img src="./imagens/academ2.png" alt="Image 2" onclick="openModal(this)">
-        <img src="./imagens/img3.jpg" alt="Image 3" onclick="openModal(this)">
-        <img src="./imagens/img4.jpg" alt="Image 4" onclick="openModal(this)">
-        <img src="./imagens/img5.jpg" alt="Image 5" onclick="openModal(this)">
-        <img src="./imagens/img6.jpg" alt="Image 6" onclick="openModal(this)">
-        <img src="./imagens/img7.jpg" alt="Image 7" onclick="openModal(this)">
-        <img src="./imagens/img8.jpg" alt="Image 8" onclick="openModal(this)">
-    </div>
+    <div class="container3">
+        <h2 class="tex2">Mural de fotos</h2>
+        <div id="carousel1" class="carousel-grid">
+            <img src="./imagens/bol.jpg" alt="Image 1" onclick="openModal(this)">
+            <img src="./imagens/academ2.png" alt="Image 2" onclick="openModal(this)">
+            <img src="./imagens/img3.jpg" alt="Image 3" onclick="openModal(this)">
+            <img src="./imagens/img4.jpg" alt="Image 4" onclick="openModal(this)">
+            <img src="./imagens/img5.jpg" alt="Image 5" onclick="openModal(this)">
+            <img src="./imagens/img6.jpg" alt="Image 6" onclick="openModal(this)">
+            <img src="./imagens/img7.jpg" alt="Image 7" onclick="openModal(this)">
+            <img src="./imagens/img8.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
 
-    <div id="carousel2" class="carousel-grid" style="display: none;">
-        <img src="./imagens/brasil f logo2.png" alt="Image 9" onclick="openModal(this)">
-        <img src="./imagens/img10.jpg" alt="Image 10" onclick="openModal(this)">
-        <img src="./imagens/img11.jpg" alt="Image 11" onclick="openModal(this)">
-        <img src="./imagens/img12.jpg" alt="Image 12" onclick="openModal(this)">
-        <img src="./imagens/img13.jpg" alt="Image 13" onclick="openModal(this)">
-        <img src="./imagens/img14.jpg" alt="Image 14" onclick="openModal(this)">
-        <img src="./imagens/img15.jpg" alt="Image 15" onclick="openModal(this)">
-        <img src="./imagens/img16.jpg" alt="Image 16" onclick="openModal(this)">
-    </div>
+        <div id="carousel2" class="carousel-grid" style="display: none;">
+            <img src="./imagens/brasil f logo2.png" alt="Image 9" onclick="openModal(this)">
+            <img src="./imagens/img10.jpg" alt="Image 10" onclick="openModal(this)">
+            <img src="./imagens/img11.jpg" alt="Image 11" onclick="openModal(this)">
+            <img src="./imagens/img12.jpg" alt="Image 12" onclick="openModal(this)">
+            <img src="./imagens/img13.jpg" alt="Image 13" onclick="openModal(this)">
+            <img src="./imagens/img14.jpg" alt="Image 14" onclick="openModal(this)">
+            <img src="./imagens/img15.jpg" alt="Image 15" onclick="openModal(this)">
+            <img src="./imagens/img16.jpg" alt="Image 16" onclick="openModal(this)">
+        </div>
 
-    <div class="carousel-nav">
-        <button onclick="showCarousel(1)">1</button>
-        <button onclick="showCarousel(2)">2</button>
-    </div>
+        <div class="carousel-nav">
+            <button onclick="showCarousel(1)">1</button>
+            <button onclick="showCarousel(2)">2</button>
+        </div>
 
-</div>
+    </div>
 
 
     <div id="myModal" class="modal">
@@ -633,7 +643,7 @@
             width: 100vw;
             background-color: #fdd568;
             color: rgb(2, 1, 1);
-            text-align:center;
+            text-align: center;
             display: flex;
             margin-top: 50px;
         }
@@ -657,6 +667,7 @@
             text-align: center;
             padding: 30px;
         }
+
         .infdev p {
 
             font-size: 17px;
@@ -681,6 +692,7 @@
 
         .mediascot h1 {
             font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
 
         }
 
@@ -710,13 +722,63 @@
 
             }
         }
+
+        @media screen and (max-width: 440px) {
+
+            .footer {
+                height: 35vh;
+                width: 100vw;
+
+            }
+
+            .ref {
+            flex: 1 1 0;
+            margin-top: 50px;
+        }
+
+        .ref img {
+            height: 70px;
+            width: 90px;
+            border-radius: 5px;
+
+        }
+
+        .infdev {
+            flex: 2 1 0;
+            border-right: #ffffff 4px solid;
+            border-left: #ffffff 4px solid;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .infdev p {
+
+            font-size: 12px;
+            text-align: justify;
+            margin-bottom: 20px;
+
+        }
+
+        .infdev img {
+            max-height: 60px;
+            max-width: 100px;
+            border-radius: 6px;
+
+
+
+        }
+        .mediascot h1 {
+            font-size: 11px;
+
+        }
+        }
     </style>
 
 
     <div class="footer">
         <div class="ref">
             <img src="./imagens/brasil f logo2.png">
-            
+
 
 
         </div>
@@ -728,8 +790,8 @@
                 Discentes de Tecnologia em Redes de Computadores, IFPA
                 Campus Tucuruí. Turma T325-8NI. </p>
             <img src="./imagens/academ2.png">
-            <img src="./imagens/logogov.jpeg">
-            <img src="./imagens/ministr.jpg">
+            <img src="./imagens/logogov.png">
+            <img src="./imagens/ministr.png">
         </div>
         <div class="mediascot">
             <h1 id="contat">Contatos de médias sociais</h1>

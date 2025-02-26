@@ -13,15 +13,12 @@
     body {
         margin: 0;
         padding: 0;
-        display: inline;
         text-align: center;
-
-
     }
 
     header {
-        color: white;
-        background-color: #000044;
+        color: rgb(0, 0, 0);
+        background-color: #fdd568;
         font-size: 15px;
         padding-top: 1vh;
         width: 100vw;
@@ -39,6 +36,7 @@
         font-size: 30px;
         display: inline;
         font-family: Arial, Helvetica, sans-serif;
+        margin: 0 5vw 0 5vw;
 
 
     }
@@ -66,7 +64,7 @@
 
         padding-top: 1.5vh;
         padding-bottom: 1.5vh;
-        background-color: #000044;
+        background-color: #fdd568;
         display: flex;
         text-align: center;
         justify-content: center;
@@ -99,16 +97,12 @@
 
     }
 
-    .mapa {
-        text-align: center;
-
-    }
 
 
     @media screen and (max-width: 800px) {
         header {
-            color: white;
-            background-color: #000044;
+            color: rgb(0, 0, 0);
+            background-color: #fdd568;
             font-size: 15px;
             padding-top: 1vh;
             width: 100vw;
@@ -126,6 +120,7 @@
             font-size: 25px;
             display: inline;
             font-family: Arial, Helvetica, sans-serif;
+            margin: 0 5vw 0 5vw;
 
 
         }
@@ -147,7 +142,7 @@
 
             padding-top: 1.5vh;
             padding-bottom: 1.5vh;
-            background-color: #000044;
+            background-color: #fdd568;
             display: flex;
             text-align: center;
             justify-content: center;
@@ -184,6 +179,7 @@
 
         <img src="./imagens/logo.png">
         <h1>PORTAL DO FUTEBOL BRASIL</h1>
+        <img src="./imagens/Instituto_Federal_do_Pará_-_Marca_Vertical_2015.svg">
 
 
     </div>
@@ -212,10 +208,16 @@
         .carousel {
             position: relative;
             overflow: hidden;
-            margin: 40px auto;
+            margin: 0 auto;
             width: 100%;
-            max-width: 700px;
+            max-width: 750px;
             text-align: center;
+        }
+
+        .container{
+            width: 89vw;
+            margin: 40px 5vw 0 5vw;
+            padding: 0 ;
         }
 
         .item {
@@ -223,6 +225,7 @@
             width: 100%;
             height: auto;
             position: relative;
+            margin: 0;
         }
 
         .item img {
@@ -231,21 +234,21 @@
         }
 
         .carousel-caption {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
+            background-color: rgba(32, 26, 104, 0.5);
+            color: rgb(255, 255, 255);
+            padding: 10px 0;
             border-radius: 5px;
-            width: 90%;
+            width: 100%;
             text-align: center;
-            margin: 10px auto;
+            margin: 0 auto;
         }
 
         .carousel-link {
             display: inline-block;
             margin-top: 5px;
             padding: 10px 20px;
-            background-color: #000044;
-            color: white;
+            background-color: #dbc548;
+            color: rgb(0, 0, 0);
             text-decoration: none;
             border-radius: 5px;
         }
@@ -256,17 +259,15 @@
 
         .prev, .next {
             cursor: pointer;
-            position: absolute;
             top: 50%;
             width: auto;
             padding: 16px;
-            color: white;
+            color: rgb(255, 255, 255);
             font-weight: bold;
             font-size: 18px;
-            transition: 0.6s ease;
+            transition: 0.9s ease-in-out;
             user-select: none;
             transform: translateY(-50%);
-            margin: 0;
         }
 
         .prev {
@@ -283,7 +284,6 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
     </style>
-
 
     <div id="topico-nav">
         <div class="container">
@@ -309,11 +309,12 @@
                         <a href="#" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
                     </div>
                 </div>
+
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
             </div>
-            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
-    </div>
+        
     </div>
 
 
@@ -321,9 +322,11 @@
     <!--////////////////////////////////////////corpo///////////////////////////////////////////-->
 
     <style>
-        #corpo {
-            height: 670px;
-            background-color: #f0f0f0;
+
+        .container2{
+            height: 30vh;
+            width: 89vw;
+            margin: 40px 5vw 0 5vw;
         }
 
         .menu-noti ul {
@@ -338,23 +341,51 @@
         .menu-noti a {
             display: block;
             padding: 10px;
-            background-color: #000044;
-            color: white;
+            background-color: #78e074;
+            color: rgb(0, 0, 0);
             text-decoration: none;
             border-radius: 5px;
             text-align: center;
+            margin-left: 7vw;
         }
 
         .menu-noti a:hover {
             background-color: #6866f0;
         }
+
+        .base img {
+            float: left;
+            margin-right: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .base p {
+            font-size: 1.6em;
+            text-align: justify;
+            margin: 0;
+        }
+
+        @media screen and (max-width: 800px) {
+            .base {
+                width: 100%;
+                float: none;
+            }
+
+            .menu-noti {
+                width: 100%;
+                float: none;
+                margin-top: 20px;
+            }
+        }
     </style>
 
     <div id="corpo">
-        <div class="container">
+        <div class="container2">
             <div class="base" style="float: left; width: 70%;">
-                <img src="../../Projeto_IntegradorII-2/Projeto_IntegradorII-2/imagens/mapadopara3.png" alt="Lo" style="width: 350px; height: 270px;">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam consequatur debitis, molestias expedita reprehenderit vitae asperiores dolorem ducimus unde facere quia temporibus officia minus cum maiores repellendus pariatur tempora possimus.
+                <img src="../../Projeto_IntegradorII-2/Projeto_IntegradorII-2/imagens/mapadopara3.png" alt="Lo" style="width: 340px; height: 260px;">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam consequatur debitis, molestias expedita reprehenderit vitae asperiores dolorem ducimus unde facere quia temporibus officia minus cum maiores repellendus pariatur tempora possimus. Lorem 
+                    ipsum dolor sit amet consectetur adipisicing elit. Doloribus, voluptate, quis exercitationem illo dolor quo nam corrupti, harum inventore amet repudiandae! Rem doloremque voluptas odio id molestiae. Laudantium, alias porro.
                 </p>
             </div>
             <div class="menu-noti" style="float: right; width: 30%;">
@@ -375,17 +406,20 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(2, 1fr);
-            gap: 20px;
+            gap: 3px;
             justify-items: center;
             align-items: center;
-            margin: 2vh 10vw 0 10vw;
+            width: 90vw;
+            height: auto;
         }
 
         .carousel-grid img {
-            width: 250px;
-            height: 140px;
+            width: 100%;
+            height: 100%;
+            max-width: 200px;
+            max-height: 150px;
             border-radius: 5px;
-            border: #000044 solid 3px;
+            border: #000044 solid 2px;
             cursor: pointer;
         }
 
@@ -400,6 +434,7 @@
             overflow: auto;
             background-color: rgb(0, 0, 0);
             background-color: rgba(0, 0, 0, 0.9);
+            padding-top: 250px;
         }
 
         .modal-content {
@@ -412,6 +447,11 @@
         .modal-content, #caption {
             animation-name: zoom;
             animation-duration: 0.6s;
+        }
+        .container3 {
+            margin: 0 5vw 0 5vw;
+            padding: 13vh 0 0 0;
+
         }
 
         @keyframes zoom {
@@ -483,11 +523,31 @@
         .carousel-nav button:hover {
             background-color: #6866f0;
         }
-    </style>
 
+        @media screen and (max-width: 880px) {
+            .carousel-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                gap: 5px;
+                width: 100%;
+                height: auto;
+            }
+
+            .carousel-grid img {
+                max-width: 150px;
+                max-height: 100px;
+            }
+
+            .container3 {
+                padding: 30vh 0 0 0;
+            }
+        }
+    </style>
+<div class="container3">
+    <h2 class="tex2">Mural de fotos</h2>
     <div id="carousel1" class="carousel-grid">
-        <img src="./imagens/img1.jpg" alt="Image 1" onclick="openModal(this)">
-        <img src="./imagens/img2.jpg" alt="Image 2" onclick="openModal(this)">
+        <img src="./imagens/bol.jpg" alt="Image 1" onclick="openModal(this)">
+        <img src="./imagens/academ2.png" alt="Image 2" onclick="openModal(this)">
         <img src="./imagens/img3.jpg" alt="Image 3" onclick="openModal(this)">
         <img src="./imagens/img4.jpg" alt="Image 4" onclick="openModal(this)">
         <img src="./imagens/img5.jpg" alt="Image 5" onclick="openModal(this)">
@@ -497,7 +557,7 @@
     </div>
 
     <div id="carousel2" class="carousel-grid" style="display: none;">
-        <img src="./imagens/img9.jpg" alt="Image 9" onclick="openModal(this)">
+        <img src="./imagens/brasil f logo2.png" alt="Image 9" onclick="openModal(this)">
         <img src="./imagens/img10.jpg" alt="Image 10" onclick="openModal(this)">
         <img src="./imagens/img11.jpg" alt="Image 11" onclick="openModal(this)">
         <img src="./imagens/img12.jpg" alt="Image 12" onclick="openModal(this)">
@@ -511,6 +571,9 @@
         <button onclick="showCarousel(1)">1</button>
         <button onclick="showCarousel(2)">2</button>
     </div>
+
+</div>
+
 
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -568,8 +631,8 @@
         .footer {
             height: 30vh;
             width: 100vw;
-            background-color: #000044;
-            color: white;
+            background-color: #fdd568;
+            color: rgb(2, 1, 1);
             text-align:center;
             display: flex;
             margin-top: 50px;
@@ -626,7 +689,7 @@
             font-size: 10px;
             font-family: Arial, Helvetica, sans-serif;
             text-decoration: none;
-            color: #ffffff;
+            color: #000000;
             justify-content: center;
             margin: 10px;
 
@@ -652,7 +715,8 @@
 
     <div class="footer">
         <div class="ref">
-            <img src="./imagens/ifpa2.png">
+            <img src="./imagens/brasil f logo2.png">
+            
 
 
         </div>
@@ -664,7 +728,6 @@
                 Discentes de Tecnologia em Redes de Computadores, IFPA
                 Campus Tucuruí. Turma T325-8NI. </p>
             <img src="./imagens/academ2.png">
-            <img src="./imagens/brasil f logo2.png">
             <img src="./imagens/logogov.jpeg">
             <img src="./imagens/ministr.jpg">
         </div>

@@ -54,8 +54,7 @@
     }
 
     .barra_de_menus ul {
-        padding-top: 1.5vh;
-        padding-bottom: 1.5vh;
+        padding: 1.5vh 0 1.5vh 0;
         background-color: #fdd568;
         display: flex;
         text-align: center;
@@ -71,6 +70,7 @@
         width: 80px;
         height: 35px;
         align-content: center;
+        padding: 0 1vw 0 1vw;
     }
 
     .barra_de_menus li:hover {
@@ -82,7 +82,7 @@
         padding-right: 10px;
     }
 
-    @media screen and (max-width: 596px) {
+    @media screen and (max-width: 640px) {
         header {
             font-size: 10px;
         }
@@ -132,7 +132,6 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li> <a href="./html/artigos.html">Artigos</a> </li>
                 <li> <a href="./html/eventos.html">Eventos</a> </li>
                 <li><a href="./html/info.html">Informações Gerais</b></a> </li>
                 <li><a href="./html/sobre.html"> Contato </a></li>
@@ -178,7 +177,7 @@
         }
 
         .carousel-caption {
-            background-color: rgba(32, 26, 104, 0.5);
+            background-color: rgba(0, 83, 18, 0.842);
             color: rgb(255, 255, 255);
             padding: 10px 0;
             border-radius: 5px;
@@ -228,6 +227,24 @@
         .prev:hover,
         .next:hover {
             background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media screen and (max-width: 640px) {
+            .carousel-caption {
+                font-size: 12px;
+                padding: 5px 0;
+            }
+
+            .carousel-link {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+
+            .prev,
+            .next {
+                padding: 10px;
+                font-size: 14px;
+            }
         }
     </style>
 
@@ -304,7 +321,7 @@
             float: left;
             margin-right: 20px;
             max-width: 100%;
-            width: 340px;
+            width: 290px;
             height: 260px;
         }
 
@@ -314,7 +331,7 @@
             margin: 0;
         }
 
-        @media screen and (max-width: 596px) {
+        @media screen and (max-width: 640px) {
             .base {
                 width: 100%;
                 float: none;
@@ -335,7 +352,7 @@
             .base img {
                 margin-right: 20px;
                 max-width: 100%;
-                width: 130px;
+                width: 100px;
                 height: 90px;
             }
 
@@ -530,7 +547,7 @@
             }
         }
 
-        @media screen and (max-width: 596px) {
+        @media screen and (max-width: 640px) {
             .carousel-grid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(4, 1fr);
@@ -723,7 +740,7 @@
             }
         }
 
-        @media screen and (max-width: 440px) {
+        @media screen and (max-width: 590px) {
 
             .footer {
                 height: 35vh;

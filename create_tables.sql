@@ -1,7 +1,7 @@
 CREATE TABLE information (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
-    image TEXT NOT NULL,
+    image_url TEXT NOT NULL,
     text TEXT NOT NULL,
     url TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -10,7 +10,7 @@ CREATE TABLE information (
 CREATE TABLE articles (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
-    image TEXT NOT NULL,
+    image_url TEXT NOT NULL,
     content TEXT NOT NULL,
     buttonUrl TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -20,7 +20,7 @@ CREATE TABLE state_articles (
     id SERIAL PRIMARY KEY,
     state VARCHAR(2) NOT NULL,
     title VARCHAR(255) NOT NULL,
-    image TEXT NOT NULL,
+    image_url TEXT NOT NULL,
     content TEXT NOT NULL,
     authors TEXT NOT NULL,
     institution TEXT NOT NULL,

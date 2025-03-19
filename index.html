@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
 
 <!--////////////////////////////////////////css///////////////////////////////////////////-->
 <style>
@@ -71,6 +71,7 @@
         height: 35px;
         align-content: center;
         padding: 0 1vw 0 1vw;
+        box-shadow: #000000 5px 5px 5px;
     }
 
     .barra_de_menus li:hover {
@@ -250,37 +251,76 @@
 
     <div id="topico-nav">
         <div class="container">
-            <div class="carousel">
-                <div class="item">
-                    <img src="./imagens/fut.jpg">
-                    <div class="carousel-caption">
-                        <p>Segundo dados da Federação Internacional de Futebol (Fifa), cerca de 270 milhões de pessoas
-                            atuam em atividades diretamente relacionadas ao esporte</p>
-                        <a href="#" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="./imagens/fut.jpg" alt="grupo">
-                    <div class="carousel-caption">
-                        <p>O futebol é o esporte coletivo mais popular do planeta.</p>
-                        <a href="#" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="./imagens/bol.jpg">
-                    <div class="carousel-caption">
-                        <p>O futebol é um esporte cujo campo de grama apresenta 105 metros de comprimento por 68 metros
-                            de largura, uma padronização da Fifa.</p>
-                        <a href="#" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
-                    </div>
-                </div>
-
+            <div class="carousel" id="carousel-container">
+                <!-- Carousel items will be inserted here dynamically -->
                 <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
                 <button class="next" onclick="moveSlide(1)">&#10095;</button>
             </div>
         </div>
-
     </div>
+
+    <script>
+        const supabaseUrl = 'https://ribvjcjogwukedhhkgbx.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpYnZqY2pvZ3d1a2VkaGhrZ2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5Njk4MDMsImV4cCI6MjA1NjU0NTgwM30.152UN5yiJrWyHIeBnZjSmIhGargSRDTqs1BYF0qohwQ';
+        const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        async function fetchData() {
+            let { data, error } = await _supabase
+                .from('information')
+                .select('*');
+
+            if (error) {
+                console.error('Error fetching data:', error);
+            } else {
+                populateCarousel(data);
+            }
+        }
+
+        function populateCarousel(items) {
+            const carouselContainer = document.getElementById('carousel-container');
+            items.forEach((item, index) => {
+                const carouselItem = document.createElement('div');
+                carouselItem.className = 'item';
+                if (index === 0) carouselItem.style.display = 'block'; // Show the first item by default
+                carouselItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="carousel-caption">
+                        <p>${item.title}</p>
+                        <a href="${item.url}" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
+                    </div>
+                `;
+                carouselContainer.insertBefore(carouselItem, carouselContainer.children[0]);
+            });
+        }
+
+        fetchData().then(() => {
+            let slideIndex = 0;
+            showSlides(slideIndex);
+
+            function moveSlide(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("item");
+                if (n >= slides.length) { slideIndex = 0 }
+                if (n < 0) { slideIndex = slides.length - 1 }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slides[slideIndex].style.display = "block";
+            }
+
+            function autoSlide() {
+                setInterval(() => {
+                    moveSlide(1);
+                }, 5000); // Change slide every 5 seconds
+            }
+
+            autoSlide();
+        });
+    </script>
 
 
 
@@ -311,6 +351,7 @@
             border-radius: 5px;
             text-align: center;
             margin-left: 7vw;
+            box-shadow: #000000 2px 2px 5px;
         }
 
         .menu-noti a:hover {
@@ -370,18 +411,20 @@
             <div class="base" style="float: left; width: 70%;">
                 <img src="../Projeto_IntegradorII-2/imagens/mapadopara3.png" alt="Lo">
 
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam consequatur debitis, molestias
-                    expedita reprehenderit vitae asperiores dolorem ducimus unde facere quia temporibus officia minus
-                    cum maiores repellendus pariatur tempora possimus. Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Doloribus, voluptate, quis exercitationem illo
-                    dolor quo nam corrupti, harum inventore amet repudiandae! Rem doloremque voluptas odio id molestiae.
-                    Laudantium, alias porro.
-                </p>
+                <p>O futebol é um esporte que tem ganhado cada vez mais a participação e destaque das mulheres. A
+                    presença feminina nos campos de futebol tem quebrado barreiras e preconceitos, mostrando que o
+                    talento e a paixão pelo esporte não têm gênero. As mulheres têm conquistado espaço e respeito, tanto
+                    em competições nacionais quanto internacionais, inspirando novas gerações de atletas.</p>
+                <br>
+                <p>No Pará, o futebol é uma paixão que move multidões. O estado é conhecido por sua fervorosa torcida e
+                    por revelar grandes talentos que brilham nos gramados do Brasil e do mundo. Clubes tradicionais,
+                    como o Paysandu e o Remo, têm uma rica história e são pilares do futebol paraense, contribuindo para
+                    o desenvolvimento do esporte na região.</p>
             </div>
             <div class="menu-noti" style="float: right; width: 30%;">
                 <ul>
+                    <li><a href="./html/paginaadm.html">Perfil dos administradores</a></li>
                     <li><a href="./mapadobrasil.html">pagina mapa do brasil</a></li>
-                    <li><a href="#">Opção 2</a></li>
                     <li><a href="#">Opção 3</a></li>
                     <li><a href="#">Opção 4</a></li>
                 </ul>
@@ -396,7 +439,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(2, 1fr);
-            gap: 3px;
+            gap: 19px;
             justify-items: center;
             align-items: center;
             width: 90vw;
@@ -528,7 +571,7 @@
             text-align: center;
         }
 
-        @media screen and (max-width: 880px) {
+        @media screen and (max-width: 1070px) {
             .carousel-grid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(4, 1fr);
@@ -543,7 +586,7 @@
             }
 
             .container3 {
-                padding: 30vh 0 0 0;
+                padding: 39vh 0 0 0;
             }
         }
 
@@ -562,7 +605,7 @@
             }
 
             .container3 {
-                padding: 15vh 0 0 0;
+                padding: 7vh 0 0 0;
             }
 
             .tex2 {
@@ -570,37 +613,18 @@
             }
         }
     </style>
+
+
     <div class="container3">
         <h2 class="tex2">Mural de fotos</h2>
-        <div id="carousel1" class="carousel-grid">
-            <img src="./imagens/bol.jpg" alt="Image 1" onclick="openModal(this)">
-            <img src="./imagens/academ2.png" alt="Image 2" onclick="openModal(this)">
-            <img src="./imagens/img3.jpg" alt="Image 3" onclick="openModal(this)">
-            <img src="./imagens/img4.jpg" alt="Image 4" onclick="openModal(this)">
-            <img src="./imagens/img5.jpg" alt="Image 5" onclick="openModal(this)">
-            <img src="./imagens/img6.jpg" alt="Image 6" onclick="openModal(this)">
-            <img src="./imagens/img7.jpg" alt="Image 7" onclick="openModal(this)">
-            <img src="./imagens/img8.jpg" alt="Image 8" onclick="openModal(this)">
-        </div>
-
-        <div id="carousel2" class="carousel-grid" style="display: none;">
-            <img src="./imagens/brasil f logo2.png" alt="Image 9" onclick="openModal(this)">
-            <img src="./imagens/img10.jpg" alt="Image 10" onclick="openModal(this)">
-            <img src="./imagens/img11.jpg" alt="Image 11" onclick="openModal(this)">
-            <img src="./imagens/img12.jpg" alt="Image 12" onclick="openModal(this)">
-            <img src="./imagens/img13.jpg" alt="Image 13" onclick="openModal(this)">
-            <img src="./imagens/img14.jpg" alt="Image 14" onclick="openModal(this)">
-            <img src="./imagens/img15.jpg" alt="Image 15" onclick="openModal(this)">
-            <img src="./imagens/img16.jpg" alt="Image 16" onclick="openModal(this)">
-        </div>
+        <div id="carousel1" class="carousel-grid"></div>
+        <div id="carousel2" class="carousel-grid" style="display: none;"></div>
 
         <div class="carousel-nav">
             <button onclick="showCarousel(1)">1</button>
             <button onclick="showCarousel(2)">2</button>
         </div>
-
     </div>
-
 
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -612,7 +636,36 @@
 
     <script>
         let currentImgIndex = 0;
-        const images = document.querySelectorAll('.carousel-grid img');
+        const images = [];
+
+        async function fetchImages() {
+            let { data, error } = await _supabase
+            .from('Imagensmural')
+            .select('*');
+
+            if (error) {
+            console.error('Error fetching images:', error);
+            } else {
+            populateCarousels(data);
+            }
+        }
+
+        function populateCarousels(items) {
+            const carousel1 = document.getElementById('carousel1');
+            const carousel2 = document.getElementById('carousel2');
+            items.forEach((item, index) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = item.image;
+            imgElement.alt = item.title;
+            imgElement.onclick = () => openModal(imgElement);
+            images.push(imgElement);
+            if (index < 8) {
+                carousel1.appendChild(imgElement);
+            } else {
+                carousel2.appendChild(imgElement);
+            }
+            });
+        }
 
         function openModal(element) {
             var modal = document.getElementById("myModal");
@@ -621,7 +674,7 @@
             modal.style.display = "block";
             modalImg.src = element.src;
             captionText.innerHTML = element.alt;
-            currentImgIndex = Array.from(images).indexOf(element);
+            currentImgIndex = images.indexOf(element);
         }
 
         function closeModal() {
@@ -632,9 +685,9 @@
         function moveModal(n) {
             currentImgIndex += n;
             if (currentImgIndex >= images.length) {
-                currentImgIndex = 0;
+            currentImgIndex = 0;
             } else if (currentImgIndex < 0) {
-                currentImgIndex = images.length - 1;
+            currentImgIndex = images.length - 1;
             }
             var modalImg = document.getElementById("img01");
             var captionText = document.getElementById("caption");
@@ -646,6 +699,9 @@
             document.getElementById('carousel1').style.display = n === 1 ? 'grid' : 'none';
             document.getElementById('carousel2').style.display = n === 2 ? 'grid' : 'none';
         }
+
+        fetchImages();
+
     </script>
 
 
@@ -749,45 +805,46 @@
             }
 
             .ref {
-            flex: 1 1 0;
-            margin-top: 50px;
-        }
+                flex: 1 1 0;
+                margin-top: 50px;
+            }
 
-        .ref img {
-            height: 70px;
-            width: 90px;
-            border-radius: 5px;
+            .ref img {
+                height: 70px;
+                width: 90px;
+                border-radius: 5px;
 
-        }
+            }
 
-        .infdev {
-            flex: 2 1 0;
-            border-right: #ffffff 4px solid;
-            border-left: #ffffff 4px solid;
-            text-align: center;
-            padding: 10px;
-        }
+            .infdev {
+                flex: 2 1 0;
+                border-right: #ffffff 4px solid;
+                border-left: #ffffff 4px solid;
+                text-align: center;
+                padding: 10px;
+            }
 
-        .infdev p {
+            .infdev p {
 
-            font-size: 10px;
-            text-align: justify;
-            margin-bottom: 20px;
+                font-size: 10px;
+                text-align: justify;
+                margin-bottom: 20px;
 
-        }
+            }
 
-        .infdev img {
-            max-height: 60px;
-            max-width: 100px;
-            border-radius: 6px;
+            .infdev img {
+                max-height: 60px;
+                max-width: 100px;
+                border-radius: 6px;
 
 
 
-        }
-        .mediascot h1 {
-            font-size: 11px;
+            }
 
-        }
+            .mediascot h1 {
+                font-size: 11px;
+
+            }
         }
     </style>
 
@@ -818,35 +875,6 @@
 
         </div>
     </div>
-
-    <!--////////////////////////////////////////script///////////////////////////////////////////-->
-    <script>
-        let slideIndex = 0;
-        showSlides(slideIndex);
-
-        function moveSlide(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("item");
-            if (n >= slides.length) { slideIndex = 0 }
-            if (n < 0) { slideIndex = slides.length - 1 }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slides[slideIndex].style.display = "block";
-        }
-
-        function autoSlide() {
-            moveSlide(1);
-            setTimeout(autoSlide, 5000); // Change slide every 5 seconds
-        }
-
-        autoSlide();
-    </script>
-
 
 </body>
 

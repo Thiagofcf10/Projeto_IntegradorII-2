@@ -1,66 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
+    <title>Adm Pagina</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
         }
 
         header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            height: 10%;
-            background-color: #007bff;
-            color: #fff;
-            padding: 0 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #30df96;
+            color: #333;
+            padding: 10px 0;
+            text-align: center;
         }
 
         header img {
-            height: 80%;
+            max-width: 50px;
+            vertical-align: middle;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 1.5em;
-        }
-
-        main {
-            display: flex;
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
+            display: inline;
+            margin-left: 10px;
+            vertical-align: middle;
         }
 
         .form-container {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            margin-top: 0;
+        }
+
+        .form-container form {
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            padding: 25px;
+            border-radius: 8px;
+            width: 50%;
+
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container input[type="file"],
+        .form-container input[type="number"],
+        .form-container textarea,
+        .form-container select {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
         }
 
         .history-container {
-            flex: 1;
-            background-color: #fff;
             padding: 20px;
+            background-color: #f8f9fa;
+            margin: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-left: 20px;
-            max-height: 80vh;
-            overflow-y: auto;
+            position: absolute;
+            right: 20px;
+            top: 100px;
+            width: 300px;
+        }
+
+        .history-container h2 {
+            margin-top: 0;
         }
 
         .history-item {
@@ -72,121 +110,123 @@
         }
 
         .history-item button {
-            background-color: #ff4d4d;
+            background-color: #dc3545;
             color: #fff;
+            padding: 5px 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            padding: 5px 10px;
         }
 
         .history-item button:hover {
-            background-color: #cc0000;
+            background-color: #c82333;
         }
 
-        form {
-            background-color: #fff;
-            padding: 40px;
+        .login-container {
+            padding: 20px;
+            background-color: #f8f9fa;
+            margin: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
-            margin-bottom: 20px;
-            margin-top: 10px;
+            max-width: 400px;
+            margin: 100px auto;
         }
 
-        label {
+        .login-container h2 {
+            margin-top: 0;
+        }
+
+        .login-container label {
             display: block;
             margin-bottom: 5px;
         }
 
-        input, textarea, select {
+        .login-container input[type="email"],
+        .login-container input[type="password"] {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 8px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
 
-        button {
-            width: 100%;
-            padding: 10px;
+        .login-container button {
             background-color: #007bff;
             color: #fff;
+            padding: 10px 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
 
-        button:hover {
+        .login-container button:hover {
             background-color: #0056b3;
         }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-
-            main {
-                flex-direction: column;
-            }
-
-            .history-container {
-                margin-left: 0;
-                margin-top: 20px;
-            }
-
-            form {
-                padding: 15px;
-            }
-        }
     </style>
+
+
 </head>
+
 <body>
     <header>
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAADQCAMAAAAK0syrAAAA0lBMVEX///8vnkEAAADNGR4bmTIqnD242r3Nzc38/PwimjcVmC7U6ddXrWSTyJvy8vIxMTF8vYW/3sNLqFmr1LH4+Pjj4+Pc3NyOjo5mZmZKSkpUVFSwsLBhYWGUlJRwcHDp6enKAACcnJw4ODgqKip8fHyoqKiGhoYeHh6/v7/GxsYAlSTQ0NC1tbXg7+JPT08/Pz8YGBhotHPQLTH77+/bbnDMBxA7o0zx+PLwycrstrfmnp/55+jqrK3USkzr9ezhhojSPUHhiIrOIifaam2bzKJksW4dz+ByAAAKQElEQVR4nO2dCVfbOBDHvS6HCZBA8ZHbcRLnIpDQLtuWZVt2l/3+X2mtkazDlkNDHRyb+b/XR6KRbf1sHaORlRoGCoXaRp+/fnt4/Ppn0cV4Oz3+NaB6erCl5EuNmOlGY/peRNFfp6+fBvcfmAb3jzz9rHaQUu0MTFeLtOmgdloUwbZ6GHyQNfidpV/WftOoBs/5QGc6uSuQYhv9UIkj5r+o4UjLdXBEbFrT4VmRHD+vb0niiPkHWKqK/DlNHDF/JaaqIv+41yDfPxFTRZFt3UNmj7miyJqWDI/5b6OyyL/r6nWkT0ZlkZ/0xB/u7coi/5OBPPiMyNVBfspoyxWu2O+w+8oapIjLWVHkd+iKvEOH8z1OK4zHdzd5fI8hgnQg6F+WXt1AUHa47w9duO8PMD3rwn2Ly6wr7KEenwaDwX3079Pflki1jq5SOmL207Tp6qaYwr9Wf357+PHw+I5C9yhUxWTdaUabj3R16Uo3El0VXOBf17luhD0Bn+JmcahxNxYl65fTOtNgRS4WMW3yvsosREZkREbkkgqRERmREbmkQmRERmRELqkQ+f0i14ipqsjntcO0Tj4S081CY6pA7Ms4/5jW3RcwXZ6lTWdlWndCoVCV1ul5Wmwc+vKcNj3Tns040hxWkg00R4uTtBYXxPTl5CBtOjgB5gvtYeUYsv/L9r62flfk8L9iWX5Sr3Q4y/xGECIjMiIjMiIj8t4KkREZkREZkRF5b4XIiFxJ5LsTXdkPielUGwhaQFDvUHenSrJp6Oaglhbb/XO30Jgo1qXGVDsoyXKVdZoWC9waN2lTTPVFc5iVdQ0UCvUGstLaYKpAe/3+cZHsfBeL3+jq0nkt1S8vaucFF/jXdaFzKg5h++rpIntcLrPwjSBERmRELqkQGZERGZFLKkRGZERG5JIKkRG5ksj6N3Vh09ClHrn0+0medS9W12AV5rvOdFIr0f9OkaGri7Seaej2VGO6KH20D4VCoVAoFAqFQqFQ71X2cSQXPjrk47HDTS63kHzzwPN6M58foyhK9MnfyGyljLYwGuJCdcOoJ3Ne82v7HW8y9kKRkKMcM1IXPk5MEH9bqx99adOPFrOZZiPwDddMKsrSIX87EUfKGN22kBmpPPJtbhgz3XmI5iueMuY3Kl/kpiiJaU5i05jfjPpUKtb4FchgXMYn7r2AfKukLY2clUY246otkFdyEV7zlLdCXiUSO0a+0iC3k8jHkNwPg0lUmtvomFabiGYmWknI9i0krbmx5WchH8N54JlOIWs7vmykcbgMuuoz2B0yKY2C7Il77ffm/FCS2uDfOiIT0Yo/NG5MIVNBtejzrLQKdS3pyyoPUKEEMtzXNTVx5CZJtJNH2iR1pFIJ5OFPI/uiBER95U5ex00jRyWQQ6hWAXznyGNt7doRMjAe86/wDHq/hJhUAnkMIGadfOfIMMQMk6PFbpChKk/FVaCLu/1FSFUJ5CYtz5h858g+beITtW7vBhlydsVVfKml5aQEcpvVLNJ6xCAVOyKBfORukINERbZErctLCeRbVpVIJymQDTZaKH7BbpB7yVsLl83VBUsgt6K/LZI0U5BpcyYSo8lukL1CkOlgqCIbdjxqi5TdVewU8i4rNkGmQ6MHLVjqSGLouKy7QQ7VqsS6zlw3puiQqZtc76nIUd6RXLqtkblxsgEZfA/h0xlz8j1f90uHTGtXP0wi09LFlNsgQ8F5PwzeHJ8K61wR4W6xGpentMgGTBabKWSDPObYT9gGGbqHYfwNqPggn0DuKh2Gm7gDeUiPzKd15Nr2amlJpWNZtkKmlCH9PJHPkkKmXjXrwPypcq/ykR6ZDlQMmXgDzfDacZYjqTTbIUNTMfsz153RSeeMmxLIBrW3llFWNo/MORyUgRxHAWJkSXGN3ArZmKonkbzmJHIqxjAx8lUGMu02dMh8krMdsq+cZGUlLE05q3p78u27DCXcR5D5cMDuNcQpmuL6LTGHBGQx50kgNxLIhiWdRZkMppANyxNZh8dG3qqPJ5MJ7Vdm0Sfh9ywnE26pz8ar6XrY7Mldp0Xs4hFcRycai1bXi4xj9VJ+2F+tG93JXE2WSsBlz/qr0XrYDvLtq1EoVP7an23s7rrBNaJx5ZFImUKX3GUpq/Z4KU3r/KnI2IDYjbOOM/ZDNVzIBgQxD65HB48S7u0bSVmJAE+vL6dAz9qSU8SikTr0pk7Wl0NnHZomBgi4By2jCG2NLObBLyCbU6lGsEUYMUvcF2RwNBRkeCwJ5NgBeQmZr/xITqWrpBSI7Nl1KpICyA5LgMoJyH69nvD7AbltSYfCyfqW7y7pU+XtmcwyWuTE3JUpGllxCAFZCT4BMm2ZzlrUT199kvHJqA/WlqoDdUeDpSlFqMuDzGrznH9MI9NA1lI+Lzj2bl1UkFIh0wUrmN9tRJ7J5+3Rxr7idWAfkZW1GQUZDoA5JCArQ6uEDHcm7ttHlDWIuzljH5BtEKQA8hS0ptNjBZnOpokfRes4zUnpeFu2aFTElq4xZ/WbzauKRo4Fc1VlkII8CrKIrSuDVIefbNRts1Etdjwm8fFTXgn2Bhn6FhmZdrAqMvTZxAXLQObi02feADxxor1Ffs1TZhrxAB+8ejLjdtrA9w/ZkRwMFZmuwfO23LYln0U+mQiRwAknXqQef96FI/cM6SfKXhik4ADwRTIGqabjQHcdx38SAVN27uKRJf3MuAx+Y7b3JXp1Q/O2F0xVSoQsraBscEVm8QdDiZdSQVS1PMgOxJxpIH6T99XmVRva/jrogQKI/ZLufv+Q096XRd60ZTMpOkPa5H2JZWJwtvkCBF9Br4tb99bKQI6lnS+z4SdjvkzrM7CRAD08bx6PBweMdH6JZZk3YWV6AVkXFYnLvxEZ/Oro5tQTRNAw3HIhT9SF4kxkuohqhfHTZgLn0ysL8np0682kjBnIsQ8C7b4fv24UC+7EtFBkIxVeTv9+atZvqWbklM126sg4oWq/04pCoVAoFAqVt5btLqjpzV/I6a6GsxeylEOBcIkbm98Rb8pvWJdZgbm6Jltw557yBnVa7mZziRTwwM2x9Ea5RsdBrhsFCpRANhpsbdx2XVfgOewdAcdx89+FXIgk5C7Mih222ZVAh2ZIAvOOYdP4WGMnG87fWhIyBMVc07wNgjFt2KEJ/IY1NUe9wFvnvAumIAU8IulBkLNFA5dOvBV/bFlOlIm+Mz9St9KVVEH0/MjK0ngKUVprPKQPckgCPSELBPdatGPr5f9edQGSxmV5k6LboMhyHN7y+xVBbnTCSJ3rOMg587pDFs4LeRjzutdssTBm6RUkFlTo8lSzs6LI1OGyAbcd9WoVRLZNs3tNQpMK8q05mpMmXpW2rCAv4+izKSHX4wWrZhWRO2xvyVJGdth47Oe/96cIJZAd8EfgdaelqNhR47bo+nIVJlNBYsdpjy1S9QhdyJZd6c+wmO1Zzj8oUIzcMDHvvx53uz3H8MMOMbK5le91u5PIwe6EVfA4USjUG+h/DuwgntCBkCIAAAAASUVORK5CYII=" alt="Logo">
+        <img src="data:image/png;base64,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"
+            alt="Logo">
         <h1>Pagina do ADM</h1>
     </header>
-    <main>
+    <main id="mainContent" style="display: none;">
         <div class="form-container">
+
+            <h2>Sair</h2>
+            
+             
+                <button type="button" onclick="logout()">Retira o login</button>
+            
+
             <h1>conteudo do carrocel do inicio do site </h1>
             <!-- First Form -->
+
             <form id="infoForm">
-                <label for="infoTitle">Title:</label>
+                <h2>Visualizar Imagem</h2>
+                <img id="imagemPreview" src="" alt="Imagem Preview" style="max-width: 300px; display: none;">
+                <label for="infoTitle">Titulo:</label>
                 <input type="text" id="infoTitle" name="infoTitle" required><br><br>
 
-                <label for="infoImage">Image:</label>
-                <input type="file" id="infoImage" name="infoImage" required><br><br>
+                <label for="fileimage">Imagem:</label>
+                <input type="file" id="fileimage" name="fileimage" required><br><br>
 
-                <label for="infoText">Information Text:</label>
+                <label for="infoText">Informação:</label>
                 <textarea id="infoText" name="infoText" required></textarea><br><br>
 
-                <label for="infoUrl">URL:</label>
+                <label for="infoUrl">URL do botão:</label>
                 <input type="text" id="infoUrl" name="infoUrl" required><br><br>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Enviar</button>
             </form>
             <h1>conteudo da pagina de eventos </h1>
             <!-- Second Form -->
             <form id="articleForm">
-                <label for="title">Title:</label>
+                <h2>Visualizar Imagem</h2>
+                <img id="imagemPreview2" src="" alt="Imagem Preview" style="max-width: 300px; display: none;">
+                <label for="title">Titulo:</label>
                 <input type="text" id="title" name="title" required><br><br>
 
-                <label for="image">Image:</label>
-                <input type="file" id="image" name="image" required><br><br>
+                <label for="imagefile">Imagem:</label>
+                <input type="file" id="imagefile" name="imagefile" accept="image/*" required><br><br>
 
                 <label for="content">imformação do evento:</label>
                 <textarea id="content" name="content" required></textarea><br><br>
 
-                <label for="buttonUrl">Button URL:</label>
+                <label for="buttonUrl">URL do botão:</label>
                 <input type="text" id="buttonUrl" name="buttonUrl" required><br><br>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Enviar</button>
             </form>
             <h1>conteudos das paginas de artigos do estados </h1>
             <!-- Third Form -->
             <form id="stateArticleForm">
-                <label for="state">State:</label>
+                <h2>Visualizar Imagem</h2>
+                <img id="imagemPreview3" src="" alt="Imagem Preview" style="max-width: 300px; display: none;">
+                <label for="state">Estado:</label>
                 <select id="state" name="state" required>
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
@@ -217,25 +257,41 @@
                     <option value="TO">Tocantins</option>
                 </select><br><br>
 
-                <label for="stateTitle">Title:</label>
+                <label for="stateTitle">Titulo:</label>
                 <input type="text" id="stateTitle" name="stateTitle" required><br><br>
 
-                <label for="stateImage">Image:</label>
+                <label for="stateImage">Imagem:</label>
                 <input type="file" id="stateImage" name="stateImage" required><br><br>
 
-                <label for="stateContent">Content:</label>
+                <label for="stateContent">Contexto:</label>
                 <textarea id="stateContent" name="stateContent" required></textarea><br><br>
 
-                <label for="stateAuthors">Authors:</label>
+                <label for="stateAuthors">Autores:</label>
                 <input type="text" id="stateAuthors" name="stateAuthors" required><br><br>
 
-                <label for="stateInstitution">Institution:</label>
+                <label for="stateInstitution">Instituto:</label>
                 <input type="text" id="stateInstitution" name="stateInstitution" required><br><br>
 
-                <label for="stateButtonUrl">Button URL:</label>
+                <label for="stateButtonUrl"> URL do botão:</label>
                 <input type="text" id="stateButtonUrl" name="stateButtonUrl" required><br><br>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Enviar</button>
+            </form>
+
+            <h1>conteudo do quarto formulario</h1>
+            <!-- Fourth Form -->
+            <form id="numericImageForm">
+
+                <h2>Visualizar Imagem</h2>
+                <img id="imagemPreview4" src="" alt="Imagem Preview" style="max-width: 300px; display: none;">
+
+                <label for="ndomural">número do mural:</label>
+                <input type="number" id="ndomural" name="ndomural" required><br><br>
+
+                <label for="nImage">Imagem:</label>
+                <input type="file" id="nImage" name="nImage" required><br><br>
+
+                <button type="submit">Enviar</button>
             </form>
         </div>
         <div class="history-container" id="historyContainer">
@@ -243,187 +299,335 @@
         </div>
     </main>
 
+    <div id="loginContainer" class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">senha:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <button type="button" onclick="login()">Logan</button>
+            
+        </form>
+    </div>
+
     <script>
         const supabaseUrl = 'https://ribvjcjogwukedhhkgbx.supabase.co';
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpYnZqY2pvZ3d1a2VkaGhrZ2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5Njk4MDMsImV4cCI6MjA1NjU0NTgwM30.152UN5yiJrWyHIeBnZjSmIhGargSRDTqs1BYF0qohwQ';
         const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-        async function uploadImage(file) {
-            const fileName = `${Date.now()}_${file.name}`;
-            const { data, error } = await _supabase.storage
-                .from('images')
-                .upload(fileName, file);
+        function setupImagePreview(formId, inputId, previewId) {
+            const form = document.getElementById(formId);
+            const imagemInput = document.getElementById(inputId);
+            const imagemPreview = document.getElementById(previewId);
 
-            if (error) {
-                console.error('Error uploading image:', error);
-                return null;
+            imagemInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+            imagemPreview.src = e.target.result;
+            imagemPreview.style.display = 'block';
             }
-
-            const { publicURL } = _supabase.storage
-                .from('images')
-                .getPublicUrl(fileName);
-
-            return publicURL;
+            reader.readAsDataURL(file);
+            }
+            });
         }
 
-        async function fetchHistory() {
-            const { data, error } = await _supabase
-                .from('form_submissions')
-                .select('*');
+        setupImagePreview('infoForm', 'fileimage', 'imagemPreview');
+        setupImagePreview('articleForm', 'imagefile', 'imagemPreview2');
+        setupImagePreview('stateArticleForm', 'stateImage', 'imagemPreview3');
+        setupImagePreview('numericImageForm', 'nImage', 'imagemPreview4');
 
-            if (error) {
-                console.error('Error fetching history:', error);
-            } else {
-                const historyContainer = document.getElementById('historyContainer');
-                historyContainer.innerHTML = '<h2>Form Submission History</h2>';
-                data.forEach(item => {
-                    const historyItem = document.createElement('div');
-                    historyItem.className = 'history-item';
-                    historyItem.innerHTML = `
-                        <span>${item.title}</span>
-                        <button onclick="deleteSubmission(${item.id}, '${item.type}', '${item.title}')">Delete</button>
-                    `;
-                    historyContainer.appendChild(historyItem);
-                });
-            }
-        }
-
-        async function deleteSubmission(id, type, title) {
-            const { error: deleteError } = await _supabase
-                .from('form_submissions')
-                .delete()
-                .eq('id', id);
-
-            if (deleteError) {
-                console.error('Error deleting submission:', deleteError);
-                return;
-            }
-
-            let tableName;
-            switch (type) {
-                case 'information':
-                    tableName = 'information';
-                    break;
-                case 'article':
-                    tableName = 'articles';
-                    break;
-                case 'state_article':
-                    tableName = 'state_articles';
-                    break;
-                default:
-                    console.error('Unknown type:', type);
-                    return;
-            }
-
-            const { error: deleteFormError } = await _supabase
-                .from(tableName)
-                .delete()
-                .eq('title', title);
-
-            if (deleteFormError) {
-                console.error('Error deleting form data:', deleteFormError);
-            } else {
-                fetchHistory();
-            }
-        }
-
-        document.getElementById('infoForm').addEventListener('submit', async (event) => {
+        async function submitInfoForm(event) {
             event.preventDefault();
 
+            const form = document.getElementById('infoForm');
+            const formData = new FormData(form);
+            const file = formData.get('fileimage');
+
             const infoTitle = document.getElementById('infoTitle').value;
-            const infoImageFile = document.getElementById('infoImage').files[0];
             const infoText = document.getElementById('infoText').value;
             const infoUrl = document.getElementById('infoUrl').value;
 
-            const infoImage = await uploadImage(infoImageFile);
+            const uniqueFileName = `${Date.now()}_${file.name}`;
+            const { data: storageData, error: storageError } = await _supabase
+            .storage
+            .from('fotos')
+            .upload(`fotos_carrocel/${uniqueFileName}`, file);
 
-            if (!infoImage) return;
+            if (storageError) {
+            console.error('Erro ao enviar imagem:', storageError);
+            return;
+            }
 
-            const { data, error } = await _supabase
-                .from('information')
-                .insert([
-                    { title: infoTitle, image: infoImage, text: infoText, url: infoUrl }
-                ]);
+            const imageUrl = `${supabaseUrl}/storage/v1/object/public/fotos/${storageData.path}`;
+
+            const data = { title: infoTitle, image: imageUrl, text: infoText, url: infoUrl };
+            const { error } = await _supabase.from('information').insert([data]);
 
             if (error) {
-                console.error('Error inserting data:', error);
+            console.error('Error submitting info form:', error);
             } else {
-                console.log('Data inserted successfully:', data);
-                await _supabase
-                    .from('form_submissions')
-                    .insert([
-                        { title: infoTitle, type: 'information' }
-                    ]);
-                fetchHistory();
+            await _supabase.from('form_submissions').insert([{ title: infoTitle, type: 'topicos', imagePath: storageData.path }]);
+            fetchHistory();
             }
-        });
+        }
 
-        document.getElementById('articleForm').addEventListener('submit', async (event) => {
+        async function submitArticleForm(event) {
             event.preventDefault();
 
+            const form = document.getElementById('articleForm');
+            const formData = new FormData(form);
+            const file = formData.get('imagefile');
+
             const title = document.getElementById('title').value;
-            const imageFile = document.getElementById('image').files[0];
             const content = document.getElementById('content').value;
             const buttonUrl = document.getElementById('buttonUrl').value;
 
-            const image = await uploadImage(imageFile);
 
-            if (!image) return;
+            const uniqueFileName = `${Date.now()}_${file.name}`;
+            const { data: storageData, error: storageError } = await _supabase
+            .storage
+            .from('fotos')
+            .upload(`fotos_artigos/${uniqueFileName}`, file);
+            
 
-            const { data, error } = await _supabase
-                .from('articles')
-                .insert([
-                    { title, image, content, buttonUrl }
-                ]);
+            if (storageError) {
+            console.error('Erro ao enviar imagem:', storageError);
+            return;
+            }
+
+            const imageUrl = `${supabaseUrl}/storage/v1/object/public/fotos/${storageData.path}`;
+
+            const data = { title: title, image: imageUrl, content: content, buttonUrl: buttonUrl };
+            const { error } = await _supabase.from('articles').insert([data]);
 
             if (error) {
-                console.error('Error inserting data:', error);
+            console.error('Error submitting article form:', error);
             } else {
-                console.log('Data inserted successfully:', data);
-                await _supabase
-                    .from('form_submissions')
-                    .insert([
-                        { title, type: 'article' }
-                    ]);
-                fetchHistory();
+            await _supabase.from('form_submissions').insert([{ title: title, type: 'artigos', imagePath: storageData.path }]);
+            fetchHistory();
             }
-        });
+        }
 
-        document.getElementById('stateArticleForm').addEventListener('submit', async (event) => {
+        async function submitStateArticleForm(event) {
             event.preventDefault();
+
+            const form = document.getElementById('stateArticleForm');
+            const formData = new FormData(form);
+            const file = formData.get('stateImage');
 
             const state = document.getElementById('state').value;
             const stateTitle = document.getElementById('stateTitle').value;
-            const stateImageFile = document.getElementById('stateImage').files[0];
             const stateContent = document.getElementById('stateContent').value;
             const stateAuthors = document.getElementById('stateAuthors').value;
             const stateInstitution = document.getElementById('stateInstitution').value;
             const stateButtonUrl = document.getElementById('stateButtonUrl').value;
 
-            const stateImage = await uploadImage(stateImageFile);
+            const uniqueFileName = `${Date.now()}_${file.name}`;
+            const { data: storageData, error: storageError } = await _supabase
+            .storage
+            .from('fotos')
+            .upload(`fotos_stateArtigos/${uniqueFileName}`, file);
+            
 
-            if (!stateImage) return;
+            if (storageError) {
+            console.error('Erro ao enviar imagem:', storageError);
+            return;
+            }
 
-            const { data, error } = await _supabase
-                .from('state_articles')
-                .insert([
-                    { state, title: stateTitle, image: stateImage, content: stateContent, authors: stateAuthors, institution: stateInstitution, buttonUrl: stateButtonUrl }
-                ]);
+            const imageUrl = `${supabaseUrl}/storage/v1/object/public/fotos/${storageData.path}`;
+
+            const data = { state: state, title: stateTitle, stateImage: imageUrl, stateContent: stateContent, stateAuthors: stateAuthors, stateInstitution: stateInstitution, stateButtonUrl: stateButtonUrl };
+            const { error } = await _supabase.from('state_articles').insert([data]);
+
 
             if (error) {
-                console.error('Error inserting data:', error);
+            console.error('Error submitting state article form:', error);
             } else {
-                console.log('Data inserted successfully:', data);
-                await _supabase
-                    .from('form_submissions')
-                    .insert([
-                        { title: stateTitle, type: 'state_article' }
-                    ]);
-                fetchHistory();
+            await _supabase.from('form_submissions').insert([{ title: stateTitle, type: 'estado', imagePath: storageData.path }]);
+            fetchHistory();
+            }
+        }
+
+        async function submitNumericImageForm(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('numericImageForm');
+            const formData = new FormData(form);
+            const file = formData.get('nImage');
+
+            const ndomural = document.getElementById('ndomural').value;
+
+            const uniqueFileName = `${Date.now()}_${file.name}`;
+            const { data: storageData, error: storageError } = await _supabase
+            .storage
+            .from('fotos')
+            .upload(`fotos_mural/${uniqueFileName}`, file);
+
+            if (storageError) {
+            console.error('Erro ao enviar imagem:', storageError);
+            return;
+            }
+
+            const imageUrl = `${supabaseUrl}/storage/v1/object/public/fotos/${storageData.path}`;
+
+            const data = { title: ndomural, image: imageUrl };
+            const { error } = await _supabase.from('Imagensmural').insert([data]);
+
+            if (error) {
+            console.error('Error submitting numeric image form:', error);
+            } else {
+            await _supabase.from('form_submissions').insert([{ title: ndomural, type: 'mural', imagePath: storageData.path }]);
+            fetchHistory();
+            }
+        }
+
+        document.getElementById('infoForm').addEventListener('submit', submitInfoForm);
+        document.getElementById('articleForm').addEventListener('submit', submitArticleForm);
+        document.getElementById('stateArticleForm').addEventListener('submit', submitStateArticleForm);
+        document.getElementById('numericImageForm').addEventListener('submit', submitNumericImageForm);
+
+
+
+
+        async function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const { data, error } = await _supabase.auth.signInWithPassword({
+            email: email,
+            password: password
+            });
+
+            if (error) {
+            console.error('Error logging in:', error);
+            alert('Login failed: ' + error.message);
+            } else {
+            console.log('Logged in successfully:', data);
+            alert('Login successful!');
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('loginContainer').style.display = 'none';
+            }
+        }
+
+        async function logout() {
+            const { error } = await _supabase.auth.signOut();
+
+            if (error) {
+            console.error('Error logging out:', error);
+            alert('Logout failed: ' + error.message);
+            } else {
+            console.log('Logged out successfully');
+            alert('Logout successful!');
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const { data, error } = await _supabase.auth.getSession();
+            if (data.session) {
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('loginContainer').style.display = 'none';
+            } else {
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'block';
             }
         });
+
+
+        async function fetchHistory(searchQuery = '') {
+            let query = _supabase
+            .from('form_submissions')
+            .select('*');
+
+            if (searchQuery) {
+            query = query.ilike('title', `%${searchQuery}%`);
+            }
+
+            const { data, error } = await query;
+
+            if (error) {
+            console.error('Error fetching history:', error);
+            } else {
+            const historyContainer = document.getElementById('historyContainer');
+            historyContainer.innerHTML = `
+            <h2>Historico de envios</h2>
+            <div style="display: flex; align-items: center;">
+            <input type="text" id="searchInput" placeholder="buscar dados">
+            <button onclick="fetchHistory(document.getElementById('searchInput').value)">pesquisar</button>
+            </div>
+            `;
+            data.forEach(item => {
+            const historyItem = document.createElement('div');
+            historyItem.className = 'history-item';
+            historyItem.innerHTML = `
+            <span>${item.type}_${item.title}</span>
+            <button onclick="deleteSubmission(${item.id}, '${item.type}', '${item.title}', '${item.imagePath}')">Delete</button>
+            `;
+            historyContainer.appendChild(historyItem);
+            });
+            }
+        }
+
+        async function deleteSubmission(id, type, title, imagePath) {
+            const { error: deleteError } = await _supabase
+            .from('form_submissions')
+            .delete()
+            .eq('id', id);
+
+            if (deleteError) {
+            console.error('Error deleting submission:', deleteError);
+            return;
+            }
+
+            let tableName;
+            switch (type) {
+            case 'topicos':
+            tableName = 'information';
+            break;
+            case 'artigos':
+            tableName = 'articles';
+            break;
+            case 'estado':
+            tableName = 'state_articles';
+            break;
+            case 'mural':
+            tableName = 'Imagensmural';
+            break;
+            default:
+            console.error('Unknown type:', type);
+            return;
+            }
+
+            const { error: deleteFormError } = await _supabase
+            .from(tableName)
+            .delete()
+            .eq('title', title,);
+
+            if (deleteFormError) {
+            console.error('Error deleting form data:', deleteFormError);
+            } else {
+            if (imagePath) {
+            const { error: deleteImageError } = await _supabase
+            .storage
+            .from('fotos')
+            .remove([imagePath]);
+
+            if (deleteImageError) {
+            console.error('Error deleting image from storage:', deleteImageError);
+            }
+            }
+            fetchHistory();
+            }
+        }
 
         fetchHistory();
     </script>
 </body>
+
 </html>

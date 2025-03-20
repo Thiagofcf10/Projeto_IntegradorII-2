@@ -154,7 +154,7 @@
             overflow: hidden;
             margin: 0 auto;
             width: 100%;
-            max-width: 750px;
+            max-width: 600px;
             text-align: center;
         }
 
@@ -185,6 +185,8 @@
             width: 100%;
             text-align: center;
             margin: 0 auto;
+            position: absolute;
+            bottom: 0;
         }
 
         .carousel-link {
@@ -213,16 +215,17 @@
             transition: 0.9s ease-in-out;
             user-select: none;
             transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
         }
 
         .prev {
-            left: 0;
-            border-radius: 0 3px 3px 0;
+            left: 10px;
         }
 
         .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
+            right: 10px;
         }
 
         .prev:hover,
@@ -319,6 +322,9 @@
             }
 
             autoSlide();
+
+            // Attach moveSlide function to global scope for button onclick
+            window.moveSlide = moveSlide;
         });
     </script>
 
@@ -372,7 +378,7 @@
             margin: 0;
         }
 
-        @media screen and (max-width: 640px) {
+        @media screen and (max-width: 685px) {
             .base {
                 width: 100%;
                 float: none;
@@ -398,7 +404,40 @@
             }
 
             .base p {
-                font-size: 1.1em;
+                font-size: 1.2em;
+                text-align: justify;
+                
+            }
+
+
+        }
+        @media screen and (max-width: 389px) {
+            .base {
+                width: 100%;
+                float: none;
+            }
+
+            .menu-noti {
+                width: 100%;
+                float: none;
+                margin-top: 20px;
+            }
+
+            .menu-noti a {
+
+                font-size: 10px;
+                margin-left: 7vw;
+            }
+
+            .base img {
+                margin-right: 20px;
+                max-width: 100%;
+                width: 100px;
+                height: 90px;
+            }
+
+            .base p {
+                font-size: 1em;
                 text-align: justify;
             }
 
@@ -454,6 +493,7 @@
             border-radius: 5px;
             border: #000044 solid 2px;
             cursor: pointer;
+            box-shadow: #000044 3px 3px 3px;
         }
 
         .modal {
@@ -590,7 +630,7 @@
             }
         }
 
-        @media screen and (max-width: 640px) {
+        @media screen and (max-width: 685px) {
             .carousel-grid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(4, 1fr);
@@ -605,13 +645,36 @@
             }
 
             .container3 {
-                padding: 7vh 0 0 0;
+                padding: 17vh 0 0 0;
             }
 
             .tex2 {
                 font-size: 17px;
             }
         }
+        @media screen and (max-width: 389px) {
+            .carousel-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                gap: 5px;
+                width: 100%;
+                height: auto;
+            }
+
+            .carousel-grid img {
+                max-width: 130px;
+                max-height: 80px;
+            }
+
+            .container3 {
+                padding: 15vh 0 0 0;
+            }
+
+            .tex2 {
+                font-size: 17px;
+            }
+        }
+
     </style>
 
 

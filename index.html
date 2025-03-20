@@ -404,7 +404,7 @@
             }
 
             .base p {
-                font-size: 1.2em;
+                font-size: 1em;
                 text-align: justify;
                 
             }
@@ -775,167 +775,105 @@
     <!--////////////////////////////////////////footer///////////////////////////////////////////-->
     <style>
         .footer {
-            height: 30vh;
-            width: 100vw;
-            background-color: #fdd568;
-            color: rgb(2, 1, 1);
-            text-align: center;
-            display: flex;
-            margin-top: 50px;
-        }
-
-        .ref {
-            flex: 1 1 0;
-            margin-top: 50px;
-        }
-
-        .ref img {
-            height: 80px;
-            width: 100px;
-            border-radius: 5px;
-
-        }
-
-        .infdev {
-            flex: 2 1 0;
-            border-right: #ffffff 4px solid;
-            border-left: #ffffff 4px solid;
-            text-align: center;
-            padding: 30px;
-        }
-
-        .infdev p {
-
-            font-size: 17px;
-            text-align: justify;
-            margin-bottom: 20px;
-
-        }
-
-        .infdev img {
-            max-height: 70px;
-            max-width: 110px;
-            border-radius: 6px;
-
-
-
-        }
-
-        .mediascot {
-            flex: 1 1 0;
-
-        }
-
-        .mediascot h1 {
-            font-size: 15px;
-            font-family: Arial, Helvetica, sans-serif;
-
-        }
-
-        .mediascot a {
-            display: flex;
-            font-size: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            text-decoration: none;
+            background-color:#fdd568;
             color: #000000;
-            justify-content: center;
+            padding: 40px 0;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .footer > div {
+            flex: 1 1 30%;
             margin: 10px;
-
         }
 
-        .mediascot img {
-            height: 45px;
-            width: 45px;
-            border-radius: 7px;
-
+        .footer .logo img {
+            height: 80px;
+            width: auto;
         }
 
-        @media screen and (max-width: 800px) {
+        .footer .about {
+            text-align: center;
+        }
 
+        .footer .about p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .footer .about img {
+            height: 50px;
+            width: auto;
+            margin: 10px;
+        }
+
+        .footer .social-media h1 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer .social-media a img {
+            height: 40px;
+            width: auto;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .footer .social-media a img:hover {
+            transform: scale(1.1);
+        }
+
+        @media screen and (max-width: 740px) {
             .footer {
-                height: 45vh;
-                width: 100vw;
-
-            }
-        }
-
-        @media screen and (max-width: 590px) {
-
-            .footer {
-                height: 35vh;
-                width: 100vw;
-
+                flex-direction: column;
+                padding: 20px 0;
             }
 
-            .ref {
-                flex: 1 1 0;
-                margin-top: 50px;
+            .footer > div {
+                flex: 1 1 100%;
+                margin: 10px 0;
             }
 
-            .ref img {
-                height: 70px;
-                width: 90px;
-                border-radius: 5px;
-
+            .footer .logo img,
+            .footer .about img,
+            .footer .social-media a img {
+                height: 40px;
             }
 
-            .infdev {
-                flex: 2 1 0;
-                border-right: #ffffff 4px solid;
-                border-left: #ffffff 4px solid;
-                text-align: center;
-                padding: 10px;
+            .footer .about p {
+                font-size: 12px;
             }
 
-            .infdev p {
-
-                font-size: 10px;
-                text-align: justify;
-                margin-bottom: 20px;
-
-            }
-
-            .infdev img {
-                max-height: 60px;
-                max-width: 100px;
-                border-radius: 6px;
-
-
-
-            }
-
-            .mediascot h1 {
-                font-size: 11px;
-
+            .footer .social-media h1 {
+                font-size: 16px;
             }
         }
     </style>
-
+   
 
     <div class="footer">
-        <div class="ref">
-            <img src="./imagens/brasil f logo2.png">
-
-
-
+        <div class="logo">
+            <img src="./imagens/brasil f logo2.png" alt="Logo">
         </div>
-        <div class="infdev">
-            <p> Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores,
-                IFPA
+        <div class="about">
+            <p>Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores, IFPA
                 Campus Tucuruí. Turma T325-6NH.</p>
-            <p> Responsaveis pelas atualizações e manutenção : Thiago Felipe, Marley Roberto, Talia Santos, Kaillane.
-                Discentes de Tecnologia em Redes de Computadores, IFPA
-                Campus Tucuruí. Turma T325-8NI. </p>
-            <img src="./imagens/academ2.png">
-            <img src="./imagens/logogov.png">
-            <img src="./imagens/ministr.png">
+            <p>Responsáveis pelas atualizações e manutenção: Thiago Felipe, Marley Roberto, Talia Santos, Kaillane. Discentes
+                de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí. Turma T325-8NI.</p>
+            <img src="./imagens/academ2.png" alt="Academia">
+            <img src="./imagens/logogov.png" alt="Governo">
+            <img src="./imagens/ministr.png" alt="Ministério">
         </div>
-        <div class="mediascot">
-            <h1 id="contat">Contatos de médias sociais</h1>
-            <a href=""><img src="./imagens/facebook_2496095.png" alt="facebook"></a>
-            <a href=""><img src="./imagens/instagram_2111463.png" alt="instagram"></a>
-            <a href=""><img src="./imagens/youtube_2496113.png" alt="youtube"></a>
-
+        <div class="social-media">
+            <h1 id="contat">Contatos de mídias sociais</h1>
+            <a href="#"><img src="./imagens/facebook_2496095.png" alt="Facebook"></a>
+            <a href="#"><img src="./imagens/instagram_2111463.png" alt="Instagram"></a>
+            <a href="#"><img src="./imagens/youtube_2496113.png" alt="YouTube"></a>
         </div>
     </div>
 

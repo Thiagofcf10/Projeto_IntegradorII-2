@@ -11,375 +11,174 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="footers.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.28.5/dist/umd/supabase.min.js"></script>
     <style>
+               body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
         #text {
-            margin: 1% 10% 1% 10%;
-            display: flex;
-            flex-direction: column;
+            width: auto;
+            font-size: 30px;
+            height: auto;
+            margin: auto auto 1% auto;
+            float: auto;
+            background-color: #f0ca24;
+            text-align: center;
+            padding-bottom: 40px;
+            padding-left: auto;
+            color: rgb(0, 0, 0);
         }
 
         .evento {
-            position: relative;
-            padding: 1% 4% 2% 4%;
-            margin: 1% 2% 1% 2%;
-            background-color: rgba(255, 149, 79, 0.842);
-            border-radius: 7px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .evento h1 {
-            margin: 0;
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 30px;
-            background-color: #00972dbe;
-            padding: 2% 8% 2% 8%;
-            color: #ffffff;
-            border-radius: 7px;
-        }
-
-        .evento p {
-            margin: 50px 0 50px 0;
-            font-size: 23px;
-            text-align: justify;
-            text-indent: 5em;
+        .evento .titulo h1 {
+            font-size: 24px;
+            margin: 0 0 10px 0;
         }
 
         .evento img {
-            display: block;
-            margin: 20px auto;
-            max-width: 80%;
+            max-width: 100%;
             height: auto;
-            border-radius: 7px;
+            display: block;
+            margin: 10px 0;
         }
 
-        .evento .logos {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
+        .evento p {
+            font-size: 16px;
+            line-height: 1.5;
         }
 
         .evento .logos img {
-            max-width: 100px;
-            height: auto;
-            border-radius: 7px;
+            max-width: 50px;
+            margin: 5px;
         }
 
-        .evento .btn-evento {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 10px;
-            text-align: center;
-            background-color: #000044;
-            color: #ffffff;
-            border: none;
-            border-radius: 7px;
+        .btn-evento {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #007bff;
+            color: white;
             text-decoration: none;
-            font-size: 18px;
-        }
-
-        .evento .btn-evento:hover {
-            background-color: #00ff00;
-            color: #ffffff;
-        }
-
-        .evento .view-count {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #ffffff;
-            padding: 5px 10px;
             border-radius: 5px;
+        }
+
+        .btn-evento:hover {
+            background-color: #0056b3;
+        }
+
+        .view-count {
             font-size: 14px;
+            color: #555;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="color:rgb(0, 0, 0); background-color:#f0ca24; font-size: 12px;margin: 0 15px 0 0 ; width: 100%;">
-            <div class="container"></div>
-                <div class="navbar-header"></div>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links-menu" style="background-color: rgb(85, 81, 81);">
-                        <i class="material-icons">menu</i>
-                    </button>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin: 0;color:white; background-color:#000044; font-size: 15px;">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links-menu" style="background-color: rgb(85, 81, 81);">
+                            <i class="material-icons">menu</i>
+                        </button>
+                    </div>
+                    <nav id="links-menu" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="../../index.html"><b>Voltar ao Inicio</b></a></li>
+                            <li><a href="../eventos.html"><b>Eventos</b></a></li>
+                            <li><a href="../info.html"><b>Informações Gerais</b></a></li>
+                            <li><a href="../sobre.html"><b>Contato</b></a></li>
+                        </ul>
+                    </nav>
                 </div>
-                <nav id="links-menu" class="collapse navbar-collapse"></nav>
-                    <ul class="nav navbar-nav navbar-left">
-                        <li><img src="../imagens/Instituto_Federal_do_Pará_-_Marca_Vertical_2015.svg" alt="Logo 1" style="height: 50px; margin-right: 10px;"></li>
-                        <li><img src="../imagens/logo.png" alt="Logo 2" style="height: 50px; margin-right: 10px;"></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="../index.html" style="color: rgb(0, 0, 0);"><b>Voltar ao Inicio</b></a></li>
-                        <li><a href="eventos.html" style="color: rgb(0, 0, 0);"><b>Eventos</b></a></li>
-                        <li><a href="info.html" style="color: rgb(0, 0, 0);"><b>Informações Gerais</b></a></li>
-                        <li><a href="sobre.html" style="color: rgb(0, 0, 0);"><b>Contato</b></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
+    
 
     <div id="text" style="width: auto; font-size: 30px; height: auto; margin: auto auto 1% auto; float: auto; background-color: #f0ca24; text-align:center; padding-bottom:40px; padding-left: auto; color: rgb(0, 0, 0);">
         <strong>Eventos e Congressos</strong>
     </div>
 
     <div id="text">
-        <div class="evento">
-            <div class="titulo">
-                <h1>FTBL expo</h1>
-            </div>
-            <img src="../imagens/br.jpg" alt="FTBL expo">
-            <p>O MAIOR EVENTO DIGITAL DE FUTEBOL DO MUNDO Pela primeira vez um evento digital vai reunir todos que amam futebol: fãs, profissionais da indústria e os maiores ídolos do esporte.</p>
-            <div class="logos">
-                <img src="../imagens/logogov.png" alt="Logo 1">
-                <img src="../imagens/ministr.png" alt="Logo 2">
-                <img src="../imagens/brasil f logo2.png" alt="Logo 3">
-            </div>
-            <a href="https://futebolexperience.com/" target="_blank" class="btn-evento" onclick="incrementViewCount(this)">Página do evento</a>
-            <div class="view-count">Visualizações: <span>0</span></div>
-        </div>
-
-        <div class="evento">
-            <h1>CONFUT Nordeste</h1>
-            <img src="path/to/confut-nordeste.jpg" alt="CONFUT Nordeste">
-            <p>Evento Presencial a respeito de futebol. Contará com competições, premiações e desafios sendo realizado no mês de novembro.</p>
-            <div class="logos">
-                <img src="path/to/logo1.jpg" alt="Logo 1">
-                <img src="path/to/logo2.jpg" alt="Logo 2">
-                <img src="path/to/logo3.jpg" alt="Logo 3">
-            </div>
-            <a href="https://confutnordeste.com.br/confut2022" target="_blank" class="btn-evento" onclick="incrementViewCount(this)">Página do evento</a>
-            <div class="view-count">Visualizações: <span>0</span></div>
-        </div>
-
-        <div class="evento">
-            <h1>BFEXPO 2022</h1>
-            <img src="path/to/bfexpo-2022.jpg" alt="BFEXPO 2022">
-            <p>O futebol é o maior esporte do mundo, fazendo vibrar mais de 3 bilhões de torcedores, além de movimentar U$300 bilhões só no último ano. E não para de crescer. Evolui e se transforma a cada temporada, apresentando sempre oportunidades a todos que acompanham a modalidade. A BFExpo, maior e mais relevante feira e congresso de futebol da América Latina, entra em campo para fortalecer e impulsionar esse crescimento. Com foco em educação, negócios, experiência e inovação, a edição 2022 escalará os maiores clubes, marcas e profissionais do mundo para, juntos, traçar o futuro do esporte. Um momento que, como tudo que envolve o futebol pentacampeão, atrairá os holofotes da torcida e do mercado internacional.</p>
-            <div class="logos">
-                <img src="path/to/logo1.jpg" alt="Logo 1">
-                <img src="path/to/logo2.jpg" alt="Logo 2">
-                <img src="path/to/logo3.jpg" alt="Logo 3">
-            </div>
-            <a href="https://brasilfutebolexpo.eventslab.com.br/" target="_blank" class="btn-evento" onclick="incrementViewCount(this)">Página do evento</a>
-            <div class="view-count">Visualizações: <span>0</span></div>
-        </div>
-
-        <div class="evento">
-            <h1>CONGRESSO BRASILEIRO DE CLUBES</h1>
-            <img src="path/to/congresso-brasileiro-de-clubes.jpg" alt="CONGRESSO BRASILEIRO DE CLUBES">
-            <p>O Congresso Brasileiro de Clubes é o maior e mais importante evento de valorização dos Clubes e de seus gestores estatutários, focado na excelência da gestão e no estímulo à integração e a troca de conhecimentos em um ambiente único.</p>
-            <div class="logos">
-                <img src="path/to/logo1.jpg" alt="Logo 1">
-                <img src="path/to/logo2.jpg" alt="Logo 2">
-                <img src="path/to/logo3.jpg" alt="Logo 3">
-            </div>
-            <a href="https://www.fenaclubes.com.br/congresso-brasileiro-de-clubes/" target="_blank" class="btn-evento" onclick="incrementViewCount(this)">Página do evento</a>
-            <div class="view-count">Visualizações: <span>0</span></div>
-        </div>
-
-        <div class="evento">
-            <h1>III Encontro Nacional de Historiadores do Esporte</h1>
-            <img src="path/to/encontro-nacional-de-historiadores-do-esporte.jpg" alt="III Encontro Nacional de Historiadores do Esporte">
-            <p>O Encontro Nacional de Historiadores do Esporte foi criado com o objetivo de reunir, em anos pares, os pesquisadores que frequentam bienalmente, nos anos ímpares, o Simpósio Temático História do Esporte e das Práticas Corporais, no âmbito do Simpósio Nacional de História. A iniciativa tem duas motivações.</p>
-            <div class="logos">
-                <img src="path/to/logo1.jpg" alt="Logo 1">
-                <img src="path/to/logo2.jpg" alt="Logo 2">
-                <img src="path/to/logo3.jpg" alt="Logo 3">
-            </div>
-            <a href="https://encontrohistoriaesporte2022.wordpress.com/blog/" target="_blank" class="btn-evento" onclick="incrementViewCount(this)">Página do evento</a>
-            <div class="view-count">Visualizações: <span>0</span></div>
-        </div>
-
-        <div class="evento">
-            <h1>II CONGRESSO OLÍMPICO BRASILEIRO</h1>
-            <img src="path/to/congresso-olimpico-brasileiro.jpg" alt="II CONGRESSO OLÍMPICO BRASILEIRO">
-            <p>O II Congresso Olímpico Brasileiro apresenta o tema Planejamento, um referencial de futuro para o Esporte Olímpico e marca o início de um novo ciclo, no qual o planejamento nos possibilitará perceber a realidade, avaliar os caminhos e construir um referencial futuro. Palestrantes nacionais e internacionais trarão a perspectiva do atual cenário mundial, que apresenta mudanças rápidas e grandes incertezas.</p>
-            <div class="logos">
-                <img src="path/to/logo1.jpg" alt="Logo 1">
-                <img src="path/to/logo2.jpg" alt="Logo 2">
-                <img src="path/to/logo3.jpg" alt="Logo 3">
-            </div>
-            <a href="https://congresso.cob.org.br/" target="_blank" class="btn-evento" onclick="incrementViewCount(this)">Página do evento</a>
-            <div class="view-count">Visualizações: <span>0</span></div>
-        </div>
+        <!-- Eventos will be dynamically inserted here -->
     </div>
 
     <script>
-        function incrementViewCount(element) {
+        const supabaseUrl = 'https://ribvjcjogwukedhhkgbx.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpYnZqY2pvZ3d1a2VkaGhrZ2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5Njk4MDMsImV4cCI6MjA1NjU0NTgwM30.152UN5yiJrWyHIeBnZjSmIhGargSRDTqs1BYF0qohwQ';
+        const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        async function fetchEventos() {
+            let { data: eventos, error } = await _supabase
+            .from('articles')
+            .select('*');
+
+            if (error) {
+            console.error(error);
+            return;
+            }
+
+            const eventosContainer = document.getElementById('text');
+            eventosContainer.innerHTML = '';
+
+            eventos.forEach(evento => {
+            const eventoDiv = document.createElement('div');
+            eventoDiv.className = 'evento';
+            eventoDiv.innerHTML = `
+                <div class="titulo">
+                <h1>${evento.title}</h1>
+                </div>
+                <img src="${evento.image}" alt="${evento.title}">
+                <p>${evento.content}</p>
+                <div class="logos">
+        <img src="../imagens/logogov.png" alt="Logo 1">
+        <img src="../imagens/ministr.png" alt="Logo 2">
+        <img src="../imagens/academ2.png" alt="Logo 3">
+                </div>
+                <a href="${evento.buttonUrl}" target="_blank" class="btn-evento" onclick="incrementViewCount(this, ${evento.id})">Página do evento</a>
+                <div class="view-count">Visualizações: <span>${evento.acessos}</span></div>
+            `;
+            eventosContainer.appendChild(eventoDiv);
+            });
+        }
+
+        async function incrementViewCount(element, eventoId) {
             var viewCountElement = element.nextElementSibling.querySelector('span');
             var currentCount = parseInt(viewCountElement.textContent);
             viewCountElement.textContent = currentCount + 1;
+
+            let { data, error } = await _supabase
+                .from('articles')
+                .update({ acessos: currentCount + 1 })
+                .eq('id', eventoId);
+
+            if (error) {
+                console.error(error);
+            }
         }
+
+        document.addEventListener('DOMContentLoaded', fetchEventos);
     </script>
 
-    <style>
-        .footer {
-            height: 30vh;
-            width: 100vw;
-            background-color: #fdd568;
-            color: rgb(2, 1, 1);
-            text-align: center;
-            display: flex;
-            margin-top: 50px;
-        }
-
-        .ref {
-            flex: 1 1 0;
-            margin-top: 50px;
-        }
-
-        .ref img {
-            height: 80px;
-            width: 100px;
-            border-radius: 5px;
-
-        }
-
-        .infdev {
-            flex: 2 1 0;
-            border-right: #ffffff 4px solid;
-            border-left: #ffffff 4px solid;
-            text-align: center;
-            padding: 30px;
-        }
-
-        .infdev p {
-
-            font-size: 17px;
-            text-align: justify;
-            margin-bottom: 20px;
-
-        }
-
-        .infdev img {
-            max-height: 70px;
-            max-width: 110px;
-            border-radius: 6px;
-
-
-
-        }
-
-        .mediascot {
-            flex: 1 1 0;
-
-        }
-
-        .mediascot h1 {
-            font-size: 15px;
-            font-family: Arial, Helvetica, sans-serif;
-
-        }
-
-        .mediascot a {
-            display: flex;
-            font-size: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            text-decoration: none;
-            color: #000000;
-            justify-content: center;
-            margin: 10px;
-
-        }
-
-        .mediascot img {
-            height: 45px;
-            width: 45px;
-            border-radius: 7px;
-
-        }
-
-        @media screen and (max-width: 800px) {
-
-            .footer {
-                height: 45vh;
-                width: 100vw;
-
-            }
-        }
-
-        @media screen and (max-width: 590px) {
-
-            .footer {
-                height: 35vh;
-                width: 100vw;
-
-            }
-
-            .ref {
-                flex: 1 1 0;
-                margin-top: 50px;
-            }
-
-            .ref img {
-                height: 70px;
-                width: 90px;
-                border-radius: 5px;
-
-            }
-
-            .infdev {
-                flex: 2 1 0;
-                border-right: #ffffff 4px solid;
-                border-left: #ffffff 4px solid;
-                text-align: center;
-                padding: 10px;
-            }
-
-            .infdev p {
-
-                font-size: 10px;
-                text-align: justify;
-                margin-bottom: 20px;
-
-            }
-
-            .infdev img {
-                max-height: 60px;
-                max-width: 100px;
-                border-radius: 6px;
-
-
-
-            }
-
-            .mediascot h1 {
-                font-size: 11px;
-
-            }
-        }
-    </style>
-
-
-    <div class="footer">
-        <div class="ref">
-            <img src="./imagens/brasil f logo2.png">
-
-
-
-        </div>
-        <div class="infdev">
-            <p> Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores,
-                IFPA
-                Campus Tucuruí. Turma T325-6NH.</p>
-            <p> Responsaveis pelas atualizações e manutenção : Thiago Felipe, Marley Roberto, Talia Santos, Kaillane.
-                Discentes de Tecnologia em Redes de Computadores, IFPA
-                Campus Tucuruí. Turma T325-8NI. </p>
-            <img src="./imagens/academ2.png">
-            <img src="./imagens/logogov.png">
-            <img src="./imagens/ministr.png">
-        </div>
-        <div class="mediascot">
-            <h1 id="contat">Contatos de médias sociais</h1>
-            <a href=""><img src="./imagens/facebook_2496095.png" alt="facebook"></a>
-            <a href=""><img src="./imagens/instagram_2111463.png" alt="instagram"></a>
-            <a href=""><img src="./imagens/youtube_2496113.png" alt="youtube"></a>
-
-        </div>
-    </div>
 </body>
 
 </html>

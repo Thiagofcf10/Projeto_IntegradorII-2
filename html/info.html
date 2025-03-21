@@ -9,22 +9,50 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="footers.css" rel="stylesheet">
+
     <style>
+        body {
+
+            margin: 0;
+            padding: 0;
+            background-color: #f0ca24;
+        }
+
+        header {
+
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            background-color: #f0ca24;
+
+        }
+
+        #text {
+            width: auto;
+            font-size: 30px;
+            height: auto;
+            margin: auto auto 1% auto;
+            float: auto;
+            background-color: #f0ca24;
+            text-align: center;
+            padding-bottom: 40px;
+            padding-left: auto;
+            color: rgb(0, 0, 0);
+        }
+
         #textGeral {
-            padding: 2% 9% 2% 9%;
-            margin: 8 12% 10% 12%;
-            background-color: rgb(182, 182, 182);
+            padding: 2% 9%;
+            margin: 0 12% 10% 12%;
+            background-color: #ffffff;
             border-radius: 7px;
+            box-shadow: #000000 0 3px 3px 3px;
         }
 
         #textGeral p {
-            font-size: 23px;
-            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
             text-align: justify;
-            padding: 0 2% 0 2%;
-
+            line-height: 1.6;
+            padding: 0 2%;
         }
     </style>
 
@@ -45,7 +73,6 @@
                     <li>
                         <a href="../index.html"> <b>Voltar ao Inicio</b></a>
                     </li>
-                    <li> <a href="artigos.html"><b>Artigos</b></a> </li>
                     <li> <a href="eventos.html"><b>Eventos</b></a> </li>
                     <li><a href="info.html"><b>Informações Gerais</b></a> </li>
                     <li>
@@ -61,14 +88,15 @@
     <!-- Conteúdo -->
 
 
-    <div id="text" style="width: auto; font-size: 35px; height: auto; margin: auto auto; float: auto;  ; background-color:
-        #000044; text-align:center;
-        padding-bottom:40px; padding-left: auto; color: white;"> <strong>Informações Gerais</strong></div>
+    <div id="text">
+        <strong>Informações Gerais</strong>
+    </div>
 
 
     <div id="textGeral">
         <p>
-            &nbsp Esse site tem o objetivo de mostrar os estudos que são feitos a respeito do futebol nas universidades do
+            &nbsp Esse site tem o objetivo de mostrar os estudos que são feitos a respeito do futebol nas universidades
+            do
             Brasil. Este projeto tem como objetivo a pesquisa e divulgação das instituições de ensino no Brasil
             realizadoras de estudos sobre o futebol, disseminar
             o conhecimento que há nessa área e propiciar possíveis novas pesquisas. Visto que atualmente são poucos os
@@ -78,7 +106,8 @@
             exposição do patrimônio cultural Brasileiro. </p>
 
 
-        <p> &nbsp  Estudos no campo do futebol são imprescindíveis para uma melhoria nas condições dos jogadores, em todos os
+        <p> &nbsp Estudos no campo do futebol são imprescindíveis para uma melhoria nas condições dos jogadores, em
+            todos os
             aspectos, desde o físico ao psicológico, as pesquisas realizadas nessa área têm gerado grandes conquistas.
             Em detrimento disso, os investimentos
             de clubes só crescem, dado o retorno que terão com seus atletas. Com o surgimento de novas tecnologias
@@ -88,126 +117,119 @@
             ser o sonho de milhares.
         </p>
 
-        <p>  &nbsp  Com foco em ainda mais progresso, diversas universidades no Brasil têm buscado profundo conhecimento nesse
+        <p> &nbsp Com foco em ainda mais progresso, diversas universidades no Brasil têm buscado profundo conhecimento
+            nesse
             campo, e agregando a outras áreas, o que expande as descobertas e permite que não só atletas se beneficiem.
         </p>
 
     </div>
 
-
     <style>
         .footer {
-            height: 30vh;
-            width: 100vw;
-            background-color: #000044;
-            color: white;
-            text-align: center;
-            display: flex;
-            margin-top: 50px;
-        }
-
-        .ref {
-            flex: 1 1 0;
-            margin-top: 50px;
-        }
-
-        .ref img {
-            height: 80px;
-            width: 100px;
-            border-radius: 5px;
-
-        }
-
-        .infdev {
-            flex: 2 1 0;
-            border-right: #ffffff 4px solid;
-            border-left: #ffffff 4px solid;
-            text-align: center;
-            padding: 30px;
-        }
-
-        .infdev p {
-
-            font-size: 17px;
-            text-align: justify;
-            margin-bottom: 20px;
-
-        }
-
-        .infdev img {
-            max-height: 70px;
-            max-width: 110px;
-            border-radius: 6px;
-
-
-
-        }
-
-        .mediascot {
-            flex: 1 1 0;
-
-        }
-
-        .mediascot h1 {
-            font-size: 15px;
-
-        }
-
-        .mediascot a {
-            display: flex;
-            font-size: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            text-decoration: none;
+            background-color:#000044;
             color: #ffffff;
-            justify-content: center;
+            padding: 40px 0;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 40px;
+        }
+    
+        .footer > div {
+            flex: 1 1 30%;
             margin: 10px;
-
         }
-
-        .mediascot img {
-            height: 45px;
-            width: 45px;
-            border-radius: 7px;
-
+    
+        .footer .logo img {
+            height: 120px;
+            width: auto;
         }
-
-        @media screen and (max-width: 800px) {
-
+    
+        .footer .about {
+            text-align: center;
+        }
+    
+        .footer .about p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    
+        .footer .about img {
+            height: 50px;
+            width: auto;
+            margin: 10px;
+        }
+    
+        .footer .social-media h1 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    
+        .footer .social-media a img {
+            height: 40px;
+            width: auto;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+    
+        .footer .social-media a img:hover {
+            transform: scale(1.1);
+        }
+    
+        @media screen and (max-width: 960px) {
             .footer {
-                height: 45vh;
-                width: 100vw;
-
+                flex-direction: column;
+                padding: 20px 0;
+            }
+    
+            .footer > div {
+                flex: 1 1 100%;
+                margin: 10px 0;
+            }
+    
+            .footer .logo img,
+            .footer .about img,
+            .footer .social-media a img {
+                height: 40px;
+            }
+    
+            .footer .about p {
+                font-size: 12px;
+            }
+    
+            .footer .social-media h1 {
+                font-size: 16px;
             }
         }
     </style>
-
-
+    
+    
     <div class="footer">
-        <div class="ref">
-            <img src="../imagens/ifpa2.png">
-
-
+        <div class="logo">
+            <img src="../imagens/brasil f logo2.png" alt="Logo">
         </div>
-        <div class="infdev">
-            <p> Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores,
-                IFPA
+        <div class="about">
+            <p>Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores, IFPA
                 Campus Tucuruí. Turma T325-6NH.</p>
-            <p> Responsaveis pelas atualizações e manutenção : Thiago Felipe, Marley Roberto, Talia Santos, Kaillane.
-                Discentes de Tecnologia em Redes de Computadores, IFPA
-                Campus Tucuruí. Turma T325-8NI. </p>
-            <img src="../imagens/academ2.png">
-            <img src="../imagens/brasil f logo2.png">
-            <img src="../imagens/logogov.jpeg">
-            <img src="../imagens/ministr.jpg">
+            <p>Responsáveis pelas atualizações e manutenção: Thiago Felipe, Marley Roberto, Talia Santos, Kaillane. Discentes
+                de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí. Turma T325-8NI.</p>
+            <img src="../imagens/academ2.png" alt="Academia">
+            <img src="../imagens/logogov.png" alt="Governo">
+            <img src="../imagens/ministr.png" alt="Ministério">
         </div>
-        <div class="mediascot">
-            <h1 id="contat">Contatos de médias sociais</h1>
-            <a href=""><img src="../imagens/facebook_2496095.png" alt="facebook"></a>
-            <a href=""><img src="../imagens/instagram_2111463.png" alt="instagram"></a>
-            <a href=""><img src="../imagens/youtube_2496113.png" alt="youtube"></a>
-
+        <div class="social-media">
+            <h1 id="contat">Contatos de mídias sociais</h1>
+            <a href="#"><img src="../imagens/facebook_2496095.png" alt="Facebook"></a>
+            <a href="#"><img src="../imagens/instagram_2111463.png" alt="Instagram"></a>
+            <a href="#"><img src="../imagens/youtube_2496113.png" alt="YouTube"></a>
         </div>
     </div>
+
+
+
 </body>
 
 </html>

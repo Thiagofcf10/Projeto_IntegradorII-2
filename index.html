@@ -154,7 +154,7 @@
             overflow: hidden;
             margin: 0 auto;
             width: 100%;
-            max-width: 600px;
+            max-width: 550px;
             text-align: center;
         }
 
@@ -174,7 +174,8 @@
 
         .item img {
             width: 100%;
-            height: auto;
+            height: 270px; 
+            object-fit: cover; 
         }
 
         .carousel-caption {
@@ -185,7 +186,7 @@
             width: 100%;
             text-align: center;
             margin: 0 auto;
-            position: absolute;
+            position: relative; 
             bottom: 0;
         }
 
@@ -377,71 +378,94 @@
             text-align: justify;
             margin: 0;
         }
+        @media screen and (max-width: 1085px) {
+            .base {
+            width: 100%;
+            float: none;
+            }
+
+            .menu-noti {
+            width: 100%;
+            float: none;
+            margin-top: 20px;
+            }
+
+            .menu-noti a {
+            font-size: 12px;
+            margin-left: 5vw;
+            }
+
+            .base img {
+            margin-right: 10px;
+            max-width: 100%;
+            width: 150px;
+            height: auto;
+            }
+
+            .base p {
+            font-size: 1em;
+            text-align: justify;
+            }
+        }
 
         @media screen and (max-width: 685px) {
             .base {
-                width: 100%;
-                float: none;
+            width: 100%;
+            float: none;
             }
 
             .menu-noti {
-                width: 100%;
-                float: none;
-                margin-top: 20px;
+            width: 100%;
+            float: none;
+            margin-top: 20px;
             }
 
             .menu-noti a {
-
-                font-size: 10px;
-                margin-left: 7vw;
+            font-size: 10px;
+            margin-left: 5vw;
             }
 
             .base img {
-                margin-right: 20px;
-                max-width: 100%;
-                width: 100px;
-                height: 90px;
+            margin-right: 10px;
+            max-width: 100%;
+            width: 120px;
+            height: auto;
             }
 
             .base p {
-                font-size: 1em;
-                text-align: justify;
-                
+            font-size: 1em;
+            text-align: justify;
             }
-
-
         }
+
         @media screen and (max-width: 389px) {
             .base {
-                width: 100%;
-                float: none;
+            width: 100%;
+            float: none;
             }
 
             .menu-noti {
-                width: 100%;
-                float: none;
-                margin-top: 20px;
+            width: 100%;
+            float: none;
+            margin-top: 20px;
             }
 
             .menu-noti a {
-
-                font-size: 8.5px;
-                margin-left: 7vw;
+            font-size: 8.5px;
+            margin-left: 5vw;
             }
 
             .base img {
-                margin-right: 20px;
-                max-width: 100%;
-                width: 100px;
-                height: 90px;
+            margin-right: 10px;
+            max-width: 100%;
+            width: 100px;
+            height: auto;
             }
 
             .base p {
-                font-size: 0.9em;
-                text-align: justify;
+            font-size: 0.8em;
+            text-align: justify;
             }
-
-
         }
     </style>
 
@@ -613,9 +637,9 @@
 
         @media screen and (max-width: 1070px) {
             .carousel-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(4, 1fr);
-                gap: 5px;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 10px;
                 width: 100%;
                 height: auto;
             }
@@ -626,15 +650,15 @@
             }
 
             .container3 {
-                padding: 39vh 0 0 0;
+                padding: 7vh 0 0 0;
             }
         }
 
-        @media screen and (max-width: 685px) {
+        @media screen and (max-width: 785px) {
             .carousel-grid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(4, 1fr);
-                gap: 5px;
+                gap: 10px;
                 width: 100%;
                 height: auto;
             }
@@ -645,17 +669,18 @@
             }
 
             .container3 {
-                padding: 17vh 0 0 0;
+                padding: 7vh 0 0 0;
             }
 
             .tex2 {
                 font-size: 17px;
             }
         }
+
         @media screen and (max-width: 389px) {
             .carousel-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(8, 1fr);
                 gap: 5px;
                 width: 100%;
                 height: auto;
@@ -667,13 +692,14 @@
             }
 
             .container3 {
-                padding: 15vh 0 0 0;
+                padding: 10vh 0 0 0;
             }
 
             .tex2 {
                 font-size: 17px;
             }
         }
+    </style>
 
     </style>
 
@@ -793,7 +819,7 @@
         }
 
         .footer .logo img {
-            height: 80px;
+            height: 120px;
             width: auto;
         }
 
@@ -804,6 +830,7 @@
         .footer .about p {
             margin: 5px 0;
             font-size: 14px;
+            text-align: justify;
         }
 
         .footer .about img {
@@ -828,7 +855,7 @@
             transform: scale(1.1);
         }
 
-        @media screen and (max-width: 740px) {
+        @media screen and (max-width: 940px) {
             .footer {
                 flex-direction: column;
                 padding: 20px 0;
@@ -847,6 +874,7 @@
 
             .footer .about p {
                 font-size: 12px;
+               
             }
 
             .footer .social-media h1 {

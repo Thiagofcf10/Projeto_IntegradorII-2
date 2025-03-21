@@ -16,14 +16,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f0ca24;
             color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #000044;
+            background-color: #f0ca24;
             color: white;
             padding: 10px 0;
         }
@@ -33,20 +33,25 @@
         }
 
         #text {
+            width: auto;
             font-size: 30px;
-            background-color: #000044;
+            height: auto;
+            margin: auto auto 1% auto;
+            float: auto;
+            background-color: #f0ca24;
             text-align: center;
-            padding: 15px;
-            color: white;
-            margin-bottom: 15px;
+            padding-bottom: 40px;
+            padding-left: auto;
+            color: rgb(0, 0, 0);
         }
 
         #textcontatog {
             padding: 5%;
             margin: 0 5%;
-            background-color: #e0e0e0;
+            background-color: #ffffff;
             border-radius: 7px;
             min-height: 60vh;
+            box-shadow: #000000 0 3px 3px 3px;
         }
 
         #textcontato p, #textcontatog p {
@@ -160,6 +165,109 @@
     </div>
 
 -->
+<style>
+    .footer {
+        background-color:#000044;
+        color: #ffffff;
+        padding: 40px 0;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .footer > div {
+        flex: 1 1 30%;
+        margin: 10px;
+    }
+
+    .footer .logo img {
+        height: 120px;
+        width: auto;
+    }
+
+    .footer .about {
+        text-align: center;
+    }
+
+    .footer .about p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    .footer .about img {
+        height: 50px;
+        width: auto;
+        margin: 10px;
+    }
+
+    .footer .social-media h1 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .footer .social-media a img {
+        height: 40px;
+        width: auto;
+        margin: 0 10px;
+        transition: transform 0.3s;
+    }
+
+    .footer .social-media a img:hover {
+        transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 960px) {
+        .footer {
+            flex-direction: column;
+            padding: 20px 0;
+        }
+
+        .footer > div {
+            flex: 1 1 100%;
+            margin: 10px 0;
+        }
+
+        .footer .logo img,
+        .footer .about img,
+        .footer .social-media a img {
+            height: 40px;
+        }
+
+        .footer .about p {
+            font-size: 12px;
+        }
+
+        .footer .social-media h1 {
+            font-size: 16px;
+        }
+    }
+</style>
+
+
+<div class="footer">
+    <div class="logo">
+        <img src="../imagens/brasil f logo2.png" alt="Logo">
+    </div>
+    <div class="about">
+        <p>Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores, IFPA
+            Campus Tucuruí. Turma T325-6NH.</p>
+        <p>Responsáveis pelas atualizações e manutenção: Thiago Felipe, Marley Roberto, Talia Santos, Kaillane. Discentes
+            de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí. Turma T325-8NI.</p>
+        <img src="../imagens/academ2.png" alt="Academia">
+        <img src="../imagens/logogov.png" alt="Governo">
+        <img src="../imagens/ministr.png" alt="Ministério">
+    </div>
+    <div class="social-media">
+        <h1 id="contat">Contatos de mídias sociais</h1>
+        <a href="#"><img src="../imagens/facebook_2496095.png" alt="Facebook"></a>
+        <a href="#"><img src="../imagens/instagram_2111463.png" alt="Instagram"></a>
+        <a href="#"><img src="../imagens/youtube_2496113.png" alt="YouTube"></a>
+    </div>
+</div>
 
 </body>
 

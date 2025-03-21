@@ -469,6 +469,7 @@
             const stateAuthors = document.getElementById('stateAuthors').value;
             const stateInstitution = document.getElementById('stateInstitution').value;
             const stateButtonUrl = document.getElementById('stateButtonUrl').value;
+            let acessoA = 0;
 
             const uniqueFileName = `${Date.now()}_${file.name}`;
             const { data: storageData, error: storageError } = await _supabase
@@ -484,7 +485,7 @@
 
             const imageUrl = `${supabaseUrl}/storage/v1/object/public/fotos/${storageData.path}`;
 
-            const data = { state: state, title: stateTitle, stateImage: imageUrl, stateContent: stateContent, stateAuthors: stateAuthors, stateInstitution: stateInstitution, stateButtonUrl: stateButtonUrl };
+            const data = {state: state, title: stateTitle, stateImage: imageUrl, stateContent: stateContent, stateAuthors: stateAuthors, stateInstitution: stateInstitution, stateButtonUrl: stateButtonUrl, acessos: acessoA };
             const { error } = await _supabase.from('state_articles').insert([data]);
 
 

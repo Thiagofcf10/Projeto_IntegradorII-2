@@ -42,7 +42,7 @@
 
         #textGeral {
             padding: 2% 9%;
-            margin: 0 12% 10% 12%;
+            margin: 0 5%;
             background-color: #ffffff;
             border-radius: 7px;
             box-shadow: #000000 0 3px 3px 3px;
@@ -53,6 +53,30 @@
             text-align: justify;
             line-height: 1.6;
             padding: 0 2%;
+        }
+        .eventos-title {
+            font-size: 30px;
+            text-align: center;
+            margin: 0 auto;
+            color: #000000;
+            display: block;
+        }
+        
+        @media (max-width: 930px) {
+            #textGeral p {
+            font-size: 14px;
+            text-align: justify;
+            line-height: 1.6;
+            padding: 0 2%;}
+
+
+
+            .eventos-title {
+                font-size: 20px;
+                text-align: center;
+                margin: 0;
+               
+            }
         }
     </style>
 
@@ -87,9 +111,9 @@
 <body>
     <!-- Conteúdo -->
 
-
+    <strong class="eventos-title">Informações Gerais</strong>
     <div id="text">
-        <strong>Informações Gerais</strong>
+        
     </div>
 
 
@@ -136,6 +160,9 @@
             justify-content: space-around;
             align-items: center;
             margin-top: 40px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     
         .footer > div {
@@ -179,10 +206,12 @@
             transform: scale(1.1);
         }
     
-        @media screen and (max-width: 960px) {
+        @media screen and (max-width: 900px) {
             .footer {
                 flex-direction: column;
                 padding: 20px 0;
+                position: relative;
+                bottom: 0;
             }
     
             .footer > div {

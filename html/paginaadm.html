@@ -386,6 +386,7 @@
             const title = document.getElementById('title').value;
             const content = document.getElementById('content').value;
             const buttonUrl = document.getElementById('buttonUrl').value;
+            let acesso = 0;
 
 
             const uniqueFileName = `${Date.now()}_${file.name}`;
@@ -402,13 +403,13 @@
 
             const imageUrl = `${supabaseUrl}/storage/v1/object/public/fotos/${storageData.path}`;
 
-            const data = { title: title, image: imageUrl, content: content, buttonUrl: buttonUrl };
-            const { error } = await _supabase.from('articles').insert([data]);
+            const data = { title: title, image: imageUrl, content: content, buttonUrl: buttonUrl, acessos: acesso };
+            const { error } = await _supabase.from('eventos').insert([data]);
 
             if (error) {
             console.error('Error submitting article form:', error);
             } else {
-            await _supabase.from('form_submissions').insert([{ title: title, type: 'artigos', imagePath: storageData.path }]);
+            await _supabase.from('form_submissions').insert([{ title: title, type: 'evento', imagePath: storageData.path }]);
             fetchHistory();
             }
         }
@@ -590,8 +591,8 @@
             case 'topicos':
             tableName = 'information';
             break;
-            case 'artigos':
-            tableName = 'articles';
+            case 'evento':
+            tableName = 'eventos';
             break;
             case 'estado':
             tableName = 'state_articles';

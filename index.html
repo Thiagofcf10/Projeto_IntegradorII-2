@@ -335,9 +335,18 @@
 
     <style>
         .container2 {
-            height: 30vh;
-            width: 89vw;
+            width: 90%;
             margin: 40px 5vw 0 5vw;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .menu-noti {
+            width: 30%;
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
         .menu-noti ul {
@@ -357,12 +366,21 @@
             text-decoration: none;
             border-radius: 5px;
             text-align: center;
-            margin-left: 7vw;
             box-shadow: #000000 2px 2px 5px;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .menu-noti a:hover {
             background-color: #6866f0;
+        }
+
+        .base {
+            width: 65%;
+    
+            border-radius: 5px;
+  
+            padding: 10px;
+            box-sizing: border-box;
         }
 
         .base img {
@@ -370,108 +388,76 @@
             margin-right: 20px;
             max-width: 100%;
             width: 290px;
-            height: 260px;
+            height: auto;
         }
 
         .base p {
-            font-size: 1.6em;
+            font-size: 23px;
             text-align: justify;
             margin: 0;
+            word-wrap: break-word;
         }
+
         @media screen and (max-width: 1085px) {
             .base {
-            width: 100%;
-            float: none;
+                width: 100%;
+                float: none;
             }
 
             .menu-noti {
-            width: 100%;
-            float: none;
-            margin-top: 20px;
+                width: 100%;
+                float: none;
+                margin-top: 20px;
             }
 
             .menu-noti a {
-            font-size: 12px;
-            margin-left: 5vw;
+                font-size: 12px;
             }
 
             .base img {
-            margin-right: 10px;
-            max-width: 100%;
-            width: 150px;
-            height: auto;
+                margin-right: 10px;
+                max-width: 100%;
+                width: 150px;
+                height: auto;
             }
 
             .base p {
-            font-size: 1em;
-            text-align: justify;
+                font-size: 1em;
+                text-align: justify;
             }
         }
 
         @media screen and (max-width: 685px) {
             .base {
-            width: 100%;
-            float: none;
+                width: 100%;
+                float: none;
             }
 
             .menu-noti {
-            width: 100%;
-            float: none;
-            margin-top: 20px;
+                width: 100%;
+                float: none;
+                margin-top: 20px;
             }
 
             .menu-noti a {
-            font-size: 10px;
-            margin-left: 5vw;
+                font-size: 10px;
             }
 
             .base img {
-            margin-right: 10px;
-            max-width: 100%;
-            width: 120px;
-            height: auto;
+                margin-right: 10px;
+                max-width: 100%;
+                width: 120px;
+                height: auto;
             }
 
             .base p {
-            font-size: 1em;
-            text-align: justify;
-            }
-        }
-
-        @media screen and (max-width: 389px) {
-            .base {
-            width: 100%;
-            float: none;
-            }
-
-            .menu-noti {
-            width: 100%;
-            float: none;
-            margin-top: 20px;
-            }
-
-            .menu-noti a {
-            font-size: 8.5px;
-            margin-left: 5vw;
-            }
-
-            .base img {
-            margin-right: 10px;
-            max-width: 100%;
-            width: 100px;
-            height: auto;
-            }
-
-            .base p {
-            font-size: 0.8em;
-            text-align: justify;
+                font-size: auto;
+                text-align: justify;
             }
         }
     </style>
-
-    <div id="corpo">
         <div class="container2">
-            <div class="base" style="float: left; width: 70%;">
+            <div class="base">
                 <img src="../Projeto_IntegradorII-2/imagens/mapadopara3.png" alt="Lo">
 
                 <p>O futebol é um esporte que tem ganhado cada vez mais a participação e destaque das mulheres. A
@@ -484,7 +470,7 @@
                     como o Paysandu e o Remo, têm uma rica história e são pilares do futebol paraense, contribuindo para
                     o desenvolvimento do esporte na região.</p>
             </div>
-            <div class="menu-noti" style="float: right; width: 30%;">
+            <div class="menu-noti" >
                 <ul>
                     <li><a href="./html/paginaadm.html">Perfil administradores</a></li>
                     <li><a href="./mapadobrasil.html">Mapa de pesquisas</a></li>
@@ -493,7 +479,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    
 
     <!--////////////////////////////////////carrocel2//////////////////////////////-->
 
@@ -505,8 +491,8 @@
             gap: 19px;
             justify-items: center;
             align-items: center;
-            width: 90vw;
             height: auto;
+            
         }
 
         .carousel-grid img {
@@ -549,8 +535,6 @@
 
         .container3 {
             margin: 0 5vw 0 5vw;
-            padding: 13vh 0 0 0;
-
         }
 
         @keyframes zoom {
@@ -633,6 +617,7 @@
         .tex2 {
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
+            padding: 20px;
         }
 
         @media screen and (max-width: 1070px) {
@@ -649,9 +634,7 @@
                 max-height: 100px;
             }
 
-            .container3 {
-                padding: 7vh 0 0 0;
-            }
+
         }
 
         @media screen and (max-width: 785px) {
@@ -668,9 +651,7 @@
                 max-height: 80px;
             }
 
-            .container3 {
-                padding: 7vh 0 0 0;
-            }
+
 
             .tex2 {
                 font-size: 17px;
@@ -691,18 +672,11 @@
                 max-height: 80px;
             }
 
-            .container3 {
-                padding: 10vh 0 0 0;
-            }
-
             .tex2 {
                 font-size: 17px;
             }
         }
     </style>
-
-    </style>
-
 
     <div class="container3">
         <h2 class="tex2">Mural de fotos</h2>

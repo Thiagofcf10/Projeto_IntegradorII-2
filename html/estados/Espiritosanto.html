@@ -9,151 +9,175 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="footers.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
     <style>
-        body {
+        html, body {
+            height: 100%;
             margin: 0;
-
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background:  #f6f88b;
+            display: flex;
+            flex-direction: column;
         }
 
+        #text {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #search-input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        #filter-select {
+            padding: 10px;
+            width: 150px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        #search-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #search-button:hover {
+            background-color: #0056b3;
+        }
 
         .tabela-art {
-            background-color: #ffffff;
-            width: 100vw;
-            text-align: center;
-            justify-content: center;
-            gap: 1vw;
             display: flex;
-            padding-left: 40px;
-            padding-right: 40px;
-            align-items: center;
-            margin:0; 
             flex-wrap: wrap;
-            padding-left: 10%;
-            padding-right: 10%;
-
-
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex: 1;
         }
 
         .artigos {
-            display: flex;
-            background-color: #4e4c9c;
-            height: 360px;
-            width: 380px;
-            border: 3px rgb(0, 0, 0) solid;
-            border-radius: 7px;
-            flex-direction: column;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 370px;
+            margin: 10px;
             text-align: center;
-            align-items: center;
-            
-
-
+            position: relative;
         }
 
-        .artigos h2 {
-            border: #000000 2px solid;
-            border-radius: 5px;
-            background-color: #000044;
-            color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            text-align: justify;
-            padding-right: 5px;
-            padding-left: 5px;
-            width: 350px;
-            height: 115px;
+        .artigos h1 {
             margin: 0;
-        }
-
-        .artigos h3 {
-            border: #000000 2px solid;
-            border-radius: 5px;
-            background-color: #000044;
-            color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 13px;
-            text-align: justify;
-            padding-right: 5px;
-            padding-left: 5px;
-            width: 350px;
-            height: 20px;
-            margin: 0;
-        }
-
-        .artigos p {
-            color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 12px;
-            text-align: justify;
-            margin: 0;
+            padding: 10px;
+            color: #fff;
+            font-size:large;
         }
 
         .artigos img {
-            margin-top: 10px;
-            border: #000000 2px solid;
-            background-color: #ffffff;
-            border-radius: 13px;
-            height: 70px;
-            width: 70px;
-            padding: 10px;
+            width: 100%;
+            height: auto;
+        }
 
+        .artigos p {
+            margin: 10px 10px 5px 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
 
+        .artigos h2, .artigos h3 {
+            margin: 5px 10px 0 10px;
+            font-size: 14px;
+            background-color: #f2f2f2;
+            padding: 5px;
+            border-radius: 4px;
         }
 
         .artigos a {
-            margin-top: 10px;
-            border: #000000 3px solid;
-            background-color: #55f385;
-            border-radius: 5px;
-            height: 40px;
-            width: 199px;
-            color: #000044;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 20px;
-            padding: 6px;
-            bottom: 0;
-
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
         }
 
-        .grupos {
-            color: #ffffff;
-            background-color: #000044;
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 25px;
-            margin:3px;
-            padding: 40px 0 40px 0;
-        
-
+        .artigos a:hover {
+            background-color: #0056b3;
         }
 
-        @media screen and (max-width: 690px) {
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
 
+        .logos img {
+            width: 50px;
+            height: auto;
+        }
+
+        .views {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 10px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
             .tabela-art {
-                background-color: #ffffff;
-                width: 100vw;
-                gap: 1vw;
-                padding-left: 40px;
-                padding-right: 40px;      
-                margin: 0;
-                display:flex;
+                flex-direction: column;
                 align-items: center;
-                flex-wrap: wrap;
-                 
-                        
             }
 
+            .artigos {
+                width: 90%;
             }
+
+            .artigos h2, .artigos h3 {
+                margin: 5px 5px 0 5px;
+                font-size: 14px;
+            }
+
+            .artigos p {
+                margin: 10px 5px 5px 5px;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .views {
+                font-size: 7px;
+                
+            }
+        }
     </style>
+    
 
 </head>
-<header>
 
+<header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light"
-        style="
-        margin: 0;color:white; background-color:#000044; font-size: 15px;">
+        style="margin: 0;color:white; background-color:#000044; font-size: 15px;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links-menu"
@@ -163,15 +187,11 @@
             </div>
             <nav id="links-menu" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="../../index.html"> <b>Voltar ao Inicio</b></a>
-                    </li>
-                    <li> <a href="../artigos.html"><b>Artigos</b></a> </li>
-                    <li> <a href="../eventos.html"><b>Eventos</b></a> </li>
-                    <li><a href="../info.html"><b>Informações Gerais</b></a> </li>
-                    <li>
-                        <a href="../sobre.html"> <b> Contato </b> </a>
-                    </li>
+                    <li><a href="../../index.html"><b>Voltar ao Inicio</b></a></li>
+                    <li><a href="../eventos.html"><b>Eventos</b></a></li>
+                    <li><a href="../../mapadobrasil.html"><b>Mapa</b></a></li>
+                    <li><a href="../info.html"><b>Informações Gerais</b></a></li>
+                    <li><a href="../sobre.html"><b>Contato</b></a></li>
                 </ul>
             </nav>
         </div>
@@ -179,236 +199,203 @@
 </header>
 
 <body>
-
-    <div id="text" style="width: auto; font-size: 30px; height: auto; margin: 0; float: auto;  background-color:
-        #000024; text-align:center; padding-top:40px;
-        padding-bottom:40px; padding-left: auto; color: white;"> <strong>Artigos
-            publicados pelos grupos pesquisados do Espírito Santo</strong></div>
-
-            <!--NO h1 grupos digite o nome do grupo de pesquisa-->
-    <h1 class="grupos">Grupo de pesquisa: Grupo de X</h1>
-
-    <div class="tabela-art">
-        <div class="artigos">
-            <img src="../../imagens/arquivo.png">
-            <p>Titulo</p>
-            <!--NO h2 digite o titulo da pesquisa-->
-            <h2>titulo</h2>
-            <p>autores</p>
-            <!--NO h3 digite os nomes dos autores e no de publicação-->
-            <h3>Autor nome1, nome2 ,2024</h3>
-            <p>Instituto</p>
-            <!--NO h3 digite a sigla ou nome do instituto com a cidade quando tiver-->
-            <h3>exemplo :IFPA- Tucuruí</h3>
-            <!--Dentro das aspas do href coloque o link para acessar o arquivo-->
-            <a href="  ">ler artigo</a>
-
-        </div>
-
-        <div class="artigos">
-            <img src="../../imagens/arquivo.png">
-            <p>Titulo</p>
-            <!--NO h2 digite o titulo da pesquisa-->
-            <h2>titulo</h2>
-            <p>autores</p>
-            <!--NO h3 digite os nomes dos autores e no de publicação-->
-            <h3>Autor nome1, nome2 ,2024</h3>
-            <p>Instituto</p>
-            <!--NO h3 digite a sigla ou nome do instituto com a cidade quando tiver-->
-            <h3>exemplo :IFPA- Tucuruí</h3>
-            <!--Dentro das aspas do href coloque o link para acessar o arquivo-->
-            <a href="  ">ler artigo</a>
-
-        </div>
-
-        <div class="artigos">
-            <img src="../../imagens/arquivo.png">
-            <p>Titulo</p>
-            <!--NO h2 digite o titulo da pesquisa-->
-            <h2>titulo</h2>
-            <p>autores</p>
-            <!--NO h3 digite os nomes dos autores e no de publicação-->
-            <h3>Autor nome1, nome2 ,2024</h3>
-            <p>Instituto</p>
-            <!--NO h3 digite a sigla ou nome do instituto com a cidade quando tiver-->
-            <h3>exemplo :IFPA- Tucuruí</h3>
-            <!--Dentro das aspas do href coloque o link para acessar o arquivo-->
-            <a href="  ">ler artigo</a>
-
-        </div>
-
-        <div class="artigos">
-            <img src="../../imagens/arquivo.png">
-            <p>Titulo</p>
-            <!--NO h2 digite o titulo da pesquisa-->
-            <h2>titulo</h2>
-            <p>autores</p>
-            <!--NO h3 digite os nomes dos autores e no de publicação-->
-            <h3>Autor nome1, nome2 ,2024</h3>
-            <p>Instituto</p>
-            <!--NO h3 digite a sigla ou nome do instituto com a cidade quando tiver-->
-            <h3>exemplo :IFPA- Tucuruí</h3>
-            <!--Dentro das aspas do href coloque o link para acessar o arquivo-->
-            <a href="  ">ler artigo</a>
-
-        </div>
+    <div id="text"><strong>Pesquisas publicadas pelos grupos de pesquisa no Espírito Santo</strong></div>
+    <div style="text-align: center; margin: 20px;">
+        <input type="text" id="search-input" placeholder="Buscar por título" style="padding: 10px; width: 300px;">
+        <select id="filter-select" style="padding: 10px; width: 150px;">
+            <option value="">Todos</option>
+            <option value="Artigo">Artigo</option>
+            <option value="Monografia">Monografia</option>
+            <option value="Revisão bibliográfica">Revisão bibliográfica</option>
+            <option value="Pesquisa exploratória">Pesquisa exploratória</option>
+        </select>
+        <button id="search-button" style="padding: 10px;">Buscar</button>
     </div>
-<!--NO h1 grupos digite o nome do grupo de pesquisa-->
-    <h1 class="grupos">Grupo de pesquisa: Grupo de X
-    </h1>
-    <div class="tabela-art">
-        <div class="artigos">
-            <img src="../../imagens/arquivo.png">
-            <p>Titulo</p>
-            <!--NO h2 digite o titulo da pesquisa-->
-            <h2>titulo</h2>
-            <p>autores</p>
-            <!--NO h3 digite os nomes dos autores e no de publicação-->
-            <h3>Autor nome1, nome2 ,2024</h3>
-            <p>Instituto</p>
-            <!--NO h3 digite a sigla ou nome do instituto com a cidade quando tiver-->
-            <h3>exemplo :IFPA- Tucuruí</h3>
-            <!--Dentro das aspas do href coloque o link para acessar o arquivo-->
-            <a href="  ">ler artigo</a>
+    <div id="no-articles-message" style="text-align: center; display: none; margin-top: 20px; font-size: 18px; color: #ff0000;">Nenhum artigo encontrado.</div>
+    <div class="tabela-art" id="tabela-art"></div>
+    
 
-        </div>
+    <script>
+        const supabaseUrl = 'https://ribvjcjogwukedhhkgbx.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpYnZqY2pvZ3d1a2VkaGhrZ2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5Njk4MDMsImV4cCI6MjA1NjU0NTgwM30.152UN5yiJrWyHIeBnZjSmIhGargSRDTqs1BYF0qohwQ';
+        const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-        <div class="artigos">
-            <img src="../../imagens/arquivo.png">
-            <p>Titulo</p>
-            <!--NO h2 digite o titulo da pesquisa-->
-            <h2>titulo</h2>
-            <p>autores</p>
-            <!--NO h3 digite os nomes dos autores e no de publicação-->
-            <h3>Autor nome1, nome2 ,2024</h3>
-            <p>Instituto</p>
-            <!--NO h3 digite a sigla ou nome do instituto com a cidade quando tiver-->
-            <h3>exemplo :IFPA- Tucuruí</h3>
-            <!--Dentro das aspas do href coloque o link para acessar o arquivo-->
-            <a href="  ">ler artigo</a>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const colorMap = {
+                'A': '#03a8f1',
+                'M': '#724141',
+                'R': '#fa903a',
+                'P': '#2bee8c'
+            };
 
-        </div>
+            async function fetchAndDisplayArticles(title = '', type = '') {
+                let query = _supabase.from('state_articles').select('*').eq('state', 'ES');
+                if (title) {
+                    query = query.ilike('title', `%${title}%`);
+                }
+                if (type) {
+                    query = query.eq('stateContent', type);
+                }
 
-    </div>
-    </div>
-    </div>
+                const { data, error } = await query;
+                if (error) {
+                    console.error(error);
+                    return;
+                }
 
-    <style>
-        .footer {
-            height: 30vh;
-            width: 100vw;
-            background-color: #000044;
-            color: white;
-            text-align:center;
-            display: flex;
-            margin-top: 50px;
-        }
+                const tabelaArt = document.getElementById('tabela-art');
+                tabelaArt.innerHTML = '';
 
-        .ref {
-            flex: 1 1 0;
-            margin-top: 50px;
-        }
+                if (data.length === 0) {
+                    document.getElementById('no-articles-message').style.display = 'block';
+                } else {
+                    document.getElementById('no-articles-message').style.display = 'none';
+                    data.forEach(artigo => {
+                        const firstLetter = artigo.stateContent.charAt(0).toUpperCase();
+                        const color = colorMap[firstLetter] || '#03a8f1';
 
-        .ref img {
-            height: 80px;
-            width: 100px;
-            border-radius: 5px;
+                        const artigoDiv = document.createElement('div');
+                        artigoDiv.className = 'artigos';
+                        artigoDiv.innerHTML = `
+                            <h1 style="background-color: ${color};">${artigo.stateContent}</h1>
+                            <img src="${artigo.stateImage}" alt="Imagem do artigo">
+                            <p>Titulo</p>
+                            <h2>${artigo.title}</h2>
+                            <p>autores</p>
+                            <h3>${artigo.stateAuthors}</h3>
+                            <p>Instituto</p>
+                            <h3>${artigo.stateInstitution}</h3>
+                            <a href="${artigo.stateButtonUrl}" class="view-article" data-id="${artigo.id}">ler artigo</a>
+                            <div class="logos">
+                                <img src="../../imagens/logogov.png" alt="Logo 1">
+                                <img src="../../imagens/ministr.png" alt="Logo 2">
+                                <img src="../../imagens/brasil f logo2.png" alt="Logo 3">
+                            </div>
+                            <div class="views">Visualizações: <span>${artigo.acessos}</span></div>
+                        `;
+                        tabelaArt.appendChild(artigoDiv);
+                    });
 
-        }
+                    document.querySelectorAll('.view-article').forEach(link => {
+                        link.addEventListener('click', async function (event) {
+                            event.preventDefault();
+                            const artigoId = this.getAttribute('data-id');
+                            const viewCountElement = this.parentElement.querySelector('.views span');
+                            const currentCount = parseInt(viewCountElement.textContent);
+                            viewCountElement.textContent = currentCount + 1;
 
-        .infdev {
-            flex: 2 1 0;
-            border-right: #ffffff 4px solid;
-            border-left: #ffffff 4px solid;
-            text-align: center;
-            padding: 30px;
-        }
-        .infdev p {
+                            const { data, error } = await _supabase
+                                .from('state_articles')
+                                .update({ acessos: currentCount + 1 })
+                                .eq('id', artigoId);
 
-            font-size: 12px;
-            text-align: justify;
-            margin-bottom: 20px;
-
-        }
-
-        .infdev img {
-            max-height: 70px;
-            max-width: 110px;
-            border-radius: 6px;
-
-
-
-        }
-
-        .mediascot {
-            flex: 1 1 0;
-
-        }
-
-        .mediascot h1 {
-            font-size: 15px;
-
-        }
-
-        .mediascot a {
-            display: flex;
-            font-size: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            text-decoration: none;
-            color: #ffffff;
-            justify-content: center;
-            margin: 10px;
-
-        }
-
-        .mediascot img {
-            height: 45px;
-            width: 45px;
-            border-radius: 7px;
-
-        }
-
-        @media screen and (max-width: 800px) {
-
-            .footer {
-                height: 45vh;
-                width: 100vw;
-
+                            if (error) {
+                                console.error(error);
+                            } else {
+                                window.location.href = this.href;
+                            }
+                        });
+                    });
+                }
             }
+
+            document.getElementById('search-button').addEventListener('click', function () {
+                const title = document.getElementById('search-input').value;
+                const type = document.getElementById('filter-select').value;
+                fetchAndDisplayArticles(title, type);
+            });
+
+            fetchAndDisplayArticles();
+        });
+    </script>
+
+    
+<style>
+    .footer {
+        background-color: #000044;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .footer .logo img {
+        width: 100px;
+        height: auto;
+    }
+
+    .footer .about {
+        margin: 20px 0;
+    }
+
+    .footer .about p {
+        margin: 5px 0;
+    }
+
+    .footer .about img {
+        width: 50px;
+        height: auto;
+        margin: 0 10px;
+    }
+
+    .footer .social-media {
+        margin: 20px 0;
+    }
+
+    .footer .social-media h1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .footer .social-media a {
+        margin: 0 10px;
+    }
+
+    .footer .social-media img {
+        width: 30px;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        .footer .logo img {
+            width: 80px;
         }
-    </style>
+
+        .footer .about img {
+            width: 40px;
+        }
+
+        .footer .social-media img {
+            width: 25px;
+        }
+    }
+</style>
 
 
 <div class="footer">
-    <div class="ref">
-        <img src="../../imagens/ifpa2.png">
-
-
+    <div class="logo">
+        <img src="../../imagens/brasil f logo2.png" alt="Logo">
     </div>
-    <div class="infdev">
-        <p> Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores,
-            IFPA
+    <div class="about">
+        <p>Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores, IFPA
             Campus Tucuruí. Turma T325-6NH.</p>
-        <p> Responsaveis pelas atualizações e manutenção : Thiago Felipe, Marley Roberto, Talia Santos, Kaillane.
-            Discentes de Tecnologia em Redes de Computadores, IFPA
-            Campus Tucuruí. Turma T325-8NI. </p>
-        <img src="../../imagens/academ2.png">
-        <img src="../../imagens/brasil f logo2.png">
-        <img src="../../imagens/logogov.jpeg">
-        <img src="../../imagens/ministr.jpg">
+        <p>Responsáveis pelas atualizações e manutenção: Thiago Felipe, Marley Roberto, Talia Santos, Kaillane. Discentes
+            de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí. Turma T325-8NI.</p>
+        <img src="../../imagens/academ2.png" alt="Academia">
+        <img src="../../imagens/logogov.png" alt="Governo">
+        <img src="../../imagens/ministr.png" alt="Ministério">
     </div>
-    <div class="mediascot">
-        <h1 id="contat">Contatos de médias sociais</h1>
-        <a href=""><img src="../../imagens/facebook_2496095.png" alt="facebook"></a>
-        <a href=""><img src="../../imagens/instagram_2111463.png" alt="instagram"></a>
-        <a href=""><img src="../../imagens/youtube_2496113.png" alt="youtube"></a>
-
+    <div class="social-media">
+        <h1 id="contat">Contatos de mídias sociais</h1>
+        <a href="#"><img src="../../imagens/facebook_2496095.png" alt="Facebook"></a>
+        <a href="#"><img src="../../imagens/instagram_2111463.png" alt="Instagram"></a>
+        <a href="#"><img src="../../imagens/youtube_2496113.png" alt="YouTube"></a>
     </div>
 </div>
 
+ 
+
 
 </body>
-
 
 
 </html>

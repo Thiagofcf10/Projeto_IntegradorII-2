@@ -163,7 +163,7 @@
             background-color: #0056b3;
         }
 
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 1080px) {
             h1 {
             
             font-size: 19px;
@@ -222,6 +222,8 @@
             
              
                 <button type="button" onclick="logout()">Retira o login</button>
+                <button type="button" onclick="window.location.href='../index.html'">Voltar ao Início</button>
+                <h2>Obs: tente colocar somente imagens com propoções 16:9 ou 16:10 para ficaram um padrão</h2>
             
 
             <h1>conteudo do carousel do inicio do site </h1>
@@ -305,8 +307,13 @@
                 <label for="stateImage">Imagem:</label>
                 <input type="file" id="stateImage" name="stateImage" required><br><br>
 
-                <label for="stateContent">Contexto:</label>
-                <textarea id="stateContent" name="stateContent" required></textarea><br><br>
+                <label for="stateContent">Tipo de pesquisa:</label>
+                <select id="stateContent" name="stateContent" required>
+                    <option value="Artigo">Artigo</option>
+                    <option value="Monografia">Monografia</option>
+                    <option value="Revisão bibliográfica">Revisão bibliográfica</option>
+                    <option value="Pesquisa exploratória">Pesquisa exploratória</option>
+                </select><br><br>
 
                 <label for="stateAuthors">Autores:</label>
                 <input type="text" id="stateAuthors" name="stateAuthors" required><br><br>

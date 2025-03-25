@@ -204,10 +204,9 @@
         <input type="text" id="search-input" placeholder="Buscar por título" style="padding: 10px; width: 300px;">
         <select id="filter-select" style="padding: 10px; width: 150px;">
             <option value="">Todos</option>
-            <option value="Artigo">Artigo</option>
-            <option value="Monografia">Monografia</option>
-            <option value="Revisão bibliográfica">Revisão bibliográfica</option>
-            <option value="Pesquisa exploratória">Pesquisa exploratória</option>
+            <option value="Tipo Monografia">Monografia</option>
+            <option value="Mestrado">Mestrado</option>
+            <option value="Doutorado">Doutorado</option>
         </select>
         <button id="search-button" style="padding: 10px;">Buscar</button>
     </div>
@@ -222,10 +221,10 @@
 
         document.addEventListener('DOMContentLoaded', async function () {
             const colorMap = {
-                'A': '#03a8f1',
+                'T': '#03a8f1',
                 'M': '#724141',
-                'R': '#fa903a',
-                'P': '#2bee8c'
+                'D': '#fa903a',
+                
             };
 
             async function fetchAndDisplayArticles(title = '', type = '') {

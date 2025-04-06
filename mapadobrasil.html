@@ -5,8 +5,27 @@
     <title> Projeto de Estagio </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
 </head>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
+
+
+
+<body>
+
+    <!--////////////////////////////////vlibras///////////////////////////// -->
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+        <!--////////////////////////////////cabeçalho///////////////////////////// -->
 
 <style>
     body {
@@ -78,15 +97,16 @@
     }
 
     .tex1 {
-            font-size: 25px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        p{
-            font-size: 20px;
-            margin: 0 10vw 0 10vw;
-            text-align: justify;
-        }
-    
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    p {
+        font-size: 20px;
+        margin: 0 10vw 0 10vw;
+        text-align: justify;
+    }
+
 
     @media screen and (max-width: 640px) {
         header {
@@ -119,47 +139,50 @@
         .tex {
             font-size: 17px;
         }
+
         .tex1 {
             font-size: 17px;
             font-family: Arial, Helvetica, sans-serif;
         }
-        p{
+
+        p {
             font-size: 15px;
             margin: 0 5vw 0 5vw;
             text-align: justify;
         }
+
         @media screen and (max-width: 380px) {
-        header {
-            font-size: 10px;
-        }
+            header {
+                font-size: 10px;
+            }
 
-        #logo h1 {
-            font-size: 12px;
-        }
+            #logo h1 {
+                font-size: 12px;
+            }
 
-        #logo img {
-            height: 30px;
-            width: 50px;
-        }
+            #logo img {
+                height: 30px;
+                width: 50px;
+            }
 
-        .barra_de_menus ul {
-            gap: 3px;
+            .barra_de_menus ul {
+                gap: 3px;
 
-        }
+            }
 
-        .barra_de_menus li {
-            width: 65px;
-        }
+            .barra_de_menus li {
+                width: 65px;
+            }
 
-        .barra_de_menus a {
-            font-size: 10px;
-            text-decoration: none;
-        }
+            .barra_de_menus a {
+                font-size: 10px;
+                text-decoration: none;
+            }
 
-        .tex {
-            font-size: 17px;
+            .tex {
+                font-size: 17px;
+            }
         }
-    }
     }
 </style>
 
@@ -170,7 +193,7 @@
     <div id="logo">
 
         <img src="./imagens/logo.png">
-        <h1>PORTAL DO FUTEBOL BRASIL</h1>
+        <h1 tabindex="0">PORTAL DO FUTEBOL BRASIL</h1>
         <img src="./imagens/Instituto_Federal_do_Pará_-_Marca_Vertical_2015.svg">
 
 
@@ -189,63 +212,59 @@
 
 </header>
 
-<body>
 
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
 
+        .button-container button {
+            background-color: #fdd568;
+            color: #000044;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
+        .button-container button:hover {
+            background-color: #e0c050;
+            transform: scale(1.05);
+        }
 
-<style>
-    .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin: 20px 0;
-    }
+        #iframe-content {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+    </style>
 
-    .button-container button {
-        background-color: #fdd568;
-        color: #000044;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
-    }
+    <div class="button-container">
+        <button id="mapa1-btn">Mapa Artigos</button>
+        <button id="mapa2-btn">Mapa Grupos de Pesquisas</button>
+    </div>
 
-    .button-container button:hover {
-        background-color: #e0c050;
-        transform: scale(1.05);
-    }
+    <iframe id="iframe-content" src="./mapa1.html"></iframe>
 
-    #iframe-content {
-        width: 100%;
-        height: 80vh;
-        border: none;
-    }
-</style>
+    <script>
+        document.getElementById('mapa1-btn').addEventListener('click', () => {
+            document.getElementById('iframe-content').src = './mapa1.html';
+        });
 
-<div class="button-container">
-    <button id="mapa1-btn">Mapa Artigos</button>
-    <button id="mapa2-btn">Mapa Grupos de Pesquisas</button>
-</div>
-
-<iframe id="iframe-content" src="./mapa1.html"></iframe>
-
-<script>
-    document.getElementById('mapa1-btn').addEventListener('click', () => {
-        document.getElementById('iframe-content').src = './mapa1.html';
-    });
-
-    document.getElementById('mapa2-btn').addEventListener('click', () => {
-        document.getElementById('iframe-content').src = './mapa2.html';
-    });
-</script>
+        document.getElementById('mapa2-btn').addEventListener('click', () => {
+            document.getElementById('iframe-content').src = './mapa2.html';
+        });
+    </script>
 
     <style>
         .footer {
-            background-color:#fdd568;
+            background-color: #fdd568;
             color: #000000;
             padding: 40px 0;
             text-align: center;
@@ -257,7 +276,7 @@
             margin-top: 40px;
         }
 
-        .footer > div {
+        .footer>div {
             flex: 1 1 30%;
             margin: 10px;
         }
@@ -305,7 +324,7 @@
                 padding: 20px 0;
             }
 
-            .footer > div {
+            .footer>div {
                 flex: 1 1 100%;
                 margin: 10px 0;
             }
@@ -318,25 +337,26 @@
 
             .footer .about p {
                 font-size: 12px;
-               
+
             }
 
             .footer .social-media h1 {
                 font-size: 16px;
             }
         }
+    </style>
 
-        </style>
-   
 
     <div class="footer">
         <div class="logo">
             <img src="./imagens/brasil f logo2.png" alt="Logo">
         </div>
         <div class="about">
-            <p>Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores, IFPA
+            <p tabindex="0">Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores,
+                IFPA
                 Campus Tucuruí. Turma T325-6NH.</p>
-            <p>Responsáveis pelas atualizações e manutenção: Thiago Felipe, Marley Roberto, Talia Santos, Kaillane. Discentes
+            <p tabindex="0">Responsáveis pelas atualizações e manutenção: Thiago Felipe, Marley Roberto, Talia Santos, Kaillane.
+                Discentes
                 de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí. Turma T325-8NI.</p>
             <img src="./imagens/academ2.png" alt="Academia">
             <img src="./imagens/logogov.png" alt="Governo">
@@ -344,9 +364,12 @@
         </div>
         <div class="social-media">
             <h1 id="contat">Contatos de mídias sociais</h1>
-            <a href="https://www.facebook.com/share/1A7ETQFw2N/"><img src="./imagens/facebook_2496095.png" alt="Facebook"></a>
-            <a href="https://www.instagram.com/para.bola_aldeia.do.futebol?utm_source=qr&igsh=M2VsMHk1ajVvZmRh"><img src="./imagens/instagram_2111463.png" alt="Instagram"></a>
-            <a href="https://youtube.com/@parabolaifpa?si=vo5rNu4t3kIDI-jc"><img src="./imagens/youtube_2496113.png" alt="YouTube"></a>
+            <a href="https://www.facebook.com/share/1A7ETQFw2N/"><img src="./imagens/facebook_2496095.png"
+                    alt="Facebook"></a>
+            <a href="https://www.instagram.com/para.bola_aldeia.do.futebol?utm_source=qr&igsh=M2VsMHk1ajVvZmRh"><img
+                    src="./imagens/instagram_2111463.png" alt="Instagram"></a>
+            <a href="https://youtube.com/@parabolaifpa?si=vo5rNu4t3kIDI-jc"><img src="./imagens/youtube_2496113.png"
+                    alt="YouTube"></a>
         </div>
     </div>
 

@@ -11,145 +11,164 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.28.5/dist/umd/supabase.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #f0ca24, #f8f9fa);
-            margin: 0;
-            padding: 0;
-        }
 
-        header {
-
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            background-color: #f0ca24;
-          
-
-        }
-
-        #text {
-            width: auto;
-            font-size: 30px;
-            height: auto;
-            margin: auto auto 0 auto;
-            float: auto;
-            background: linear-gradient(to bottom, #f0ca24, #d9ffd4);
-            text-align: center;
-            padding-bottom: 40px;
-            padding-left: auto;
-            color: rgb(0, 0, 0);
-        }
-
-        .evento {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 20px 100px 5px 100px;
-            padding: 20px;
-            text-align: justify;
-            box-shadow: #343a40 3px 3px 3px 0px;
-        }
-
-        .evento .titulo h1 {
-            font-size: 24px;
-            margin: 0 0 10px 0;
-            text-align: center;
-        }
-
-        .evento img {
-            max-width: 100%;
-            height: 200px;
-            display: block;
-            margin: 10px auto;
-        }
-
-        .evento p {
-            font-size: 17px;
-            line-height: 1.5;
-            margin: 20px 140px 20px 140px;
-        }
-
-        .evento .logos {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .evento .logos img {
-            max-width: 50px;
-            height: 50px;
-            margin: 5px;
-        }
-
-        .btn-evento {
-            display: block;
-            padding: 10px 20px;
-            margin: 10px auto;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            width: 200px;
-            font-size: 20px;
-        }
-
-        .btn-evento:hover {
-            background-color: #0056b3;
-        }
-
-        .view-count {
-            font-size: 16px;
-            color: #1a1717;
-            text-align: center;
-        }
-
-        .eventos-title {
-            font-size: 30px;
-            text-align: center;
-            margin: 0 auto;
-            color: #000000;
-            display: block;
-        }
-
-        @media (max-width: 930px) {
-            .evento {
-                margin: 20px;
-                padding: 20px;
-                text-align: justify;
-                box-shadow: #343a40 3px 3px 3px 0px;
-            }
-
-            .evento .titulo h1 {
-                font-size: 20px;
-            }
-
-            .evento p {
-                font-size: 14px;
-                margin: 10px 20px 10px 20px;
-            }
-
-            .btn-evento {
-                padding: 8px 16px;
-                width: 100%;
-
-            }
-
-
-            .eventos-title {
-                font-size: 20px;
-                text-align: center;
-                margin: 0;
-               
-            }
-        }
-    </style>
 </head>
 
 <body>
+            <!--////////////////////////////////vlibras///////////////////////////// -->
+
+            <div vw class="enabled">
+                <div vw-access-button class="active"></div>
+                <div vw-plugin-wrapper>
+                  <div class="vw-plugin-top-wrapper"></div>
+                </div>
+              </div>
+              <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+              <script>
+                new window.VLibras.Widget('https://vlibras.gov.br/app');
+              </script>
+
+
+
+
+                <!--////////////////////////////////cabeçalho///////////////////////////// -->
+
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background: linear-gradient(to bottom, #f0ca24, #f8f9fa);
+                        margin: 0;
+                        padding: 0;
+                    }
+            
+                    header {
+            
+                        color: white;
+                        padding: 10px 0;
+                        text-align: center;
+                        background-color: #f0ca24;
+                      
+            
+                    }
+            
+                    #text {
+                        width: auto;
+                        font-size: 30px;
+                        height: auto;
+                        margin: auto auto 0 auto;
+                        float: auto;
+                        background: linear-gradient(to bottom, #f0ca24, #d9ffd4);
+                        text-align: center;
+                        padding-bottom: 40px;
+                        padding-left: auto;
+                        color: rgb(0, 0, 0);
+                    }
+            
+                    .evento {
+                        background-color: white;
+                        border: 1px solid #ddd;
+                        border-radius: 5px;
+                        margin: 20px 100px 5px 100px;
+                        padding: 20px;
+                        text-align: justify;
+                        box-shadow: #343a40 3px 3px 3px 0px;
+                    }
+            
+                    .evento .titulo h1 {
+                        font-size: 24px;
+                        margin: 0 0 10px 0;
+                        text-align: center;
+                    }
+            
+                    .evento img {
+                        max-width: 100%;
+                        height: 200px;
+                        display: block;
+                        margin: 10px auto;
+                    }
+            
+                    .evento p {
+                        font-size: 17px;
+                        line-height: 1.5;
+                        margin: 20px 140px 20px 140px;
+                    }
+            
+                    .evento .logos {
+                        display: flex;
+                        justify-content: center;
+                        gap: 10px;
+                        margin-top: 10px;
+                    }
+            
+                    .evento .logos img {
+                        max-width: 50px;
+                        height: 50px;
+                        margin: 5px;
+                    }
+            
+                    .btn-evento {
+                        display: block;
+                        padding: 10px 20px;
+                        margin: 10px auto;
+                        background-color: #007bff;
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        text-align: center;
+                        width: 200px;
+                        font-size: 20px;
+                    }
+            
+                    .btn-evento:hover {
+                        background-color: #0056b3;
+                    }
+            
+                    .view-count {
+                        font-size: 16px;
+                        color: #1a1717;
+                        text-align: center;
+                    }
+            
+                    .eventos-title {
+                        font-size: 30px;
+                        text-align: center;
+                        margin: 0 auto;
+                        color: #000000;
+                        display: block;
+                    }
+            
+                    @media (max-width: 930px) {
+                        .evento {
+                            margin: 20px;
+                            padding: 20px;
+                            text-align: justify;
+                            box-shadow: #343a40 3px 3px 3px 0px;
+                        }
+            
+                        .evento .titulo h1 {
+                            font-size: 20px;
+                        }
+            
+                        .evento p {
+                            font-size: 14px;
+                            margin: 10px 20px 10px 20px;
+                        }
+            
+                        .btn-evento {
+                            padding: 8px 16px;
+                            width: 100%;
+            
+                        }
+            
+            
+                        .eventos-title {
+                            font-size: 20px;
+                            text-align: center;
+                            margin: 0;
+                           
+                        }
+                    }
+                </style>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light"
             style="margin: 0;color:white; background-color:#000044; font-size: 15px;">

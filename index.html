@@ -1,14 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
     <title> Projeto de Estagio </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
 </head>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
 
-<!--////////////////////////////////////////css///////////////////////////////////////////-->
+
+
+<body>
+
+    <!--////////////////////////////////vlibras///////////////////////////// -->
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
+    
+
+    <!--////////////////////////////////////////cabeçalho///////////////////////////////////////////-->
 <style>
     body {
         margin: 0;
@@ -115,6 +134,38 @@
             font-size: 17px;
         }
     }
+    @media screen and (max-width: 380px) {
+        header {
+            font-size: 10px;
+        }
+
+        #logo h1 {
+            font-size: 12px;
+        }
+
+        #logo img {
+            height: 30px;
+            width: 50px;
+        }
+
+        .barra_de_menus ul {
+            gap: 3px;
+
+        }
+
+        .barra_de_menus li {
+            width: 65px;
+        }
+
+        .barra_de_menus a {
+            font-size: 10px;
+            text-decoration: none;
+        }
+
+        .tex {
+            font-size: 17px;
+        }
+    }
 </style>
 
 
@@ -141,9 +192,6 @@
     </div>
 
 </header>
-
-<body>
-    <h2 class="tex">Topicos interessantes sobre o futebol</h2>
 
 
     <!--////////////////////////////////Carrocel///////////////////////////// -->
@@ -235,6 +283,10 @@
         }
 
         @media screen and (max-width: 640px) {
+            .carousel {
+            max-width: 500px;
+           
+        }
             .carousel-caption {
                 font-size: 12px;
                 padding: 5px 0;
@@ -251,7 +303,29 @@
                 font-size: 14px;
             }
         }
+        @media screen and (max-width: 390px) {
+            .carousel {
+            max-width: 400px;
+           
+        }
+            .carousel-caption {
+                font-size: 11px;
+                padding: 5px 0;
+            }
+
+            .carousel-link {
+                padding: 5px 10px;
+                font-size: 10px;
+            }
+
+            .prev,
+            .next {
+                padding: 10px;
+                font-size: 11px;
+            }
+        }
     </style>
+    <h2 class="tex">Topicos interessantes sobre o futebol</h2>
 
     <div id="topico-nav">
         <div class="container">
@@ -385,10 +459,11 @@
 
         .base img {
             float: left;
-            margin-right: 20px;
+            margin:  2px 20px 20px 20px;
             max-width: 100%;
-            width: 290px;
+            width: 250px;
             height: auto;
+            border-radius: 5px;
         }
 
         .base p {
@@ -415,7 +490,7 @@
             }
 
             .base img {
-                margin-right: 10px;
+                margin:  1px 10px 10px 10px;
                 max-width: 100%;
                 width: 150px;
                 height: auto;
@@ -444,7 +519,7 @@
             }
 
             .base img {
-                margin-right: 10px;
+               
                 max-width: 100%;
                 width: 120px;
                 height: auto;
@@ -458,7 +533,7 @@
     </style>
         <div class="container2">
             <div class="base">
-                <img src="../Projeto_IntegradorII-2/imagens/mapadopara3.png" alt="Lo">
+                <img src="../Projeto_IntegradorII-2/imagens/img-imfor.jpg" alt="imagem inlustrativa">
 
                 <p>O futebol é um esporte que tem ganhado cada vez mais a participação e destaque das mulheres. A
                     presença feminina nos campos de futebol tem quebrado barreiras e preconceitos, mostrando que o

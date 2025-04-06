@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
     <title>Artigos</title>
@@ -10,195 +10,212 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background:  #f6f88b;
-            display: flex;
-            flex-direction: column;
-        }
+  
+</head>  
+   
+<body>
+    <!--////////////////////////////////vlibras///////////////////////////// -->
 
-        #text {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 28px;
-            font-weight: bold;
-            color: #333;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
 
-        .search-container {
-            text-align: center;
-            margin: 20px 0;
-        }
+      <!--////////////////////////////////cabeçalho///////////////////////////// -->
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background:  #f6f88b;
+    display: flex;
+    flex-direction: column;
+}
 
-        #search-input {
-            padding: 10px;
-            width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
+#text {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        #filter-select {
-            padding: 10px;
-            width: 150px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
+.search-container {
+    text-align: center;
+    margin: 20px 0;
+}
 
-        #search-button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+#search-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
 
-        #search-button:hover {
-            background-color: #0056b3;
-        }
+#filter-select {
+    padding: 10px;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
 
-        .tabela-art {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            flex: 1;
-        }
+#search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        .artigos {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            width: 370px;
-            margin: 10px;
-            text-align: center;
-            position: relative;
-        }
+#search-button:hover {
+    background-color: #0056b3;
+}
 
-        .artigos h1 {
-            margin: 0;
-            padding: 10px;
-            color: #fff;
-            font-size:large;
-        }
+.tabela-art {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex: 1;
+}
 
-        .artigos img {
-            width: 100%;
-            height: auto;
-        }
+.artigos {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    width: 370px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+}
 
-        .artigos p {
-            margin: 10px 10px 5px 10px;
-            font-weight: bold;
-            font-size: 14px;
-        }
+.artigos h1 {
+    margin: 0;
+    padding: 10px;
+    color: #fff;
+    font-size:large;
+}
 
-        .artigos h2, .artigos h3 {
-            margin: 5px 10px 0 10px;
-            font-size: 14px;
-            background-color: #f2f2f2;
-            padding: 5px;
-            border-radius: 4px;
-        }
+.artigos img {
+    width: 100%;
+    height: auto;
+}
 
-        .artigos a {
-            display: inline-block;
-            margin: 10px 0;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-        }
+.artigos p {
+    margin: 10px 10px 5px 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
 
-        .artigos a:hover {
-            background-color: #0056b3;
-        }
+.artigos h2, .artigos h3 {
+    margin: 5px 10px 0 10px;
+    font-size: 14px;
+    background-color: #f2f2f2;
+    padding: 5px;
+    border-radius: 4px;
+}
 
-        .logos {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 10px 0;
-        }
+.artigos a {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
 
-        .logos img {
-            width: 50px;
-            height: auto;
-        }
+.artigos a:hover {
+    background-color: #0056b3;
+}
 
-        .views {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 10px;
-            color: #555;
-        }
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
 
-        @media (max-width: 768px) {
-            .tabela-art {
-                flex-direction: column;
-                align-items: center;
-            }
+.logos img {
+    width: 50px;
+    height: auto;
+}
 
-            .artigos {
-                width: 90%;
-            }
+.views {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 10px;
+    color: #555;
+}
 
-            .artigos h2, .artigos h3 {
-                margin: 5px 5px 0 5px;
-                font-size: 14px;
-            }
+@media (max-width: 768px) {
+    .tabela-art {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .artigos p {
-                margin: 10px 5px 5px 5px;
-                font-weight: bold;
-                font-size: 14px;
-            }
+    .artigos {
+        width: 90%;
+    }
 
-            .views {
-                font-size: 7px;
-                
-            }
-        }
-    </style>
-    
+    .artigos h2, .artigos h3 {
+        margin: 5px 5px 0 5px;
+        font-size: 14px;
+    }
 
-</head>
+    .artigos p {
+        margin: 10px 5px 5px 5px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .views {
+        font-size: 7px;
+        
+    }
+}
+</style>
+
+
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light"
-        style="margin: 0;color:white; background-color:#000044; font-size: 15px;">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links-menu"
-                    style="background-color: rgb(85, 81, 81);">
-                    <i class="material-icons">menu</i>
-                </button>
-            </div>
-            <nav id="links-menu" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../../index.html"><b>Voltar ao Inicio</b></a></li>
-                    <li><a href="../eventos.html"><b>Eventos</b></a></li>
-                    <li><a href="../../mapadobrasil.html"><b>Mapa</b></a></li>
-                    <li><a href="../info.html"><b>Informações Gerais</b></a></li>
-                    <li><a href="../sobre.html"><b>Contato</b></a></li>
-                </ul>
-            </nav>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light"
+style="margin: 0;color:white; background-color:#000044; font-size: 15px;">
+<div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links-menu"
+            style="background-color: rgb(85, 81, 81);">
+            <i class="material-icons">menu</i>
+        </button>
+    </div>
+    <nav id="links-menu" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="../../index.html"><b>Voltar ao Inicio</b></a></li>
+            <li><a href="../eventos.html"><b>Eventos</b></a></li>
+            <li><a href="../../mapadobrasil.html"><b>Mapa</b></a></li>
+            <li><a href="../info.html"><b>Informações Gerais</b></a></li>
+            <li><a href="../sobre.html"><b>Contato</b></a></li>
+        </ul>
     </nav>
+</div>
+</nav>
 </header>
 
-<body>
+
     <div id="text"><strong>Pesquisas publicadas pelos grupos de pesquisa no Amazonas</strong></div>
     <div style="text-align: center; margin: 20px;">
         <input type="text" id="search-input" placeholder="Buscar por título" style="padding: 10px; width: 300px;">

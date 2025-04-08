@@ -337,71 +337,7 @@
         </div>
     </div>
 
-    <script>
-        const supabaseUrl = 'https://ribvjcjogwukedhhkgbx.supabase.co';
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpYnZqY2pvZ3d1a2VkaGhrZ2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5Njk4MDMsImV4cCI6MjA1NjU0NTgwM30.152UN5yiJrWyHIeBnZjSmIhGargSRDTqs1BYF0qohwQ';
-        const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-        async function fetchData() {
-            let { data, error } = await _supabase
-                .from('information')
-                .select('*');
-
-            if (error) {
-                console.error('Error fetching data:', error);
-            } else {
-                populateCarousel(data);
-            }
-        }
-
-        function populateCarousel(items) {
-            const carouselContainer = document.getElementById('carousel-container');
-            items.forEach((item, index) => {
-                const carouselItem = document.createElement('div');
-                carouselItem.className = 'item';
-                if (index === 0) carouselItem.style.display = 'block'; // Show the first item by default
-                carouselItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}">
-                    <div class="carousel-caption">
-                        <p>${item.title}</p>
-                        <a href="${item.url}" target="_blank" class="carousel-link">Clique aqui para saber mais</a>
-                    </div>
-                `;
-                carouselContainer.insertBefore(carouselItem, carouselContainer.children[0]);
-            });
-        }
-
-        fetchData().then(() => {
-            let slideIndex = 0;
-            showSlides(slideIndex);
-
-            function moveSlide(n) {
-                showSlides(slideIndex += n);
-            }
-
-            function showSlides(n) {
-                let i;
-                let slides = document.getElementsByClassName("item");
-                if (n >= slides.length) { slideIndex = 0 }
-                if (n < 0) { slideIndex = slides.length - 1 }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                slides[slideIndex].style.display = "block";
-            }
-
-            function autoSlide() {
-                setInterval(() => {
-                    moveSlide(1);
-                }, 5000); // Change slide every 5 seconds
-            }
-
-            autoSlide();
-
-            // Attach moveSlide function to global scope for button onclick
-            window.moveSlide = moveSlide;
-        });
-    </script>
 
 
 
@@ -533,7 +469,7 @@
     </style>
         <div class="container2">
             <div class="base">
-                <img src="../Projeto_IntegradorII-2/imagens/img-imfor.jpg" alt="imagem inlustrativa" tabindex="0">
+                <img src="./imagens/img-imfor.jpg" alt="imagem inlustrativa" tabindex="0">
 
                 <p tabindex="0">O futebol é um esporte que tem ganhado cada vez mais a participação e destaque das mulheres. A
                     presença feminina nos campos de futebol tem quebrado barreiras e preconceitos, mostrando que o
@@ -766,85 +702,13 @@
 
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()" tabindex="0">&times;</span>
-        <img class="modal-content" id="img01">
+        <img class="modal-content" id="img01" alt="Imagem ampliada">
         <div id="caption"></div>
         <a class="prev" onclick="moveModal(-1)" tabindex="0">&#10094;</a>
         <a class="next" onclick="moveModal(1)" tabindex="0">&#10095;</a>
     </div>
 
-    <script>
-        let currentImgIndex = 0;
-        const images = [];
-
-        async function fetchImages() {
-            let { data, error } = await _supabase
-            .from('Imagensmural')
-            .select('*');
-
-            if (error) {
-            console.error('Error fetching images:', error);
-            } else {
-            populateCarousels(data);
-            }
-        }
-
-        function populateCarousels(items) {
-            const carousel1 = document.getElementById('carousel1');
-            const carousel2 = document.getElementById('carousel2');
-            items.forEach((item, index) => {
-            const imgElement = document.createElement('img');
-            imgElement.src = item.image;
-            imgElement.alt = item.title;
-            imgElement.onclick = () => openModal(imgElement);
-            images.push(imgElement);
-            if (index < 8) {
-                carousel1.appendChild(imgElement);
-            } else {
-                carousel2.appendChild(imgElement);
-            }
-            });
-        }
-
-        function openModal(element) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("img01");
-            var captionText = document.getElementById("caption");
-            modal.style.display = "block";
-            modalImg.src = element.src;
-            captionText.innerHTML = element.alt;
-            currentImgIndex = images.indexOf(element);
-        }
-
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
-
-        function moveModal(n) {
-            currentImgIndex += n;
-            if (currentImgIndex >= images.length) {
-            currentImgIndex = 0;
-            } else if (currentImgIndex < 0) {
-            currentImgIndex = images.length - 1;
-            }
-            var modalImg = document.getElementById("img01");
-            var captionText = document.getElementById("caption");
-            modalImg.src = images[currentImgIndex].src;
-            captionText.innerHTML = images[currentImgIndex].alt;
-        }
-
-        function showCarousel(n) {
-            document.getElementById('carousel1').style.display = n === 1 ? 'grid' : 'none';
-            document.getElementById('carousel2').style.display = n === 2 ? 'grid' : 'none';
-        }
-
-        fetchImages();
-
-    </script>
-
-
-
-
+    
 
 
     <!--////////////////////////////////////////footer///////////////////////////////////////////-->
@@ -953,6 +817,8 @@
             <a href="https://youtube.com/@parabolaifpa?si=vo5rNu4t3kIDI-jc"><img src="./imagens/youtube_2496113.png" alt="YouTube"></a>
         </div>
     </div>
+
+    <script type="module" src="./javascript/main.js"></script>
 
 </body>
 

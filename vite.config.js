@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite';
-import dotenv from 'dotenv';
+import ghPages from 'vite-plugin-gh-pages';
 
-dotenv.config();
 
 export default defineConfig({
-  server: {
-    port: 3000,
-  },
+  plugins: [ghPages()],
+  base: 'https://github.com/Thiagofcf10/Projeto_IntegradorII-2.git', // Caminho base para GitHub Pages
 });
+
+

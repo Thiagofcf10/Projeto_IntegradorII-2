@@ -3,11 +3,13 @@
     "version": "1.0.0",
     "description": "A simple TypeScript compiler example",
     "main": "index.js",
+    "homepage": "https://github.com/Thiagofcf10/Projeto_IntegradorII-2.git",
+    
     "scripts": {
         "build": "tsc",
         "dev": "vite",
-        "start": "vite preview"
-
+        "start": "vite preview",
+        "deploy": "gh-pages -d dist"
     },
     "dependencies": {
         "dotenv": "^16.4.7",
@@ -15,7 +17,8 @@
         "vite": "^6.2.5"
     },
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "vite-plugin-gh-pages": "^1.0.1"
+    }
 }
-
-

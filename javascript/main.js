@@ -1,14 +1,30 @@
 import { createClient } from '@supabase/supabase-js';
 
+const backendUrl = "https://backend-parabola.onrender.com";
+
+// Fazer uma solicitação GET:
+let _supabase;
+
+// Criar o cliente _supabase com os dados recebidos
+
+fetch(`${backendUrl}/api/credentials`)
+    .then(response => response.json())
+    .then(data => {
+        const { supabaseUrl, supabaseKey } = data;
+
+        // Criar o cliente _supabase com os dados recebidos
+        _supabase = createClient(supabaseUrl, supabaseKey);
+
+        // Chamar as funções que dependem de _supabase
+        fetchData();
+        fetchImages();
+    })
+    .catch(error => {
+        console.error("Erro na solicitação:", error);
+    });
+
+
 ////////////////////////////  caroucel  ///////////////////////////////////////// 
-
-
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
-
-const _supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-
 async function fetchData() {
     let { data, error } = await _supabase
         .from('information')

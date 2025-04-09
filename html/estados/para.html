@@ -232,30 +232,9 @@ style="margin: 0;color:white; background-color:#000044; font-size: 15px;">
     
 
     <script>
-import { createClient } from '@supabase/supabase-js';
-
-const backendUrl = "https://backend-parabola.onrender.com";
-
-// Fazer uma solicitação GET:
-let _supabase;
-
-// Criar o cliente _supabase com os dados recebidos
-
-fetch(`${backendUrl}/api/credentials`)
-    .then(response => response.json())
-    .then(data => {
-        const { supabaseUrl, supabaseKey } = data;
-
-        // Criar o cliente _supabase com os dados recebidos
-        _supabase = createClient(supabaseUrl, supabaseKey);
-
-        // Chamar as funções que dependem de _supabase
-        fetchData();
-        fetchImages();
-    })
-    .catch(error => {
-        console.error("Erro na solicitação:", error);
-    });
+        const supabaseUrl = 'https://ribvjcjogwukedhhkgbx.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpYnZqY2pvZ3d1a2VkaGhrZ2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5Njk4MDMsImV4cCI6MjA1NjU0NTgwM30.152UN5yiJrWyHIeBnZjSmIhGargSRDTqs1BYF0qohwQ';
+        const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
         document.addEventListener('DOMContentLoaded', async function () {
             const colorMap = {

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title> Projeto de Estagio </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
+</head>
+
+
+
+<body>
+
+    <!--////////////////////////////////vlibras///////////////////////////// -->
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
+    
+
+    <!--////////////////////////////////////////cabeçalho///////////////////////////////////////////-->
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    header {
+        color: rgb(0, 0, 0);
+        background-color: #fdd568;
+        font-size: 15px;
+        padding-top: 1vh;
+        width: 100vw;
+    }
+
+    #logo {
+        width: 100vw;
+        text-align: center;
+    }
+
+    #logo h1 {
+        font-size: 25px;
+        display: inline;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0 5vw 0 5vw;
+    }
+
+    #logo img {
+        height: 80px;
+        width: 100px;
+    }
+
+    .tex {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+
+    .barra_de_menus a {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        color: #000044;
+        text-decoration: none;
+    }
+
+    .barra_de_menus ul {
+        padding: 1.5vh 0 1.5vh 0;
+        background-color: #fdd568;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 10px;
+        list-style: none;
+    }
+
+    .barra_de_menus li {
+        border-radius: 4px;
+        background-color: #ffffff;
+        flex: 1 1 1;
+        width: 80px;
+        height: 35px;
+        align-content: center;
+        padding: 0 1vw 0 1vw;
+        box-shadow: #2b2b2b 3px 3px 3px;
+    }
+
+    .barra_de_menus li:hover {
+        background-color: #6866f0;
+    }
+
+    p {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    @media screen and (max-width: 640px) {
+        header {
+            font-size: 10px;
+        }
+
+        #logo h1 {
+            font-size: 15px;
+        }
+
+        #logo img {
+            height: 40px;
+            width: 60px;
+        }
+
+        .barra_de_menus ul {
+            gap: 3px;
+
+        }
+
+        .barra_de_menus li {
+            width: 70px;
+        }
+
+        .barra_de_menus a {
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .tex {
+            font-size: 17px;
+        }
+    }
+    @media screen and (max-width: 380px) {
+        header {
+            font-size: 10px;
+        }
+
+        #logo h1 {
+            font-size: 12px;
+        }
+
+        #logo img {
+            height: 30px;
+            width: 50px;
+        }
+
+        .barra_de_menus ul {
+            gap: 3px;
+
+        }
+
+        .barra_de_menus li {
+            width: 65px;
+        }
+
+        .barra_de_menus a {
+            font-size: 10px;
+            text-decoration: none;
+        }
+
+        .tex {
+            font-size: 17px;
+        }
+    }
+</style>
+
+
+<header>
+
+    <div id="logo">
+
+        <img src="/Projeto_IntegradorII-2/assets/logo-D01QVvuP.png">
+        <h1 tabindex="0">PORTAL DO FUTEBOL BRASIL</h1>
+        <img src="/Projeto_IntegradorII-2/assets/Instituto_Federal_do_Par%C3%A1_-_Marca_Vertical_2015-DKcfERza.svg">
+
+
+    </div>
+
+    <div class="barra_de_menus">
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li> <a href="./html/eventos.html">Eventos</a> </li>
+                <li><a href="./html/info.html">Informações Gerais</b></a> </li>
+                <li><a href="./html/sobre.html"> Contato </a></li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+
+
+    <!--////////////////////////////////Carrocel///////////////////////////// -->
+
+    <style>
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 550px;
+            text-align: center;
+        }
+
+        .container {
+            width: 89vw;
+            margin: 40px 5vw 0 5vw;
+            padding: 0;
+        }
+
+        .item {
+            display: none;
+            width: 100%;
+            height: auto;
+            position: relative;
+            margin: 0;
+        }
+
+        .item img {
+            width: 100%;
+            height: 270px; 
+            object-fit: cover; 
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 83, 18, 0.842);
+            color: rgb(255, 255, 255);
+            padding: 10px 0;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+            position: relative; 
+            bottom: 0;
+        }
+
+        .carousel-link {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 10px 20px;
+            background-color: #dbc548;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .carousel-link:hover {
+            background-color: #6866f0;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.9s ease-in-out;
+            user-select: none;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media screen and (max-width: 640px) {
+            .carousel {
+            max-width: 500px;
+           
+        }
+            .carousel-caption {
+                font-size: 12px;
+                padding: 5px 0;
+            }
+
+            .carousel-link {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+
+            .prev,
+            .next {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+        @media screen and (max-width: 390px) {
+            .carousel {
+            max-width: 400px;
+           
+        }
+            .carousel-caption {
+                font-size: 11px;
+                padding: 5px 0;
+            }
+
+            .carousel-link {
+                padding: 5px 10px;
+                font-size: 10px;
+            }
+
+            .prev,
+            .next {
+                padding: 10px;
+                font-size: 11px;
+            }
+        }
+    </style>
+    <h2 class="tex" tabindex="0">Topicos interessantes sobre o futebol</h2>
+
+    <div id="topico-nav">
+        <div class="container">
+            <div class="carousel" id="carousel-container">
+                <!-- Carousel items will be inserted here dynamically -->
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--////////////////////////////////////////corpo///////////////////////////////////////////-->
+
+    <style>
+        .container2 {
+            width: 90%;
+            margin: 40px 5vw 0 5vw;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .menu-noti {
+            width: 30%;
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .menu-noti ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu-noti li {
+            margin: 10px 0;
+        }
+
+        .menu-noti a {
+            display: block;
+            padding: 10px;
+            background-color: #78e074;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: #000000 2px 2px 5px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .menu-noti a:hover {
+            background-color: #6866f0;
+        }
+
+        .base {
+            width: 65%;
+    
+            border-radius: 5px;
+  
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .base img {
+            float: left;
+            margin:  2px 20px 20px 20px;
+            max-width: 100%;
+            width: 250px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .base p {
+            font-size: 23px;
+            text-align: justify;
+            margin: 0;
+            word-wrap: break-word;
+        }
+
+        @media screen and (max-width: 1085px) {
+            .base {
+                width: 100%;
+                float: none;
+            }
+
+            .menu-noti {
+                width: 100%;
+                float: none;
+                margin-top: 20px;
+            }
+
+            .menu-noti a {
+                font-size: 12px;
+            }
+
+            .base img {
+                margin:  1px 10px 10px 10px;
+                max-width: 100%;
+                width: 150px;
+                height: auto;
+            }
+
+            .base p {
+                font-size: 1em;
+                text-align: justify;
+            }
+        }
+
+        @media screen and (max-width: 685px) {
+            .base {
+                width: 100%;
+                float: none;
+            }
+
+            .menu-noti {
+                width: 100%;
+                float: none;
+                margin-top: 20px;
+            }
+
+            .menu-noti a {
+                font-size: 10px;
+            }
+
+            .base img {
+               
+                max-width: 100%;
+                width: 120px;
+                height: auto;
+            }
+
+            .base p {
+                font-size: auto;
+                text-align: justify;
+            }
+        }
+    </style>
+        <div class="container2">
+            <div class="base">
+                <img src="/Projeto_IntegradorII-2/assets/img-imfor-RYDvcn8Z.jpg" alt="imagem inlustrativa" tabindex="0">
+
+                <p tabindex="0">O futebol é um esporte que tem ganhado cada vez mais a participação e destaque das mulheres. A
+                    presença feminina nos campos de futebol tem quebrado barreiras e preconceitos, mostrando que o
+                    talento e a paixão pelo esporte não têm gênero. As mulheres têm conquistado espaço e respeito, tanto
+                    em competições nacionais quanto internacionais, inspirando novas gerações de atletas.</p>
+                <br>
+                <p tabindex="0">No Pará, o futebol é uma paixão que move multidões. O estado é conhecido por sua fervorosa torcida e
+                    por revelar grandes talentos que brilham nos gramados do Brasil e do mundo. Clubes tradicionais,
+                    como o Paysandu e o Remo, têm uma rica história e são pilares do futebol paraense, contribuindo para
+                    o desenvolvimento do esporte na região.</p>
+            </div>
+            <div class="menu-noti" >
+                <ul>
+                    <li><a href="./html/paginaadm.html">Perfil administradores</a></li>
+                    <li><a href="./mapadobrasil.html">Mapa de pesquisas</a></li>
+                    <li><a href="https://ifpa.edu.br/index.php">Portal do IFPA</a></li>
+                    <li><a href="./mapab.html">mapa2</a></li>
+                </ul>
+            </div>
+        </div>
+    
+
+    <!--////////////////////////////////////carrocel2//////////////////////////////-->
+
+    <style>
+        .carousel-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 19px;
+            justify-items: center;
+            align-items: center;
+            height: auto;
+            
+        }
+
+        .carousel-grid img {
+            width: 100%;
+            height: 100%;
+            max-width: 200px;
+            max-height: 150px;
+            border-radius: 5px;
+            border: #000044 solid 2px;
+            cursor: pointer;
+            box-shadow: #000044 3px 3px 3px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+            padding-top: 250px;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content,
+        #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        .container3 {
+            margin: 0 5vw 0 5vw;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+            transform: translateY(-50%);
+            margin: 0;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .carousel-nav button {
+            padding: 10px 20px;
+            background-color: #000044;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .carousel-nav button:hover {
+            background-color: #6866f0;
+        }
+
+        .tex2 {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media screen and (max-width: 1070px) {
+            .carousel-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 10px;
+                width: 100%;
+                height: auto;
+            }
+
+            .carousel-grid img {
+                max-width: 150px;
+                max-height: 100px;
+            }
+
+
+        }
+
+        @media screen and (max-width: 785px) {
+            .carousel-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                gap: 10px;
+                width: 100%;
+                height: auto;
+            }
+
+            .carousel-grid img {
+                max-width: 130px;
+                max-height: 80px;
+            }
+
+
+
+            .tex2 {
+                font-size: 17px;
+            }
+        }
+
+        @media screen and (max-width: 389px) {
+            .carousel-grid {
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(8, 1fr);
+                gap: 5px;
+                width: 100%;
+                height: auto;
+            }
+
+            .carousel-grid img {
+                max-width: 130px;
+                max-height: 80px;
+            }
+
+            .tex2 {
+                font-size: 17px;
+            }
+        }
+    </style>
+
+    <div class="container3">
+        <h2 class="tex2" tabindex="0">Mural de fotos</h2>
+        <div id="carousel1" class="carousel-grid" ></div>
+        <div id="carousel2" class="carousel-grid" style="display: none;"></div>
+
+        <div class="carousel-nav">
+            <button onclick="showCarousel(1)" >1</button>
+            <button onclick="showCarousel(2)" >2</button>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()" tabindex="0">&times;</span>
+        <img class="modal-content" id="img01" alt="Imagem ampliada">
+        <div id="caption"></div>
+        <a class="prev" onclick="moveModal(-1)" tabindex="0">&#10094;</a>
+        <a class="next" onclick="moveModal(1)" tabindex="0">&#10095;</a>
+    </div>
+
+    
+
+
+    <!--////////////////////////////////////////footer///////////////////////////////////////////-->
+    <style>
+        .footer {
+            background-color:#fdd568;
+            color: #000000;
+            padding: 40px 0;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .footer > div {
+            flex: 1 1 30%;
+            margin: 10px;
+        }
+
+        .footer .logo img {
+            height: 120px;
+            width: auto;
+        }
+
+        .footer .about {
+            text-align: center;
+        }
+
+        .footer .about p {
+            margin: 5px 0;
+            font-size: 14px;
+            text-align: justify;
+        }
+
+        .footer .about img {
+            height: 50px;
+            width: auto;
+            margin: 10px;
+        }
+
+        .footer .social-media h1 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer .social-media a img {
+            height: 40px;
+            width: auto;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .footer .social-media a img:hover {
+            transform: scale(1.1);
+        }
+
+        @media screen and (max-width: 940px) {
+            .footer {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .footer > div {
+                flex: 1 1 100%;
+                margin: 10px 0;
+            }
+
+            .footer .logo img,
+            .footer .about img,
+            .footer .social-media a img {
+                height: 40px;
+            }
+
+            .footer .about p {
+                font-size: 12px;
+               
+            }
+
+            .footer .social-media h1 {
+                font-size: 16px;
+            }
+        }
+    </style>
+   
+
+    <div class="footer">
+        <div class="logo">
+            <img src="/Projeto_IntegradorII-2/assets/brasil%20f%20logo2-CKrPOQRB.png" alt="Logo">
+        </div>
+        <div class="about">
+            <p tabindex="0">Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores, IFPA
+                Campus Tucuruí. Turma T325-6NH.</p>
+            <p tabindex="0">Responsáveis pelas atualizações e manutenção: Thiago Felipe, Marley Roberto, Talia Santos, Kaillane. Discentes
+                de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí. Turma T325-8NI.</p>
+            <img src="/Projeto_IntegradorII-2/assets/academ2-CLc1lU3M.png" alt="Academia">
+            <img src="/Projeto_IntegradorII-2/assets/logogov-CtLVEfms.png" alt="Governo">
+            <img src="/Projeto_IntegradorII-2/assets/ministr-Dl0Plhym.png" alt="Ministério">
+        </div>
+        <div class="social-media">
+            <h1 id="contat">Contatos de mídias sociais</h1>
+            <a href="https://www.facebook.com/share/1A7ETQFw2N/"><img src="data:image/png;base64,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" alt="Facebook"></a>
+            <a href="https://www.instagram.com/para.bola_aldeia.do.futebol?utm_source=qr&igsh=M2VsMHk1ajVvZmRh"><img src="/Projeto_IntegradorII-2/assets/instagram_2111463-VUFQ3l_n.png" alt="Instagram"></a>
+            <a href="https://youtube.com/@parabolaifpa?si=vo5rNu4t3kIDI-jc"><img src="/Projeto_IntegradorII-2/assets/youtube_2496113-CB2cAVzO.png" alt="YouTube"></a>
+        </div>
+    </div>
+
+    <script type="mudule" src="./javascript/main.js"></script>
+
+</body>
+
+</html>

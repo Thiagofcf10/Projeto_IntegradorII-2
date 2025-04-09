@@ -6,7 +6,7 @@
     "homepage": "https://github.com/Thiagofcf10/Projeto_IntegradorII-2.git",
     
     "scripts": {
-        "build": "tsc",
+        "build": "vite build",
         "dev": "vite",
         "start": "vite preview",
         "deploy": "gh-pages -d dist"

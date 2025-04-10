@@ -1,17 +1,253 @@
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-    <title> Projeto Integrador</title>
+    <title> Projeto de Estagio </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
 </head>
 
 
+
 <body>
+
+    <!--////////////////////////////////vlibras///////////////////////////// -->
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+        <!--////////////////////////////////cabeçalho///////////////////////////// -->
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    header {
+        color: rgb(0, 0, 0);
+        background-color: #fdd568;
+        font-size: 15px;
+        padding-top: 1vh;
+        width: 100vw;
+    }
+
+    #logo {
+        width: 100vw;
+        text-align: center;
+    }
+
+    #logo h1 {
+        font-size: 25px;
+        display: inline;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0 5vw 0 5vw;
+    }
+
+    #logo img {
+        height: 80px;
+        width: 100px;
+    }
+
+    .tex {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+
+    .barra_de_menus a {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        color: #000044;
+        text-decoration: none;
+    }
+
+    .barra_de_menus ul {
+        padding: 1.5vh 0 1.5vh 0;
+        background-color: #fdd568;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 10px;
+        list-style: none;
+    }
+
+    .barra_de_menus li {
+        border-radius: 4px;
+        background-color: #ffffff;
+        flex: 1 1 1;
+        width: 80px;
+        height: 35px;
+        align-content: center;
+        padding: 0 1vw 0 1vw;
+        box-shadow: #2b2b2b 3px 3px 3px;
+    }
+
+    .barra_de_menus li:hover {
+        background-color: #6866f0;
+    }
+
+    .tex1 {
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    p {
+        font-size: 20px;
+        margin: 0 10vw 0 10vw;
+        text-align: justify;
+    }
+
+
+    @media screen and (max-width: 640px) {
+        header {
+            font-size: 10px;
+        }
+
+        #logo h1 {
+            font-size: 15px;
+        }
+
+        #logo img {
+            height: 40px;
+            width: 60px;
+        }
+
+        .barra_de_menus ul {
+            gap: 3px;
+
+        }
+
+        .barra_de_menus li {
+            width: 70px;
+        }
+
+        .barra_de_menus a {
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .tex {
+            font-size: 17px;
+        }
+
+        .tex1 {
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p {
+            font-size: 15px;
+            margin: 0 5vw 0 5vw;
+            text-align: justify;
+        }
+
+        @media screen and (max-width: 380px) {
+            header {
+                font-size: 10px;
+            }
+
+            #logo h1 {
+                font-size: 12px;
+            }
+
+            #logo img {
+                height: 30px;
+                width: 50px;
+            }
+
+            .barra_de_menus ul {
+                gap: 3px;
+
+            }
+
+            .barra_de_menus li {
+                width: 65px;
+            }
+
+            .barra_de_menus a {
+                font-size: 10px;
+                text-decoration: none;
+            }
+
+            .tex {
+                font-size: 17px;
+            }
+        }
+    }
+</style>
+
+
+
+<header>
+
+    <div id="logo">
+
+        <img src="./imagens/logo.png">
+        <h1 tabindex="0">PORTAL DO FUTEBOL BRASIL</h1>
+        <img src="./imagens/Instituto_Federal_do_Pará_-_Marca_Vertical_2015.svg">
+
+
+    </div>
+
+    <div class="barra_de_menus">
+        <nav>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li> <a href="./html/eventos.html">Eventos</a> </li>
+                <li><a href="./html/info.html">Informações Gerais</b></a> </li>
+                <li><a href="./html/sobre.html"> Contato </a></li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+
+
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .button-container button {
+            background-color: #fdd568;
+            color: #000044;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button-container button:hover {
+            background-color: #e0c050;
+            transform: scale(1.05);
+        }
+
+
+    </style>
+
+    <div class="button-container">
+        <button id="mapa1-btn" type="button" onclick="window.location.href='./mapadobrasil.html'">Mapa Artigos</button>
+        <button id="mapa2-btn" type="button" onclick="window.location.href='./mapa2.html'">Mapa Grupos de Pesquisas</button></div>
+  </div>
+
+
     <style>
         .tex1 {
                 text-align: center;
@@ -301,63 +537,147 @@
                         fill="#FFFFF" style="user-select: none;">DF</text></a>
 
                         <!--localização dos grupos de pesquisas-->
+                        <image x="539" y="267" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploSalvador" onclick="openModal('exemploSalvador');" /> <!-- Salvador -->
+                        <image x="506" y="270" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCruzdeMalta" onclick="openModal('exemploCruzdeMalta');" /> <!-- Cruz de Malta -->
+                        <image x="523" y="245" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploFeiradeSantana" onclick="openModal('exemploFeiradeSantana');" /> <!-- Feira de Santana -->
+                        <image x="377" y="314" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploGoiania" onclick="openModal('exemploGoiania');" /> <!-- Goiânia -->
+                        <image x="443" y="110" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploSaoLuisUFMA" onclick="openModal('exemploSaoLuisUFMA');" /> <!-- São Luís (UFMA) -->
+                        <image x="472" y="120" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploSAOLUIs" onclick="openModal('exemploSAOLUIs');" /> <!-- São Luís (UEMA) -->
+                        <image x="288" y="298" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCuiaba" onclick="openModal('exemploCuiaba');" /> <!-- Cuiabá -->
+                        <image x="453" y="399" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploVicosa" onclick="openModal('exemploVicosa');" /> <!-- Viçosa -->
+                        <image x="476" y="395" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploJuizdeFora" onclick="openModal('exemploJuizdeFora');" /> <!-- Juiz de Fora -->
+                        <image x="469" y="366" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploBeloHorizonte" onclick="openModal('exemploBeloHorizonte');" /> <!-- Belo Horizonte -->
+                        <image x="372" y="477" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCuritiba" onclick="openModal('exemploCuritiba');" /> <!-- Curitiba (UFPR) -->
+                        <image x="330" y="437" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploMaringa" onclick="openModal('exemploMaringa');" /> <!-- Maringá -->
+                        <image x="383" y="471" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCuritibaUTF" onclick="openModal('exemploCuritibaUTF');" /> <!-- Curitiba (UTFPR) -->
+                        <image x="600" y="207" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploRecife" onclick="openModal('exemploRecife');" /> <!-- Recife (UFPE) -->
+                        <image x="475" y="430" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploRiodejaneiro" onclick="openModal('exemploRiodejaneiro');" /> <!-- Rio de Janeiro (UFRJ) -->
+                        <image x="500" y="407" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCampos" onclick="openModal('exemploCampos');" /> <!-- Campos Goytacazes (UNIFLU) -->
+                        <image x="357" y="541" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploSaoLeopoldo" onclick="openModal('exemploSaoLeopoldo');" /> <!-- São Leopoldo (UNISINUS) -->
+                        <image x="339" y="552" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploPorto" onclick="openModal('exemploPorto');" /> <!-- Porto Alegre (UFRGS) -->
+                        <image x="381" y="510" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploflorianopolis" onclick="openModal('exemploflorianopolis');" /> <!-- Florianópolis (UFSC) -->
+                        <image x="355" y="418" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploPresidente" onclick="openModal('exemploPresidente');" /> <!-- Presidente Prudente (UNESP) -->
+                        <image x="415" y="442" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploPiracicaba" onclick="openModal('exemploPiracicaba');" /> <!-- Piracicaba (UNIMEP) -->
+                        <image x="435" y="440" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCampinas" onclick="openModal('exemploCampinas');" /> <!-- Campinas (UNICAMP) -->
+                        <image x="400" y="408" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCarlos" onclick="openModal('exemploCarlos');" /> <!-- São Carlos (UFSCar) -->  
+            </svg>
+        
+        <style>
+         .modalg {
+             display: none;
+             position: fixed;
+             top: 10%;
+             left: 50%;
+             transform: translateX(-50%);
+             z-index: 1050;
+             background: white;
+             border-radius: 10px;
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+             width: 80%;
+             max-width: 500px;
+             padding: 20px;
+         }
 
+         .modal-header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             border-bottom: 1px solid #ddd;
+             padding-bottom: 10px;
+         }
 
-                        
-                        <image x="539" y="267" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploSalvador" /> <!-- Salvador -->
-                        <image x="506" y="270" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCruzdeMalta" /> <!-- Cruz de Malta -->
-                        <image x="523" y="245" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploFeiradeSantana" /> <!-- Feira de Santana -->
-                        <image x="377" y="314" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploGoiania" /> <!-- Goiânia -->
-                        <image x="443" y="110" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploSaoLuisUFMA" /> <!-- São Luís (UFMA) -->
-                        <image x="472" y="120" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploSAOLUIs" /> <!-- São Luís (UEMA) -->
-                        <image x="288" y="298" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCuiaba" /> <!-- Cuiabá -->
-                        <image x="453" y="399" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploVicosa" /> <!-- Viçosa -->
-                        <image x="476" y="395" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploJuizdeFora" /> <!-- Juiz de Fora -->
-                        <image x="469" y="366" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploBeloHorizonte" /> <!-- Belo Horizonte -->
-                        <image x="372" y="477" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCuritiba" /> <!-- Curitiba (UFPR) -->
-                        <image x="330" y="437" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploMaringa" /> <!-- Maringá -->
-                        <image x="383" y="471" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCuritibaUTF" /> <!-- Curitiba (UTFPR) -->
-                        <image x="600" y="207" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploRecife" /> <!-- Recife (UFPE) -->
-                        <image x="475" y="430" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploRiodejaneiro" /> <!-- Rio de Janeiro (UFRJ) -->
-                        <image x="500" y="407" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCampos" /> <!-- Campos Goytacazes (UNIFLU) -->
-                        <image x="357" y="541" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploSaoLeopoldo" /> <!-- São Leopoldo (UNISINUS) -->
-                        <image x="339" y="552" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploPorto" /> <!-- Porto Alegre (UFRGS) -->
-                        <image x="381" y="510" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploflorianopolis" /> <!-- Florianópolis (UFSC) -->
-                        <image x="355" y="418" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploPresidente" /> <!-- Presidente Prudente (UNESP) -->
-                        <image x="415" y="442" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploPiracicaba" /> <!-- Piracicaba (UNIMEP) -->
-                        <image x="435" y="440" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCampinas" /> <!-- Campinas (UNICAMP) -->
-                        <image x="400" y="408" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCarlos" /> <!-- São Carlos (UFSCar) -->
-                    </svg>
+         .modal-header h2 {
+             margin: 0;
+             font-size: 1.5rem;
+         }
 
+         .modal-header .close {
+             background: none;
+             border: none;
+             font-size: 1.5rem;
+             cursor: pointer;
+             color: #333;
+         }
 
-                    
-        <!-- Modal Salvador -->
-        <div class="modal fade" id="exemploSalvador" tabindex="-1" role="dialog" aria-labelledby="exemploSalvador" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
+         .modal-header .close:hover {
+             color: #ff0000;
+         }
+
+         .modal-body {
+             margin-top: 15px;
+             font-size: 1rem;
+             line-height: 1.5;
+         }
+         .modal-body a {
+             display: inline-block;
+             background-color: #007bff;
+             color: #fff;
+             text-decoration: none;
+             font-weight: bold;
+             padding: 7px 12px;
+             border-radius: 5px;
+             text-align: center;
+             transition: background-color 0.3s ease;
+         }
+
+         .modal-body a:hover {
+             background-color: #0056b3;
+             text-decoration: none;
+         }
+</style>
+
+<script>
+// Função para abrir o modal
+function openModal(modalId) {
+    // Fecha qualquer modal que esteja aberto
+    const modals = document.querySelectorAll('.modalg');
+    modals.forEach(modal => {
+        modal.style.display = 'none';
+    });
+
+    // Abre o modal selecionado
+    const selectedModal = document.getElementById(modalId);
+    if (selectedModal) {
+        selectedModal.style.display = 'block';
+    }
+}
+
+// Função para fechar o modal
+function closeModal() {
+    const modals = document.querySelectorAll('.modalg');
+    modals.forEach(modal => {
+        modal.style.display = 'none';
+    });
+}
+</script>
+
+<!-- Modal Salvador -->
+<div class="modalg" id="exemploSalvador" tabindex="-1" role="dialog" aria-labelledby="exemploSalvador" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
                 <h2 class="modal-title" id="exemploSalvador">Salvador</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                </div>
-                <div class="modal-body">
+            </div>
+            <div class="modal-body">
                 <h5 tabindex="0"> Instituição: UNIVERSIDADE FEDERAL DA BAHIA - UFBA/Salvador - BA</h5>
                 Grupo de pesquisa: CORPO (Cotidiano, Resgate, Pesquisa e Orientação)
                 <br>
-                <a href=" https://faced.ufba.br/grupos-de-pesquisa/corpo" target="_parent" > Clique aqui para saber mais sobre o grupo </a>
-                </div>
-            </div>
+                <a href="https://faced.ufba.br/grupos-de-pesquisa/corpo" target="_parent"> Clique aqui para saber mais sobre o grupo </a>
             </div>
         </div>
+    </div>
+</div>
     
         <!-- Modal Cruz de Malta -->
-        <div class="modal fade" id="exemploCruzdeMalta" tabindex="-1" role="dialog" aria-labelledby="exemploCruzdeMalta" aria-hidden="true">
+        <div class="modalg" id="exemploCruzdeMalta" tabindex="-1" role="dialog" aria-labelledby="exemploCruzdeMalta" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploCruzdeMalta">Cruz de Malta</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()" >
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -374,12 +694,12 @@
         </div>
     
         <!-- Modal Feira de Santana -->
-        <div class="modal fade" id="exemploFeiradeSantana" tabindex="-1" role="dialog" aria-labelledby="exemploFeiradeSantana" aria-hidden="true">
+        <div class="modalg" id="exemploFeiradeSantana" tabindex="-1" role="dialog" aria-labelledby="exemploFeiradeSantana" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploFeiradeSantana">Feira de Santana</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -396,12 +716,12 @@
         </div>
     
         <!-- Modal Goiânia -->
-        <div class="modal fade" id="exemploGoiania" tabindex="-1" role="dialog" aria-labelledby="exemploGoiania" aria-hidden="true">
+        <div class="modalg" id="exemploGoiania" tabindex="-1" role="dialog" aria-labelledby="exemploGoiania" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploGoiania">Goiânia</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -417,12 +737,12 @@
         </div>
     
         <!-- Modal São Luis -->
-        <div class="modal fade" id="exemploSaoLuisUFMA" tabindex="-1" role="dialog" aria-labelledby="exemploSaoLuisUFMA" aria-hidden="true">
+        <div class="modalg" id="exemploSaoLuisUFMA" tabindex="-1" role="dialog" aria-labelledby="exemploSaoLuisUFMA" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploSaoLuisUFMA">UFMA</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -445,12 +765,12 @@
         </div>
     
         <!-- Modal São Luis -->
-        <div class="modal fade" id="exemploSAOLUIs" tabindex="-1" role="dialog" aria-labelledby="exemploSAOLUIs" aria-hidden="true">
+        <div class="modalg" id="exemploSAOLUIs" tabindex="-1" role="dialog" aria-labelledby="exemploSAOLUIs" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploSAOLUIs">UEMA</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -468,12 +788,12 @@
         </div>
     
         <!-- Modal CUIABA -->
-        <div class="modal fade" id="exemploCuiaba" tabindex="-1" role="dialog" aria-labelledby="exemploCuiaba" aria-hidden="true">
+        <div class="modalg" id="exemploCuiaba" tabindex="-1" role="dialog" aria-labelledby="exemploCuiaba" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploCuiaba">CUIABA</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -491,12 +811,12 @@
         </div>
     
         <!-- Modal Juiz de Fora -->
-        <div class="modal fade" id="exemploJuizdeFora" tabindex="-1" role="dialog" aria-labelledby="exemploJuizdeFora" aria-hidden="true">
+        <div class="modalg" id="exemploJuizdeFora" tabindex="-1" role="dialog" aria-labelledby="exemploJuizdeFora" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploJuizdeFora">JUIZ DE FORA</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -514,12 +834,12 @@
         </div>
     
         <!-- Modal Belo Horizonte -->
-        <div class="modal fade" id="exemploBeloHorizonte" tabindex="-1" role="dialog" aria-labelledby="exemploBeloHorizonte" aria-hidden="true">
+        <div class="modalg" id="exemploBeloHorizonte" tabindex="-1" role="dialog" aria-labelledby="exemploBeloHorizonte" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploBeloHorizonte"> Belo Horizonte </h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
                        <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -555,12 +875,12 @@
         </div>
     
         <!-- Modal Curitiba -->
-        <div class="modal fade" id="exemploCuritiba" tabindex="-1" role="dialog" aria-labelledby="exemploCuritiba" aria-hidden="true">
+        <div class="modalg" id="exemploCuritiba" tabindex="-1" role="dialog" aria-labelledby="exemploCuritiba" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploCuritiba"> Curitiba</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -578,12 +898,12 @@
             </div>
         </div>
         <!-- Modal Viçosa -->
-        <div class="modal fade" id="exemploVicosa" tabindex="-1" role="dialog" aria-labelledby="exemploVicosa" aria-hidden="true">
+        <div class="modalg" id="exemploVicosa" tabindex="-1" role="dialog" aria-labelledby="exemploVicosa" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploVicosa"> Visoça</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -603,12 +923,12 @@
         </div>   
   
         <!-- Modal Maringa -->
-        <div class="modal fade" id="exemploMaringa" tabindex="-1" role="dialog" aria-labelledby="exemploMaringa" aria-hidden="true">
+        <div class="modalg" id="exemploMaringa" tabindex="-1" role="dialog" aria-labelledby="exemploMaringa" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploMaringa"> Maringá</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -625,12 +945,12 @@
         </div>
     
         <!-- Modal Curitiba UTFPR -->
-        <div class="modal fade" id="exemploCuritibaUTF" tabindex="-1" role="dialog" aria-labelledby="exemploCuritibaUTF" aria-hidden="true">
+        <div class="modalg" id="exemploCuritibaUTF" tabindex="-1" role="dialog" aria-labelledby="exemploCuritibaUTF" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exemploCuritibaUTF"> Curitiba UTF</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -646,12 +966,12 @@
         </div>
     
         <!-- Modal Recife -->
-        <div class="modal fade" id="exemploRecife" tabindex="-1" role="dialog" aria-labelledby="exemploRecife" aria-hidden="true">
+        <div class="modalg" id="exemploRecife" tabindex="-1" role="dialog" aria-labelledby="exemploRecife" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploRecife"> Recife </h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
                   <span aria-hidden="true">&times;</span>
                 </button>
                     </div>
@@ -671,12 +991,12 @@
         </div>
     
         <!-- Modal Rio de Janeiro -->
-        <div class="modal fade" id="exemploRiodejaneiro" tabindex="-1" role="dialog" aria-labelledby="exemploRiodejaneiro" aria-hidden="true">
+        <div class="modalg" id="exemploRiodejaneiro" tabindex="-1" role="dialog" aria-labelledby="exemploRiodejaneiro" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploRiodejaneiro"> Rio de Janeiro </h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -704,12 +1024,12 @@
     
     
         <!-- Modal Campos de Goytacazes -->
-        <div class="modal fade" id="exemploCampos" tabindex="-1" role="dialog" aria-labelledby="exemploCampos" aria-hidden="true">
+        <div class="modalg" id="exemploCampos" tabindex="-1" role="dialog" aria-labelledby="exemploCampos" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploCampos"> Campos de Goytacazes </h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -726,12 +1046,12 @@
         </div>
     
         <!-- Modal São Leopoldo -->
-        <div class="modal fade" id="exemploSaoLeopoldo" tabindex="-1" role="dialog" aria-labelledby="exemploSaoLeopoldo" aria-hidden="true">
+        <div class="modalg" id="exemploSaoLeopoldo" tabindex="-1" role="dialog" aria-labelledby="exemploSaoLeopoldo" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploSaoLeopoldo"> São Leopoldo </h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -747,12 +1067,12 @@
         </div>
     
         <!-- Modal Porto Alegre -->
-        <div class="modal fade" id="exemploPorto" tabindex="-1" role="dialog" aria-labelledby="exemploPorto" aria-hidden="true">
+        <div class="modalg" id="exemploPorto" tabindex="-1" role="dialog" aria-labelledby="exemploPorto" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploPorto"> Porto Alegre </h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
                   <span aria-hidden="true">&times;</span>
                 </button>
                     </div>
@@ -768,12 +1088,12 @@
         </div>
     
         <!-- Modal Florianopólis -->
-        <div class="modal fade" id="exemploflorianopolis" tabindex="-1" role="dialog" aria-labelledby="exemploflorianopolis" aria-hidden="true">
+        <div class="modalg" id="exemploflorianopolis" tabindex="-1" role="dialog" aria-labelledby="exemploflorianopolis" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploflorianopolis"> Florianopólis </h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -793,12 +1113,12 @@
         </div>
     
         <!-- Modal Presidente Prudente -->
-        <div class="modal fade" id="exemploPresidente" tabindex="-1" role="dialog" aria-labelledby="exemploPresidente" aria-hidden="true">
+        <div class="modalg" id="exemploPresidente" tabindex="-1" role="dialog" aria-labelledby="exemploPresidente" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploPresidente"> Presidente Prudente </h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -819,12 +1139,12 @@
         </div>
     
         <!-- Modal Piracicaba -->
-        <div class="modal fade" id="exemploPiracicaba" tabindex="-1" role="dialog" aria-labelledby="exemploPiracicaba" aria-hidden="true">
+        <div class="modalg" id="exemploPiracicaba" tabindex="-1" role="dialog" aria-labelledby="exemploPiracicaba" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exemploPiracicaba"> Piracicaba </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -841,12 +1161,12 @@
         </div>
     
         <!-- Modal Campinas -->
-        <div class="modal fade" id="exemploCampinas" tabindex="-1" role="dialog" aria-labelledby="exemploCampinas" aria-hidden="true">
+        <div class="modalg" id="exemploCampinas" tabindex="-1" role="dialog" aria-labelledby="exemploCampinas" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exemploCampinas"> Campinas </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -865,12 +1185,12 @@
         </div>
     
         <!-- Modal São Carlos -->
-        <div class="modal fade" id="exemploCarlos" tabindex="-1" role="dialog" aria-labelledby="exemploCarlos" aria-hidden="true">
+        <div class="modalg" id="exemploCarlos" tabindex="-1" role="dialog" aria-labelledby="exemploCarlos" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="exemploCarlos"> São Carlos </h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
@@ -885,14 +1205,121 @@
                 </div>
             </div>
         </div>
-</div> 
+
+
+
+<style>
+    .footer {
+        background-color: #fdd568;
+        color: #000000;
+        padding: 40px 0;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .footer>div {
+        flex: 1 1 30%;
+        margin: 10px;
+    }
+
+    .footer .logo img {
+        height: 120px;
+        width: auto;
+    }
+
+    .footer .about {
+        text-align: center;
+    }
+
+    .footer .about p {
+        margin: 5px 0;
+        font-size: 14px;
+        text-align: justify;
+    }
+
+    .footer .about img {
+        height: 50px;
+        width: auto;
+        margin: 10px;
+    }
+
+    .footer .social-media h1 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .footer .social-media a img {
+        height: 40px;
+        width: auto;
+        margin: 0 10px;
+        transition: transform 0.3s;
+    }
+
+    .footer .social-media a img:hover {
+        transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 940px) {
+        .footer {
+            flex-direction: column;
+            padding: 20px 0;
+        }
+
+        .footer>div {
+            flex: 1 1 100%;
+            margin: 10px 0;
+        }
+
+        .footer .logo img,
+        .footer .about img,
+        .footer .social-media a img {
+            height: 40px;
+        }
+
+        .footer .about p {
+            font-size: 12px;
+
+        }
+
+        .footer .social-media h1 {
+            font-size: 16px;
+        }
+    }
+</style>
+
+<div class="footer">
+    <div class="logo">
+        <img src="./imagens/brasil f logo2.png" alt="Logo">
+    </div>
+    <div class="about">
+        <p tabindex="0">Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores,
+            IFPA
+            Campus Tucuruí. Turma T325-6NH.</p>
+        <p tabindex="0">Responsáveis pelas atualizações e manutenção: Thiago Felipe, Marley Roberto, Talia Santos, Kaillane.
+            Discentes
+            de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí. Turma T325-8NI.</p>
+        <img src="./imagens/academ2.png" alt="Academia">
+        <img src="./imagens/logogov.png" alt="Governo">
+        <img src="./imagens/ministr.png" alt="Ministério">
+    </div>
+    <div class="social-media">
+        <h1 id="contat">Contatos de mídias sociais</h1>
+        <a href="https://www.facebook.com/share/1A7ETQFw2N/"><img src="./imagens/facebook_2496095.png"
+                alt="Facebook"></a>
+        <a href="https://www.instagram.com/para.bola_aldeia.do.futebol?utm_source=qr&igsh=M2VsMHk1ajVvZmRh"><img
+                src="./imagens/instagram_2111463.png" alt="Instagram"></a>
+        <a href="https://youtube.com/@parabolaifpa?si=vo5rNu4t3kIDI-jc"><img src="./imagens/youtube_2496113.png"
+                alt="YouTube"></a>
+    </div>
 </div>
 
-    
-                 
-
-
-
 </body>
+
+
 
 </html>

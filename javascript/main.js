@@ -5,9 +5,6 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 
 const _supabase = createClient(supabaseUrl, supabaseKey);
 
-console.log('Supabase URL:', _supabase);
-
-
 
 ////////////////////////////  caroucel  ///////////////////////////////////////// 
 async function fetchData() {

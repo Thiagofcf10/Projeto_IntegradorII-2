@@ -14,17 +14,18 @@
 <body>
 
     <!--////////////////////////////////vlibras///////////////////////////// -->
-
     <div vw class="enabled">
-        <div vw-access-button class="active"></div>
+        <div vw-access-button class="active" style="height: 100%; position: relative;">
+            <img src="https://vlibras.gov.br/assets/img/vlibras-icon.png" alt="VLibras" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+        </div>
         <div vw-plugin-wrapper>
           <div class="vw-plugin-top-wrapper"></div>
         </div>
-      </div>
-      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-      <script>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
-      </script>
+    </script>
     
 
     <!--////////////////////////////////////////cabeçalho///////////////////////////////////////////-->
@@ -200,73 +201,88 @@
         .carousel {
             position: relative;
             overflow: hidden;
-            margin: 0 auto;
+            margin: 20px auto;
             width: 100%;
-            max-width: 550px;
+            max-width: 950px;
             text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .container {
-            width: 89vw;
-            margin: 40px 5vw 0 5vw;
+            width: 100%;
+            margin: 0;
             padding: 0;
         }
 
         .item {
             display: none;
             width: 100%;
-            height: auto;
             position: relative;
             margin: 0;
+            max-height: 440px;
         }
 
         .item img {
             width: 100%;
-            height: 270px; 
-            object-fit: cover; 
+            height: 100%;
+            object-fit: cover;
+            margin: 0;
+            padding: 0;
         }
 
         .carousel-caption {
-            background-color: rgba(0, 83, 18, 0.842);
-            color: rgb(255, 255, 255);
-            padding: 10px 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            background-color: rgba(1, 87, 5, 0.9);
+            color: #ffffff;
+            padding: 15px;
             border-radius: 5px;
-            width: 100%;
+            width: 95%;
             text-align: center;
-            margin: 0 auto;
-            position: relative; 
-            bottom: 0;
+            margin: 10px auto;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .carousel-link {
             display: inline-block;
-            margin-top: 5px;
+            margin-top: 10px;
             padding: 10px 20px;
-            background-color: #dbc548;
-            color: rgb(0, 0, 0);
+            background-color: #fdd568;
+            color: #000000;
             text-decoration: none;
             border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
 
         .carousel-link:hover {
             background-color: #6866f0;
+            color: #ffffff;
         }
 
         .prev,
         .next {
             cursor: pointer;
+            position: absolute;
             top: 50%;
-            width: auto;
-            padding: 16px;
-            color: rgb(255, 255, 255);
+            width: 40px;
+            height: 40px;
+            color: #ffffff;
             font-weight: bold;
             font-size: 18px;
-            transition: 0.9s ease-in-out;
+            transition: background-color 0.3s ease;
             user-select: none;
             transform: translateY(-50%);
             background-color: rgba(0, 0, 0, 0.5);
             border: none;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .prev {
@@ -282,49 +298,61 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
-        @media screen and (max-width: 640px) {
+        @media screen and (max-width: 768px) {
             .carousel {
-            max-width: 500px;
-           
-        }
+                max-width: 600px;
+            }
+
+            .item img {
+                height: 250px;
+            }
+
             .carousel-caption {
-                font-size: 12px;
-                padding: 5px 0;
+                font-size: 14px;
+                padding: 10px;
             }
 
             .carousel-link {
-                padding: 5px 10px;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .prev,
+            .next {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .carousel {
+                max-width: 100%;
+            }
+
+            .item img {
+                height: 200px;
+            }
+
+            .carousel-caption {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .carousel-link {
+                padding: 6px 12px;
                 font-size: 12px;
             }
 
             .prev,
             .next {
-                padding: 10px;
+                width: 30px;
+                height: 30px;
                 font-size: 14px;
             }
         }
-        @media screen and (max-width: 390px) {
-            .carousel {
-            max-width: 400px;
-           
-        }
-            .carousel-caption {
-                font-size: 11px;
-                padding: 5px 0;
-            }
-
-            .carousel-link {
-                padding: 5px 10px;
-                font-size: 10px;
-            }
-
-            .prev,
-            .next {
-                padding: 10px;
-                font-size: 11px;
-            }
-        }
     </style>
+    
     <h2 class="tex" tabindex="0">Topicos interessantes sobre o futebol</h2>
 
     <div id="topico-nav">
@@ -346,17 +374,19 @@
     <style>
         .container2 {
             width: 90%;
-            margin: 40px 5vw 0 5vw;
+            margin: 40px auto;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
         }
 
         .menu-noti {
-            width: 30%;
+            width: 100%;
+            max-width: 400px;
             border-radius: 5px;
             padding: 10px;
             box-sizing: border-box;
+            margin-top: 20px;
         }
 
         .menu-noti ul {
@@ -385,97 +415,80 @@
         }
 
         .base {
-            width: 65%;
-    
+            width: 60%;
+            display: flex;
+            align-items: center;
             border-radius: 5px;
-  
             padding: 10px;
             box-sizing: border-box;
+            text-align: center;
+            gap: 20px;
+            
         }
 
-        .base img {
-            float: left;
-            margin:  2px 20px 20px 20px;
+         img {
+            margin: 20px 0;
             max-width: 100%;
-            width: 250px;
+            width: 280px;
             height: auto;
             border-radius: 5px;
         }
 
         .base p {
-            font-size: 23px;
+            font-size:22px;
             text-align: justify;
-            margin: 0;
+            margin: 20px 0;
             word-wrap: break-word;
+            
+           
         }
 
         @media screen and (max-width: 1085px) {
             .base {
-                width: 100%;
-                float: none;
+            width: 90%;
+            
+        }
+             img {
+                width: 150px;
             }
 
-            .menu-noti {
-                width: 100%;
-                float: none;
-                margin-top: 20px;
+            .base p {
+                font-size: 1em;
             }
 
             .menu-noti a {
                 font-size: 12px;
             }
-
-            .base img {
-                margin:  1px 10px 10px 10px;
-                max-width: 100%;
-                width: 150px;
-                height: auto;
-            }
-
-            .base p {
-                font-size: 1em;
-                text-align: justify;
-            }
         }
 
         @media screen and (max-width: 685px) {
+
             .base {
-                width: 100%;
-                float: none;
+            width: 95%;
+            
+        }
+             img {
+                width: 120px;
             }
 
-            .menu-noti {
-                width: 100%;
-                float: none;
-                margin-top: 20px;
+            .base p {
+                font-size: 0.9em;
             }
 
             .menu-noti a {
                 font-size: 10px;
             }
-
-            .base img {
-               
-                max-width: 100%;
-                width: 120px;
-                height: auto;
-            }
-
-            .base p {
-                font-size: auto;
-                text-align: justify;
-            }
         }
     </style>
         <div class="container2">
+            <img src="./imagens/img-imfor.jpg" alt="imagem inlustrativa" tabindex="0">
             <div class="base">
-                <img src="./imagens/img-imfor.jpg" alt="imagem inlustrativa" tabindex="0">
-
+                
                 <p tabindex="0">O futebol é um esporte que tem ganhado cada vez mais a participação e destaque das mulheres. A
                     presença feminina nos campos de futebol tem quebrado barreiras e preconceitos, mostrando que o
                     talento e a paixão pelo esporte não têm gênero. As mulheres têm conquistado espaço e respeito, tanto
                     em competições nacionais quanto internacionais, inspirando novas gerações de atletas.</p>
-                <br>
+               
                 <p tabindex="0">No Pará, o futebol é uma paixão que move multidões. O estado é conhecido por sua fervorosa torcida e
                     por revelar grandes talentos que brilham nos gramados do Brasil e do mundo. Clubes tradicionais,
                     como o Paysandu e o Remo, têm uma rica história e são pilares do futebol paraense, contribuindo para
@@ -499,11 +512,10 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(2, 1fr);
-            gap: 19px;
+            gap: 5px; /* Reduced gap for smaller spacing */
             justify-items: center;
             align-items: center;
             height: auto;
-            
         }
 
         .carousel-grid img {
@@ -545,7 +557,7 @@
         }
 
         .container3 {
-            margin: 0 5vw 0 5vw;
+            margin: 5vh 15vw 10vh 15vw;
         }
 
         @keyframes zoom {
@@ -635,7 +647,7 @@
             .carousel-grid {
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(3, 1fr);
-                gap: 10px;
+                gap: 4px; /* Reduced gap for smaller spacing */
                 width: 100%;
                 height: auto;
             }
@@ -644,36 +656,13 @@
                 max-width: 150px;
                 max-height: 100px;
             }
-
-
         }
 
         @media screen and (max-width: 785px) {
             .carousel-grid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(4, 1fr);
-                gap: 10px;
-                width: 100%;
-                height: auto;
-            }
-
-            .carousel-grid img {
-                max-width: 130px;
-                max-height: 80px;
-            }
-
-
-
-            .tex2 {
-                font-size: 17px;
-            }
-        }
-
-        @media screen and (max-width: 389px) {
-            .carousel-grid {
-                grid-template-columns: repeat(1, 1fr);
-                grid-template-rows: repeat(8, 1fr);
-                gap: 5px;
+                gap: 3px; /* Reduced gap for smaller spacing */
                 width: 100%;
                 height: auto;
             }
@@ -818,7 +807,7 @@
         </div>
     </div>
 
-    <script  src="./javascript/main.js"></script>
+    <script src="./javascript/main.js"></script>
 
 </body>
 

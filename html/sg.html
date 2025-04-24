@@ -1,0 +1,403 @@
+<html>
+<head>
+    <title>SG</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+
+<body>
+
+    <!--////////////////////////////////vlibras///////////////////////////// -->
+    <div vw class="enabled">
+        <div vw-access-button class="active" style="height: 100%; position: relative;">
+            <img src="https://vlibras.gov.br/assets/img/vlibras-icon.png" alt="VLibras" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+        </div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    
+
+    <!--////////////////////////////////////////cabeçalho///////////////////////////////////////////-->
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    header {
+        color: rgb(0, 0, 0);
+        background-color: #fdd568;
+        font-size: 15px;
+        padding-top: 1vh;
+        width: 100vw;
+    }
+
+    #logo {
+        width: 100vw;
+        text-align: center;
+    }
+
+    #logo h1 {
+        font-size: 25px;
+        display: inline;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0 5vw 0 5vw;
+    }
+
+    #logo img {
+        height: 80px;
+        width: 100px;
+    }
+
+    .tex {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+
+    .barra_de_menus a {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        color: #000044;
+        text-decoration: none;
+    }
+
+    .barra_de_menus ul {
+        padding: 1.5vh 0 1.5vh 0;
+        background-color: #fdd568;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 10px;
+        list-style: none;
+    }
+
+    .barra_de_menus li {
+        border-radius: 4px;
+        background-color: #ffffff;
+        flex: 1 1 1;
+        width: 80px;
+        height: 35px;
+        align-content: center;
+        padding: 0 1vw 0 1vw;
+        box-shadow: #2b2b2b 3px 3px 3px;
+    }
+
+    .barra_de_menus li:hover {
+        background-color: #6866f0;
+    }
+
+    p {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    @media screen and (max-width: 640px) {
+        header {
+            font-size: 10px;
+        }
+
+        #logo h1 {
+            font-size: 15px;
+        }
+
+        #logo img {
+            height: 40px;
+            width: 60px;
+        }
+
+        .barra_de_menus ul {
+            gap: 3px;
+
+        }
+
+        .barra_de_menus li {
+            width: 70px;
+        }
+
+        .barra_de_menus a {
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .tex {
+            font-size: 17px;
+        }
+    }
+    @media screen and (max-width: 380px) {
+        header {
+            font-size: 10px;
+        }
+
+        #logo h1 {
+            font-size: 12px;
+        }
+
+        #logo img {
+            height: 30px;
+            width: 50px;
+        }
+
+        .barra_de_menus ul {
+            gap: 3px;
+
+        }
+
+        .barra_de_menus li {
+            width: 65px;
+        }
+
+        .barra_de_menus a {
+            font-size: 10px;
+            text-decoration: none;
+        }
+
+        .tex {
+            font-size: 17px;
+        }
+    }
+</style>
+
+
+<header>
+
+    <div id="logo">
+
+        <img src="../imagens/logo.png">
+        <h1 tabindex="0">PORTAL DO FUTEBOL BRASIL</h1>
+        <img src="../imagens/Instituto_Federal_do_Pará_-_Marca_Vertical_2015.svg">
+
+
+    </div>
+
+    <div class="barra_de_menus">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li> <a href="../html/eventos.html">Eventos</a> </li>
+                <li><a href="../html/info.html">Informações Gerais</b></a> </li>
+                <li><a href="../html/sobre.html"> Contato </a></li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+
+    <!--////////////////////////////////////////corpo///////////////////////////////////////////-->
+
+    <style>
+        .tutorial-container {
+            width: 90%;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .tutorial-step {
+            width: 60%;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            gap: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .tutorial-step img {
+            max-width: 100%;
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .tutorial-step p {
+            font-size: 18px;
+            text-align: justify;
+            margin: 0;
+            word-wrap: break-word;
+            color: #333;
+        }
+
+        .tutorial-link {
+            font-size: 18px;
+            color: #0056b3;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .tutorial-link:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 1085px) {
+            .tutorial-step {
+                width: 90%;
+            }
+
+            .tutorial-step img {
+                width: 150px;
+            }
+
+            .tutorial-step p {
+                font-size: 16px;
+            }
+        }
+
+        @media screen and (max-width: 685px) {
+            .tutorial-step {
+                width: 95%;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .tutorial-step img {
+                width: 120px;
+            }
+
+            .tutorial-step p {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+    <div class="tutorial-container">
+        <div class="tutorial-step">
+            <img src="../imagens/icons8-gmail-novo-48.png" alt="Ilustração de artigo" tabindex="0">
+            <p tabindex="0">Para compartilhar artigos e divulgar grupos de pesquisa, envie um e-mail com sua sugestão para <strong>estagioparabola@gmail.com</strong>.</p>
+        </div>
+        <div class="tutorial-step">
+            <img src="../imagens/gmail.png" alt="Ícone do Gmail" tabindex="0">
+            <p tabindex="0">Por favor, inclua todas as informações relevantes, como o título do artigo, nome do autor, ano de publicação e instituição. Para grupos de pesquisa, forneça o nome do grupo, instituição, estado ou região de atuação.</p>
+        </div>
+        <div class="tutorial-step">
+            <img src="../imagens/icons8-enviar-e-mail-48.png" alt="Exemplo de e-mail" tabindex="0">
+            <p tabindex="0">Após preencher as informações, clique em "Enviar". Seu e-mail será avaliado pela nossa equipe.</p>
+        </div>
+        <div class="tutorial-step">
+            <img src="../imagens/icons8-artigo.gif" alt="Ícone de envio de e-mail" tabindex="0">
+            <p tabindex="0">Caso deseje sugerir um artigo próprio, entre em contato diretamente com um dos organizadores através da página de contatos.</p>
+        </div>
+        <a href="sobre.html" class="tutorial-link" tabindex="0">Acesse a página de contato</a>
+    </div>
+
+    <style>
+        .footer {
+            background-color:#fdd568;
+            color: #000000;
+            padding: 40px 0;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 40px;
+        }
+    
+        .footer > div {
+            flex: 1 1 30%;
+            margin: 10px;
+        }
+    
+        .footer .logo img {
+            height: 120px;
+            width: auto;
+        }
+    
+        .footer .about {
+            text-align: center;
+        }
+    
+        .footer .about p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    
+        .footer .about img {
+            height: 50px;
+            width: auto;
+            margin: 10px;
+        }
+    
+        .footer .social-media h1 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    
+        .footer .social-media a img {
+            height: 40px;
+            width: auto;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+    
+        .footer .social-media a img:hover {
+            transform: scale(1.1);
+        }
+    
+        @media screen and (max-width: 960px) {
+            .footer {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+    
+            .footer > div {
+                flex: 1 1 100%;
+                margin: 10px 0;
+            }
+    
+            .footer .logo img,
+            .footer .about img,
+            .footer .social-media a img {
+                height: 40px;
+            }
+    
+            .footer .about p {
+                font-size: 12px;
+            }
+    
+            .footer .social-media h1 {
+                font-size: 16px;
+            }
+        }
+    </style>
+    
+    
+        <div class="footer">
+            <div class="logo">
+                <img src="../imagens/brasil f logo2.png" alt="Logo">
+            </div>
+            <div class="about">
+                <p>Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores,
+                    IFPA
+                    Campus Tucuruí. Turma T325-6NH.</p>
+                <p>Responsáveis pelas atualizações e manutenção: Thiago Felipe, Marley Roberto, Talia Santos, Kaillane.
+                    Discentes
+                    de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí. Turma T325-8NI.</p>
+                <img src="../imagens/academ2.png" alt="Academia">
+                <img src="../imagens/logogov.png" alt="Governo">
+                <img src="../imagens/ministr.png" alt="Ministério">
+            </div>
+            <div class="social-media">
+                <h1 id="contat">Contatos de mídias sociais</h1>
+                <a href="https://www.facebook.com/share/1A7ETQFw2N/"><img src="../imagens/facebook_2496095.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/para.bola_aldeia.do.futebol?utm_source=qr&igsh=M2VsMHk1ajVvZmRh"><img src="../imagens/instagram_2111463.png" alt="Instagram"></a>
+                <a href="https://youtube.com/@parabolaifpa?si=vo5rNu4t3kIDI-jc"><img src="../imagens/youtube_2496113.png" alt="YouTube"></a>
+            </div>
+        </div>
+    
+    </body>
+
+</html>

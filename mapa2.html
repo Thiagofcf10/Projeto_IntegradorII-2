@@ -537,6 +537,7 @@
                         fill="#FFFFF" style="user-select: none;">DF</text></a>
 
                         <!--localização dos grupos de pesquisas-->
+                        <image x="349" y="56" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploSalvador" onclick="openModal('exemplomacapa');" /> <!-- macapa -->
                         <image x="539" y="267" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploSalvador" onclick="openModal('exemploSalvador');" /> <!-- Salvador -->
                         <image x="506" y="270" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCruzdeMalta" onclick="openModal('exemploCruzdeMalta');" /> <!-- Cruz de Malta -->
                         <image x="523" y="245" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploFeiradeSantana" onclick="openModal('exemploFeiradeSantana');" /> <!-- Feira de Santana -->
@@ -561,95 +562,140 @@
                         <image x="435" y="440" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCampinas" onclick="openModal('exemploCampinas');" /> <!-- Campinas (UNICAMP) -->
                         <image x="400" y="408" a href="./imagens/location.ico" data-toggle="modal" data-target="#exemploCarlos" onclick="openModal('exemploCarlos');" /> <!-- São Carlos (UFSCar) -->  
             </svg>
-        
         <style>
-         .modalg {
-             display: none;
-             position: fixed;
-             top: 10%;
-             left: 50%;
-             transform: translateX(-50%);
-             z-index: 1050;
-             background: white;
-             border-radius: 10px;
-             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-             width: 80%;
-             max-width: 500px;
-             padding: 20px;
-         }
+            .modalg {
+                display: none;
+                position: fixed;
+                top: 10%;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1050;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                width: 80%;
+                max-width: 500px;
+                padding: 20px;
+            }
 
-         .modal-header {
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             border-bottom: 1px solid #ddd;
-             padding-bottom: 10px;
-         }
+            .modal-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 10px;
+            }
 
-         .modal-header h2 {
-             margin: 0;
-             font-size: 1.5rem;
-         }
+            .modal-header h2 {
+                margin: 0;
+                font-size: 1.5rem;
+            }
 
-         .modal-header .close {
-             background: none;
-             border: none;
-             font-size: 1.5rem;
-             cursor: pointer;
-             color: #333;
-         }
+            .modal-header .close {
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: #333;
+            }
 
-         .modal-header .close:hover {
-             color: #ff0000;
-         }
+            .modal-header .close:hover {
+                color: #ff0000;
+            }
 
-         .modal-body {
-             margin-top: 15px;
-             font-size: 1rem;
-             line-height: 1.5;
-         }
-         .modal-body a {
-             display: inline-block;
-             background-color: #007bff;
-             color: #fff;
-             text-decoration: none;
-             font-weight: bold;
-             padding: 7px 12px;
-             border-radius: 5px;
-             text-align: center;
-             transition: background-color 0.3s ease;
-         }
+            .modal-body {
+                margin-top: 15px;
+                font-size: 1rem;
+                line-height: 1.5;
+            }
 
-         .modal-body a:hover {
-             background-color: #0056b3;
-             text-decoration: none;
-         }
+            .modal-body a {
+                display: inline-block;
+                background-color: #007bff;
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 7px 12px;
+                border-radius: 5px;
+                text-align: center;
+                transition: background-color 0.3s ease;
+            }
+
+            .modal-body a:hover {
+                background-color: #0056b3;
+                text-decoration: none;
+            }
+
+            .modal-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 1040;
+            }
 </style>
-
 <script>
-// Função para abrir o modal
-function openModal(modalId) {
-    // Fecha qualquer modal que esteja aberto
-    const modals = document.querySelectorAll('.modalg');
-    modals.forEach(modal => {
-        modal.style.display = 'none';
-    });
+    // Função para abrir o modal
+    function openModal(modalId) {
+        // Fecha qualquer modal que esteja aberto
+        const modals = document.querySelectorAll('.modalg');
+        modals.forEach(modal => {
+            modal.style.display = 'none';
+        });
 
-    // Abre o modal selecionado
-    const selectedModal = document.getElementById(modalId);
-    if (selectedModal) {
-        selectedModal.style.display = 'block';
+        // Mostra o overlay de fundo
+        const overlay = document.querySelector('.modal-overlay');
+        if (overlay) {
+            overlay.style.display = 'block';
+        }
+
+        // Abre o modal selecionado
+        const selectedModal = document.getElementById(modalId);
+        if (selectedModal) {
+            selectedModal.style.display = 'block';
+        }
     }
-}
 
-// Função para fechar o modal
-function closeModal() {
-    const modals = document.querySelectorAll('.modalg');
-    modals.forEach(modal => {
-        modal.style.display = 'none';
-    });
-}
+    // Função para fechar o modal
+    function closeModal() {
+        const modals = document.querySelectorAll('.modalg');
+        modals.forEach(modal => {
+            modal.style.display = 'none';
+        });
+
+        // Esconde o overlay de fundo
+        const overlay = document.querySelector('.modal-overlay');
+        if (overlay) {
+            overlay.style.display = 'none';
+        }
+    }
 </script>
+
+<div class="modal-overlay" onclick="closeModal()"></div>
+
+
+<!-- Modal Macapá -->
+<div class="modalg" id="exemplomacapa" tabindex="-1" role="dialog" aria-labelledby="exemplomacapa" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exemplomacapa">Macapá</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 tabindex="0"> A UNIFAP (Universidade Federal do Amapá) - AP</h5>
+                Grupo de pesquisa: UNIFAP
+                <br>
+                <a href="https://www.unifap.br/educando-atraves-do-esporte-realiza-selecao-de-novos-alunos-para-aulas-de-futebol-de-campo/" target="_parent"> Clique aqui para saber mais sobre o grupo </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Modal Salvador -->
 <div class="modalg" id="exemploSalvador" tabindex="-1" role="dialog" aria-labelledby="exemploSalvador" aria-hidden="true">

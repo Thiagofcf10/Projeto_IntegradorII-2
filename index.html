@@ -38,27 +38,32 @@
 
     header {
         color: rgb(0, 0, 0);
-        background-color: #fdd568;
+        background-color: #02754ff3;
         font-size: 15px;
         padding-top: 1vh;
         width: 100vw;
+        
     }
 
     #logo {
-        width: 100vw;
-        text-align: center;
+        width: 100vw; 
+        display: flex;
+        gap: 120px;
+        justify-content: center;
     }
 
     #logo h1 {
         font-size: 25px;
         display: inline;
         font-family: Arial, Helvetica, sans-serif;
-        margin: 0 5vw 0 5vw;
+        align-content: center;
+        
+        
     }
 
     #logo img {
-        height: 80px;
-        width: 100px;
+        height: 120px;
+        width: 140px;
     }
 
     .tex {
@@ -75,7 +80,6 @@
 
     .barra_de_menus ul {
         padding: 1.5vh 0 1.5vh 0;
-        background-color: #fdd568;
         display: flex;
         text-align: center;
         justify-content: center;
@@ -108,6 +112,10 @@
             font-size: 10px;
         }
 
+        #logo {
+            gap: 0px;
+        }
+
         #logo h1 {
             font-size: 15px;
         }
@@ -138,6 +146,11 @@
     @media screen and (max-width: 380px) {
         header {
             font-size: 10px;
+        }
+
+        
+        #logo {
+            gap: 0px;
         }
 
         #logo h1 {
@@ -703,7 +716,7 @@
     <!--////////////////////////////////////////footer///////////////////////////////////////////-->
     <style>
         .footer {
-            background-color:#fdd568;
+            background-color:#02754ff3;
             color: #000000;
             padding: 40px 0;
             text-align: center;
@@ -791,10 +804,6 @@
             <img src="./imagens/brasil f logo2.png" alt="Logo">
         </div>
         <div class="about">
-            <p tabindex="0">Desenvolvido por: Betânia, Caroline, Geise e Tânia. Discentes de Tecnologia em Redes de Computadores, IFPA
-                Campus Tucuruí. Turma T325-6NH.</p>
-            <p tabindex="0">Responsáveis pelas atualizações e manutenção: Thiago Felipe, Marley Roberto, Talia Santos, Kaillane. Discentes
-                de Tecnologia em Redes de Computadores, IFPA Campus Tucuruí. Turma T325-8NI.</p>
             <img src="./imagens/academ2.png" alt="Academia">
             <img src="./imagens/logogov.png" alt="Governo">
             <img src="./imagens/ministr.png" alt="Ministério">

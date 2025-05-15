@@ -34,7 +34,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background:  #f6f88b;
+    background:  #d2eed3;
     display: flex;
     flex-direction: column;
 }
@@ -194,7 +194,7 @@ html, body {
 
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light"
-style="margin: 0;color:white; background-color:#39b38af3; font-size: 15px;">
+style="margin: 0;color:white; background-color:#5de474f3; font-size: 15px;">
 <div class="container">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links-menu"
@@ -328,60 +328,84 @@ style="margin: 0;color:white; background-color:#39b38af3; font-size: 15px;">
     
 <style>
     .footer {
-        background-color: #39b38af3;
-        color: white;
-        padding: 20px;
+        background-color:#5de474f3;
+        color: #000000;
+        padding: 40px 0;
         text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .footer > div {
+        flex: 1 1 30%;
+        margin: 10px;
     }
 
     .footer .logo img {
-        width: 100px;
-        height: auto;
+        height: 120px;
+        width: auto;
     }
 
     .footer .about {
-        margin: 20px 0;
+        text-align: center;
     }
 
     .footer .about p {
         margin: 5px 0;
+        font-size: 14px;
+        text-align: justify;
     }
 
     .footer .about img {
-        width: 50px;
-        height: auto;
-        margin: 0 10px;
-    }
-
-    .footer .social-media {
-        margin: 20px 0;
+        height: 100px;
+        width: auto;
+        margin: 10px;
     }
 
     .footer .social-media h1 {
-        font-size: 18px;
+        font-size: 14px;
         margin-bottom: 10px;
     }
 
-    .footer .social-media a {
+    .footer .social-media a img {
+        height: 40px;
+        width: auto;
         margin: 0 10px;
+        transition: transform 0.3s;
     }
 
-    .footer .social-media img {
-        width: 30px;
-        height: auto;
+    .footer .social-media a img:hover {
+        transform: scale(1.1);
     }
 
-    @media (max-width: 768px) {
-        .footer .logo img {
-            width: 80px;
+    @media screen and (max-width: 940px) {
+        .footer {
+            flex-direction: column;
+            padding: 20px 0;
         }
 
-        .footer .about img {
-            width: 40px;
+        .footer > div {
+            flex: 1 1 100%;
+            margin: 10px 0;
         }
 
-        .footer .social-media img {
-            width: 25px;
+        .footer .logo img,
+        .footer .about img,
+        .footer .social-media a img {
+            height: 40px;
+        }
+
+        .footer .about p {
+            font-size: 12px;
+           
+        }
+
+        .footer .social-media h1 {
+            font-size: 16px;
         }
     }
 </style>
@@ -394,7 +418,7 @@ style="margin: 0;color:white; background-color:#39b38af3; font-size: 15px;">
     <div class="about">
         <img src="../../imagens/academ2.png" alt="Academia">
         <img src="../../imagens/logogov.png" alt="Governo">
-        <img src="../../imagens/ministr.png" alt="Ministério">
+
     </div>
     <div class="social-media">
         <h1 id="contat">Contatos de mídias sociais</h1>

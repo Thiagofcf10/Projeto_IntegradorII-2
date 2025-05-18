@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 
@@ -38,7 +39,7 @@
 
     header {
         color: rgb(0, 0, 0);
-        background-color: #5de474f3;
+        background-color: #90eea0f3;
         font-size: 15px;
         padding-top: 1vh;
         width: 100vw;
@@ -716,93 +717,154 @@
 
 
     <!--////////////////////////////////////////footer///////////////////////////////////////////-->
-    <style>
+   <style>
+    .footer {
+        background-color: #90eea0f3;
+        color: #000000;
+        padding: 40px 0;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 40px;
+        gap: 20px;
+    }
+
+    .footer > div {
+        flex: 1 1 70px;
+        margin: 10px;
+    }
+
+    .footer .logo img {
+        height: 120px;
+        width: auto;
+        max-width: 100%;
+    }
+
+    .footer .about {
+        text-align: center;
+    }
+
+    .footer .about img {
+        height: 100px;
+        width: auto;
+        margin: 10px;
+        max-width: 100%;
+    }
+
+    .footer .social-media h1 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .footer .social-media a img {
+        height: 40px;
+        width: auto;
+        margin: 0 10px;
+        transition: transform 0.3s;
+        max-width: 100%;
+    }
+
+    .footer .social-media a img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Botão Voltar ao Topo fixo */
+    .top-button {
+        position: fixed;
+        left: 30px;
+        bottom: 30px;
+        z-index: 1000;
+        background: #a0fffff3;
+        color: #000;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        cursor: pointer;
+        transition: background 0.3s;
+        font-size: 32px;
+    }
+    .top-button:hover {
+        background: #03a8f1;
+        color: #fff;
+    }
+
+    @media (max-width: 940px) {
         .footer {
-            background-color:#5de474f3;
-            color: #000000;
-            padding: 40px 0;
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 40px;
+            flex-direction: column;
+            padding: 20px 10px;
+            gap: 10px;
         }
-
         .footer > div {
-            flex: 1 1 30%;
-            margin: 10px;
+            margin: 0;
         }
-
         .footer .logo img {
-            height: 120px;
-            width: auto;
-        }
-
-        .footer .about {
-            text-align: center;
-        }
-
-        .footer .about p {
-            margin: 5px 0;
-            font-size: 14px;
-            text-align: justify;
-        }
-
-        .footer .about img {
             height: 100px;
-            width: auto;
-            margin: 10px;
         }
-
+        .footer .about img {
+            height: 60px;
+            margin: 0;
+        }
         .footer .social-media h1 {
-            font-size: 14px;
-            margin-bottom: 10px;
+            font-size: 15px;
         }
-
         .footer .social-media a img {
+            height: 30px;
+            margin: 0;
+        }
+        .top-button {
+            left: 15px;
+            bottom: 15px;
+            width: 40px;
             height: 40px;
-            width: auto;
-            margin: 0 10px;
-            transition: transform 0.3s;
+            font-size: 24px;
         }
+    }
 
-        .footer .social-media a img:hover {
-            transform: scale(1.1);
+    @media (max-width: 600px) {
+        .footer {
+            flex-direction: column;
+            padding: 15px 5px;
+            gap: 5px;
         }
-
-        @media screen and (max-width: 940px) {
-            .footer {
-                flex-direction: column;
-                padding: 20px 0;
-            }
-
-            .footer > div {
-                flex: 1 1 100%;
-                margin: 10px 0;
-            }
-
-            .footer .logo img,
-            .footer .about img,
-            .footer .social-media a img {
-                height: 40px;
-            }
-
-            .footer .about p {
-                font-size: 12px;
-               
-            }
-
-            .footer .social-media h1 {
-                font-size: 16px;
-            }
+        .footer .logo img {
+            height: 70px;
         }
+        .footer .about img {
+            height: 40px;
+        }
+        .footer .social-media h1 {
+            font-size: 13px;
+        }
+        .footer .social-media a img {
+            height: 22px;
+            margin: 0 3px;
+        }
+        .top-button {
+            left: 8px;
+            bottom: 8px;
+            width: 32px;
+            height: 32px;
+            font-size: 18px;
+        }
+    }
     </style>
    
 
     <div class="footer">
         <div class="logo">
+
+                    <a href="#top" style="text-decoration: none; color: #000;">
+            <div class="top-button">
+                <i class="material-icons">arrow_upward</i>
+            </div>
+
             <img src="./imagens/brasil f logo2.png" alt="Logo">
         </div>
         <div class="about">

@@ -194,7 +194,7 @@ html, body {
 
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light"
-style="margin: 0;color:white; background-color:#5de474f3; font-size: 15px;">
+style="margin: 0;color:white; background-color:#90eea0f3; font-size: 15px;">
 <div class="container">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links-menu"
@@ -230,7 +230,6 @@ style="margin: 0;color:white; background-color:#5de474f3; font-size: 15px;">
     <div id="no-articles-message" style="text-align: center; display: none; margin-top: 20px; font-size: 18px; color: #ff0000;">Nenhum artigo encontrado.</div>
     <div class="tabela-art" id="tabela-art"></div>
     
-
     <script>
         const supabaseUrl = 'https://ribvjcjogwukedhhkgbx.supabase.co';
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpYnZqY2pvZ3d1a2VkaGhrZ2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5Njk4MDMsImV4cCI6MjA1NjU0NTgwM30.152UN5yiJrWyHIeBnZjSmIhGargSRDTqs1BYF0qohwQ';
@@ -259,15 +258,21 @@ style="margin: 0;color:white; background-color:#5de474f3; font-size: 15px;">
                     return;
                 }
 
+                // Ordena os artigos: Mestrado, Doutorado, Revista
+                const orderMap = { 'Mestrado': 1, 'Doutorado': 2, 'Revista': 3 };
+                const sortedData = (data || []).slice().sort((a, b) => {
+                    return (orderMap[a.stateContent] || 99) - (orderMap[b.stateContent] || 99);
+                });
+
                 const tabelaArt = document.getElementById('tabela-art');
                 tabelaArt.innerHTML = '';
 
-                if (data.length === 0) {
+                if (sortedData.length === 0) {
                     document.getElementById('no-articles-message').style.display = 'block';
                 } else {
                     document.getElementById('no-articles-message').style.display = 'none';
-                    data.forEach(artigo => {
-                        const firstLetter = artigo.stateContent.charAt(0.2).toUpperCase();
+                    sortedData.forEach(artigo => {
+                        const firstLetter = artigo.stateContent.charAt(0).toUpperCase();
                         const color = colorMap[firstLetter] || '#03a8f1';
 
                         const artigoDiv = document.createElement('div');
@@ -280,7 +285,7 @@ style="margin: 0;color:white; background-color:#5de474f3; font-size: 15px;">
                             <p tabindex="0">autores</p>
                             <h3 tabindex="0">${artigo.stateAuthors}</h3>
                             <p tabindex="0">Instituto</p>
-                            <h3 tabindex="0">${artigo.stateInstitution}</h3>
+                            <h3 tabindex="0" >${artigo.stateInstitution}</h3>
                             <a href="${artigo.stateButtonUrl}" class="view-article" data-id="${artigo.id}">ler artigo</a>
                             <div class="logos">
                                 <img src="../../imagens/logogov.png" alt="Logo 1">
@@ -326,9 +331,9 @@ style="margin: 0;color:white; background-color:#5de474f3; font-size: 15px;">
     </script>
 
     
-<style>
+    <style>
     .footer {
-        background-color:#5de474f3;
+        background-color: #90eea0f3;
         color: #000000;
         padding: 40px 0;
         text-align: center;
@@ -338,36 +343,33 @@ style="margin: 0;color:white; background-color:#5de474f3; font-size: 15px;">
         justify-content: space-around;
         align-items: center;
         margin-top: 40px;
+        gap: 20px;
     }
 
     .footer > div {
-        flex: 1 1 30%;
+        flex: 1 1 70px;
         margin: 10px;
     }
 
     .footer .logo img {
         height: 120px;
         width: auto;
+        max-width: 100%;
     }
 
     .footer .about {
         text-align: center;
     }
 
-    .footer .about p {
-        margin: 5px 0;
-        font-size: 14px;
-        text-align: justify;
-    }
-
     .footer .about img {
         height: 100px;
         width: auto;
         margin: 10px;
+        max-width: 100%;
     }
 
     .footer .social-media h1 {
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 10px;
     }
 
@@ -376,58 +378,120 @@ style="margin: 0;color:white; background-color:#5de474f3; font-size: 15px;">
         width: auto;
         margin: 0 10px;
         transition: transform 0.3s;
+        max-width: 100%;
     }
 
     .footer .social-media a img:hover {
         transform: scale(1.1);
     }
 
-    @media screen and (max-width: 940px) {
+    /* Botão Voltar ao Topo fixo */
+    .top-button {
+        position: fixed;
+        left: 30px;
+        bottom: 30px;
+        z-index: 1000;
+        background: #a0fffff3;
+        color: #000;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        cursor: pointer;
+        transition: background 0.3s;
+        font-size: 32px;
+    }
+    .top-button:hover {
+        background: #03a8f1;
+        color: #fff;
+    }
+
+    @media (max-width: 940px) {
         .footer {
             flex-direction: column;
-            padding: 20px 0;
+            padding: 20px 10px;
+            gap: 10px;
         }
-
         .footer > div {
-            flex: 1 1 100%;
-            margin: 10px 0;
+            margin: 0;
         }
-
-        .footer .logo img,
-        .footer .about img,
-        .footer .social-media a img {
-            height: 40px;
+        .footer .logo img {
+            height: 100px;
         }
-
-        .footer .about p {
-            font-size: 12px;
-           
+        .footer .about img {
+            height: 60px;
+            margin: 0;
         }
-
         .footer .social-media h1 {
-            font-size: 16px;
+            font-size: 15px;
+        }
+        .footer .social-media a img {
+            height: 30px;
+            margin: 0;
+        }
+        .top-button {
+            left: 15px;
+            bottom: 15px;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
         }
     }
-</style>
 
+    @media (max-width: 600px) {
+        .footer {
+            flex-direction: column;
+            padding: 15px 5px;
+            gap: 5px;
+        }
+        .footer .logo img {
+            height: 70px;
+        }
+        .footer .about img {
+            height: 40px;
+        }
+        .footer .social-media h1 {
+            font-size: 13px;
+        }
+        .footer .social-media a img {
+            height: 22px;
+            margin: 0 3px;
+        }
+        .top-button {
+            left: 8px;
+            bottom: 8px;
+            width: 32px;
+            height: 32px;
+            font-size: 18px;
+        }
+    }
+    </style>
+   
 
-<div class="footer">
-    <div class="logo">
-        <img src="../../imagens/brasil f logo2.png" alt="Logo">
+    <div class="footer">
+        <div class="logo">
+
+                    <a href="#top" style="text-decoration: none; color: #000;">
+            <div class="top-button">
+                <i class="material-icons">arrow_upward</i>
+            </div>
+
+            <img src="../../imagens/brasil f logo2.png" alt="Logo">
+        </div>
+        <div class="about">
+            <img src="../../imagens/academ2.png" alt="Academia">
+            <img src="../../imagens/logogov.png" alt="Governo">
+        </div>
+        <div class="social-media">
+            <h1 id="contat">Contatos de mídias sociais</h1>
+            <a href="https://www.facebook.com/share/1A7ETQFw2N/"><img src="../../imagens/facebook_2496095.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/para.bola_aldeia.do.futebol?utm_source=qr&igsh=M2VsMHk1ajVvZmRh"><img src="../../imagens/instagram_2111463.png" alt="Instagram"></a>
+            <a href="https://youtube.com/@parabolaifpa?si=vo5rNu4t3kIDI-jc"><img src="../../imagens/youtube_2496113.png" alt="YouTube"></a>
+        </div>
     </div>
-    <div class="about">
-        <img src="../../imagens/academ2.png" alt="Academia">
-        <img src="../../imagens/logogov.png" alt="Governo">
-
-    </div>
-    <div class="social-media">
-        <h1 id="contat">Contatos de mídias sociais</h1>
-        <a href="https://www.facebook.com/share/1A7ETQFw2N/"><img src="../../imagens/facebook_2496095.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/para.bola_aldeia.do.futebol?utm_source=qr&igsh=M2VsMHk1ajVvZmRh"><img src="../../imagens/instagram_2111463.png" alt="Instagram"></a>
-        <a href="https://youtube.com/@parabolaifpa?si=vo5rNu4t3kIDI-jc"><img src="../../imagens/youtube_2496113.png" alt="YouTube"></a>
-    </div>
-</div>
-
  
 
 

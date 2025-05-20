@@ -43,7 +43,6 @@
         font-size: 15px;
         padding-top: 1vh;
         width: 100vw;
-        
     }
 
     #logo {
@@ -58,8 +57,6 @@
         display: inline;
         font-family: Arial, Helvetica, sans-serif;
         align-content: center;
-        
-        
     }
 
     #logo img {
@@ -72,12 +69,25 @@
         text-align: center;
     }
 
-    .barra_de_menus a {
+    .barra_de_menus button {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
         font-size:larger ;
         color: #000044;
+        background: none;
+        border: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        cursor: pointer;
         text-decoration: none;
+        border-radius: 4px;
+        background-color: #ffffff;
+        box-shadow: #2b2b2b 3px 3px 3px;
+        transition: background-color 0.2s;
     }
 
     .barra_de_menus ul {
@@ -91,18 +101,17 @@
 
     .barra_de_menus li {
         border-radius: 4px;
-        background-color: #ffffff;
+        background-color: transparent;
         flex: 1 1 1;
         width: 150px;
         height: 45px;
         align-content: center;
         padding: 0 1vw 0 1vw;
-        box-shadow: #2b2b2b 3px 3px 3px;
-        
     }
 
-    .barra_de_menus li:hover {
+    .barra_de_menus button:hover {
         background-color: #6866f0;
+        color: #fff;
     }
 
     p {
@@ -112,38 +121,37 @@
 
     @media screen and (max-width: 640px) {
         header {
-            font-size: 10px;
+            font-size: 11px;
         }
 
         #logo {
-            gap: 0px;
+            gap: 10px;
         }
 
         #logo h1 {
-            font-size: 15px;
+            font-size: 17px;
         }
 
         #logo img {
-            height: 40px;
-            width: 60px;
+            height: 55px;
+            width: 70px;
         }
 
         .barra_de_menus ul {
             gap: 3px;
-
         }
 
         .barra_de_menus li {
-            width: 70px;
+            width: 95px;
+            height: 38px;
         }
 
-        .barra_de_menus a {
-            font-size: 12px;
-            text-decoration: none;
+        .barra_de_menus button {
+            font-size: 11px;
         }
 
         .tex {
-            font-size: 17px;
+            font-size: 16px;
         }
     }
     @media screen and (max-width: 380px) {
@@ -151,65 +159,76 @@
             font-size: 10px;
         }
 
-        
         #logo {
-            gap: 0px;
+            gap: 5px;
         }
 
         #logo h1 {
-            font-size: 12px;
+            font-size: 13px;
         }
 
         #logo img {
-            height: 30px;
-            width: 50px;
+            height: 35px;
+            width: 40px;
         }
 
         .barra_de_menus ul {
-            gap: 3px;
-
+            gap: 2px;
         }
 
         .barra_de_menus li {
-            width: 65px;
+            width: 55px;
+            height: 32px;
         }
 
-        .barra_de_menus a {
-            font-size: 10px;
-            text-decoration: none;
+        .barra_de_menus button {
+            font-size: 9px;  
         }
 
         .tex {
-            font-size: 17px;
+            font-size: 14px;
         }
     }
 </style>
 
-
 <header>
-
     <div id="logo">
-
         <img src="./imagens/logo.png">
         <h1 tabindex="0">PORTAL DO FUTEBOL BRASIL</h1>
         <img src="./imagens/Instituto_Federal_do_Pará_-_Marca_Vertical_2015.svg">
-
-
     </div>
 
     <div class="barra_de_menus">
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li> <a href="./html/eventos.html">Eventos</a> </li>
-                <li><a href="./html/info.html">Informações Gerais</b></a> </li>
-                <li><a href="./html/sobre.html"> Contato </a></li>
+                <li>
+                    <button onclick="location.href='index.html'">
+                        <span class="material-icons" aria-hidden="true">home</span>
+                        Inicio
+                    </button>
+                </li>
+                <li>
+                    <button onclick="location.href='./html/eventos.html'">
+                        <span class="material-icons" aria-hidden="true">event</span>
+                        Eventos
+                    </button>
+                </li>
+                <li>
+                    <button onclick="location.href='./html/info.html'">
+                        <span class="material-icons" aria-hidden="true">info</span>
+                        Informações Gerais
+                    </button>
+                </li>
+                <li>
+                    <button onclick="location.href='./html/sobre.html'">
+                        <span class="material-icons" aria-hidden="true">contact_mail</span>
+                        Contato
+                    </button>
+                </li>
             </ul>
         </nav>
     </div>
-
 </header>
-
 
     <!--////////////////////////////////Carrocel///////////////////////////// -->
 
@@ -317,10 +336,16 @@
         @media screen and (max-width: 768px) {
             .carousel {
                 max-width: 600px;
+                margin: 0 10px 0 10px;
             }
 
+                    .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
             .item img {
-                height: 250px;
+                height: 240px;
             }
 
             .carousel-caption {
@@ -403,122 +428,144 @@
             padding: 10px;
             box-sizing: border-box;
             margin-top: 20px;
+            background: #f6fff6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         }
 
         .menu-noti ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
 
         .menu-noti li {
             margin: 10px 0;
         }
 
-        .menu-noti a {
-            display: block;
+        .menu-noti button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
             padding: 10px;
             background-color: #78e074;
-            color: rgb(0, 0, 0);
-            text-decoration: none;
+            color: #000044;
+            border: none;
             border-radius: 5px;
-            text-align: center;
-            box-shadow: #000000 2px 2px 5px;
             font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            box-shadow: #00000022 2px 2px 5px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
         }
 
-        .menu-noti a:hover {
+        .menu-noti button:hover {
             background-color: #6866f0;
+            color: #fff;
         }
 
         .base {
             width: 60%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             border-radius: 5px;
             padding: 10px;
             box-sizing: border-box;
             text-align: center;
             gap: 20px;
-            
+            background: #f6fff6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            margin-bottom: 20px;
         }
 
-         img {
+        .container2 > img {
             margin: 20px 0;
             max-width: 100%;
             width: 280px;
             height: auto;
             border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
         .base p {
-            font-size:22px;
+            font-size: 22px;
             text-align: justify;
             margin: 20px 0;
             word-wrap: break-word;
-            
-           
+            line-height: 1.5;
         }
 
         @media screen and (max-width: 1085px) {
             .base {
-            width: 90%;
-            
-        }
-             img {
+                width: 90%;
+            }
+            .container2 > img {
                 width: 150px;
             }
-
             .base p {
                 font-size: 1em;
             }
-
-            .menu-noti a {
-                font-size: 12px;
+            .menu-noti button {
+                font-size: 13px;
             }
         }
 
         @media screen and (max-width: 685px) {
-
             .base {
-            width: 95%;
-            
-        }
-             img {
-                width: 120px;
+                width: 98%;
             }
-
+            .container2 > img {
+                width: 110px;
+            }
             .base p {
-                font-size: 0.9em;
+                font-size: 0.92em;
             }
-
-            .menu-noti a {
-                font-size: 10px;
+            .menu-noti button {
+                font-size: 11px;
             }
         }
     </style>
-        <div class="container2">
-            <img src="./imagens/img-imfor.jpg" alt="imagem inlustrativa" tabindex="0">
-            <div class="base">
-                
-                <p tabindex="0">O futebol é um esporte que tem ganhado cada vez mais a participação e destaque das mulheres. A
-                    presença feminina nos campos de futebol tem quebrado barreiras e preconceitos, mostrando que o
-                    talento e a paixão pelo esporte não têm gênero. As mulheres têm conquistado espaço e respeito, tanto
-                    em competições nacionais quanto internacionais, inspirando novas gerações de atletas.</p>
-               
-                <p tabindex="0">No Pará, o futebol é uma paixão que move multidões. O estado é conhecido por sua fervorosa torcida e
-                    por revelar grandes talentos que brilham nos gramados do Brasil e do mundo. Clubes tradicionais,
-                    como o Paysandu e o Remo, têm uma rica história e são pilares do futebol paraense, contribuindo para
-                    o desenvolvimento do esporte na região.</p>
-            </div>
-            <div class="menu-noti" >
-                <ul>
-                    <li><a href="./html/paginaadm.html">Perfil administradores</a></li>
-                    <li><a href="./mapadobrasil.html">Mapa de pesquisas</a></li>
-                    <li><a href="https://ifpa.edu.br/index.php">Portal do IFPA</a></li>
-                    <li><a href="./html/sg.html">Como sugerir artigos e grupos de pesquisa</a></li>
-                </ul>
-            </div>
+    <div class="container2">
+        <img src="./imagens/img-imfor.jpg" alt="imagem ilustrativa" tabindex="0">
+        <div class="base">
+            <p tabindex="0">
+                O futebol é um esporte que tem ganhado cada vez mais a participação e destaque das mulheres. A presença feminina nos campos de futebol tem quebrado barreiras e preconceitos, mostrando que o talento e a paixão pelo esporte não têm gênero. As mulheres têm conquistado espaço e respeito, tanto em competições nacionais quanto internacionais, inspirando novas gerações de atletas.
+            </p>
+            <p tabindex="0">
+                No Pará, o futebol é uma paixão que move multidões. O estado é conhecido por sua fervorosa torcida e por revelar grandes talentos que brilham nos gramados do Brasil e do mundo. Clubes tradicionais, como o Paysandu e o Remo, têm uma rica história e são pilares do futebol paraense, contribuindo para o desenvolvimento do esporte na região.
+            </p>
         </div>
+        <div class="menu-noti">
+            <ul>
+                <li>
+                    <button onclick="location.href='./html/paginaadm.html'">
+                        <span class="material-icons" aria-hidden="true">admin_panel_settings</span>
+                        Perfil administradores
+                    </button>
+                </li>
+                <li>
+                    <button onclick="location.href='./mapadobrasil.html'">
+                        <span class="material-icons" aria-hidden="true">map</span>
+                        Mapa de pesquisas
+                    </button>
+                </li>
+                <li>
+                    <button onclick="location.href='https://ifpa.edu.br/index.php'">
+                        <span class="material-icons" aria-hidden="true">school</span>
+                        Portal do IFPA
+                    </button>
+                </li>
+                <li>
+                    <button onclick="location.href='./html/sg.html'">
+                        <span class="material-icons" aria-hidden="true">help_outline</span>
+                        Como sugerir artigos e grupos de pesquisa
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
     
 
     <!--////////////////////////////////////carrocel2//////////////////////////////-->
@@ -878,7 +925,6 @@
             <a href="https://youtube.com/@parabolaifpa?si=vo5rNu4t3kIDI-jc"><img src="./imagens/youtube_2496113.png" alt="YouTube"></a>
         </div>
     </div>
-
     <script src="./javascript/main.js"></script>
 
 </body>

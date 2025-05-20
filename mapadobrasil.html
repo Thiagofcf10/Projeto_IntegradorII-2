@@ -41,7 +41,6 @@
         font-size: 15px;
         padding-top: 1vh;
         width: 100vw;
-        
     }
 
     #logo {
@@ -56,8 +55,6 @@
         display: inline;
         font-family: Arial, Helvetica, sans-serif;
         align-content: center;
-        
-        
     }
 
     #logo img {
@@ -70,12 +67,25 @@
         text-align: center;
     }
 
-    .barra_de_menus a {
+    .barra_de_menus button {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
         font-size:larger ;
         color: #000044;
+        background: none;
+        border: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        cursor: pointer;
         text-decoration: none;
+        border-radius: 4px;
+        background-color: #ffffff;
+        box-shadow: #2b2b2b 3px 3px 3px;
+        transition: background-color 0.2s;
     }
 
     .barra_de_menus ul {
@@ -89,18 +99,17 @@
 
     .barra_de_menus li {
         border-radius: 4px;
-        background-color: #ffffff;
+        background-color: transparent;
         flex: 1 1 1;
         width: 150px;
         height: 45px;
         align-content: center;
         padding: 0 1vw 0 1vw;
-        box-shadow: #2b2b2b 3px 3px 3px;
-        
     }
 
-    .barra_de_menus li:hover {
+    .barra_de_menus button:hover {
         background-color: #6866f0;
+        color: #fff;
     }
 
     p {
@@ -110,38 +119,37 @@
 
     @media screen and (max-width: 640px) {
         header {
-            font-size: 10px;
+            font-size: 11px;
         }
 
         #logo {
-            gap: 0px;
+            gap: 10px;
         }
 
         #logo h1 {
-            font-size: 15px;
+            font-size: 17px;
         }
 
         #logo img {
-            height: 40px;
-            width: 60px;
+            height: 55px;
+            width: 70px;
         }
 
         .barra_de_menus ul {
             gap: 3px;
-
         }
 
         .barra_de_menus li {
-            width: 70px;
+            width: 95px;
+            height: 38px;
         }
 
-        .barra_de_menus a {
-            font-size: 12px;
-            text-decoration: none;
+        .barra_de_menus button {
+            font-size: 11px;
         }
 
         .tex {
-            font-size: 17px;
+            font-size: 16px;
         }
     }
     @media screen and (max-width: 380px) {
@@ -149,65 +157,77 @@
             font-size: 10px;
         }
 
-        
         #logo {
-            gap: 0px;
+            gap: 5px;
         }
 
         #logo h1 {
-            font-size: 12px;
+            font-size: 13px;
         }
 
         #logo img {
-            height: 30px;
-            width: 50px;
+            height: 35px;
+            width: 40px;
         }
 
         .barra_de_menus ul {
-            gap: 3px;
-
+            gap: 2px;
         }
 
         .barra_de_menus li {
-            width: 65px;
+            width: 55px;
+            height: 32px;
         }
 
-        .barra_de_menus a {
-            font-size: 10px;
-            text-decoration: none;
+        .barra_de_menus button {
+            font-size: 9px;  
         }
 
         .tex {
-            font-size: 17px;
+            font-size: 14px;
         }
     }
 </style>
 
-
-
 <header>
-
     <div id="logo">
-
         <img src="./imagens/logo.png">
         <h1 tabindex="0">PORTAL DO FUTEBOL BRASIL</h1>
         <img src="./imagens/Instituto_Federal_do_Pará_-_Marca_Vertical_2015.svg">
-
-
     </div>
 
     <div class="barra_de_menus">
         <nav>
             <ul>
-                <li><a href="./index.html">Inicio</a></li>
-                <li> <a href="./html/eventos.html">Eventos</a> </li>
-                <li><a href="./html/info.html">Informações Gerais</b></a> </li>
-                <li><a href="./html/sobre.html"> Contato </a></li>
+                <li>
+                    <button onclick="location.href='index.html'">
+                        <span class="material-icons" aria-hidden="true">home</span>
+                        Inicio
+                    </button>
+                </li>
+                <li>
+                    <button onclick="location.href='./html/eventos.html'">
+                        <span class="material-icons" aria-hidden="true">event</span>
+                        Eventos
+                    </button>
+                </li>
+                <li>
+                    <button onclick="location.href='./html/info.html'">
+                        <span class="material-icons" aria-hidden="true">info</span>
+                        Informações Gerais
+                    </button>
+                </li>
+                <li>
+                    <button onclick="location.href='./html/sobre.html'">
+                        <span class="material-icons" aria-hidden="true">contact_mail</span>
+                        Contato
+                    </button>
+                </li>
             </ul>
         </nav>
     </div>
-
 </header>
+
 
 
     <style>

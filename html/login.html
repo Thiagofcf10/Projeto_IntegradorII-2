@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adm Pagina</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        header {
+            background-color: #30df96;
+            color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 50px;
+            vertical-align: middle;
+        }
+ 
+        header h1 {
+            display: inline;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .form-container {
+            padding: 20px;
+            background-color: #f8f9fa;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            margin-top: 0;
+        }
+
+        .form-container form {
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            padding: 25px;
+            border-radius: 8px;
+            width: 50%;
+
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container input[type="file"],
+        .form-container input[type="number"],
+        .form-container textarea,
+        .form-container select {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .history-container {
+            padding: 20px;
+            background-color: #f8f9fa;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            right: 20px;
+            top: 70px;
+            width: 500px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+
+        .history-container h2 {
+            margin-top: 0;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .history-item button {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .history-item button:hover {
+            background-color: #c82333;
+        }
+
+        .login-container {
+            padding: 20px;
+            background-color: #f8f9fa;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 100px auto;
+        }
+
+        .login-container h2 {
+            margin-top: 0;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .login-container input[type="email"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-container button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        @media screen and (max-width: 1080px) {
+            h1 {
+            
+            font-size: 19px;
+        }
+            .history-container {
+            padding: 20px;
+            background-color: #f8f9fa;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            right: 20px;
+            top: 70px;
+            width: 200px;
+        }
+        .history-container h2 {
+            margin-top: 0;
+            font-size: 12px;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px;
+            border-bottom: 1px solid #ccc;
+            font-size: 10px;
+        }
+
+        .history-item button {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <div id="loginContainer" class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <!-- hCaptcha widget -->
+            <div style="margin-bottom: 10px;">
+                <div
+                    class="h-captcha"
+                    data-sitekey="10000000-ffff-ffff-ffff-000000000001"
+                    id="hcaptcha-container"
+                ></div>
+            </div>
+
+            <button type="button" onclick="login()">Login</button>
+        </form>
+        <!-- hCaptcha script -->
+        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    </div>
+
+
+</body>
+
+</html>

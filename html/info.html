@@ -185,6 +185,11 @@
         align-items: center;
         margin-top: 40px;
         gap: 20px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 999;
     }
 
     .footer > div {
@@ -249,6 +254,7 @@
             flex-direction: column;
             padding: 20px 10px;
             gap: 10px;
+            
         }
         .footer > div {
             margin: 0;
@@ -279,6 +285,7 @@
             flex-direction: column;
             padding: 5px 5px;
             gap: 8px;
+            position: relative;
         }
 
         .footer .about img {
@@ -305,10 +312,6 @@
     <div class="footer">
         <div class="logo">
 
-                    <a href="#top" style="text-decoration: none; color: #000;">
-            <div class="top-button">
-                <i class="material-icons">arrow_upward</i>
-            </div>
         </div>
         <div class="about">
             <img src="../imagens/brasil f logo2.png" alt="Logo">

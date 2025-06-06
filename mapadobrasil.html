@@ -259,8 +259,8 @@
     </style>
 
     <div class="button-container">
-        <button id="mapa1-btn" type="button" onclick="window.location.href='./mapadobrasil.html'">Mapa Artigos</button>
-        <button id="mapa2-btn" type="button" onclick="window.location.href='./mapa2.html'">Mapa Grupos de Pesquisas</button></div>
+        <button id="mapa1-btn" type="button" onclick="window.location.href='./mapadobrasil.html'">Mapa de publicações</button>
+        <button id="mapa2-btn" type="button" onclick="window.location.href='./mapa2.html'">Mapa dos Grupos de Pesquisas</button></div>
 
     <style>
         .tex1 {
@@ -298,12 +298,12 @@
 
 
 <div class="pesquisa">
-    <h1 class="tex1" tabindex="0">Pesquisa Pará bola artigos</h1>
+    <h1 class="tex1" tabindex="0">Mapa de publicações acadêmicas</h1>
     <p tabindex="0">
-        O projeto "Pará Bola" visa promover a divulgação de pesquisas e eventos relacionados ao futebol amador em todo o Brasil. Para alcançar esse objetivo, disponibilizamos um mapa interativo do país, destacando as pesquisas realizadas em cada estado.
+        O projeto "Pará Bola" visa promover a divulgação de pesquisas e eventos relacionados ao futebol amador em todo o Brasil. Para alcançar esse objetivo, disponibilizamos um mapa interativo do país, destacando as pesquisas publicadas em cada estado.
     </p>
 
-    <h1 class="tex1" tabindex="0">Clique nos estados para visualizar os artigos publicados</h1>
+    <h1 class="tex1" tabindex="0">Clique nos estados para visualizar as publicações</h1>
 </div>
 
 
@@ -563,6 +563,178 @@
 
 </center>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Supabase config
+    const supabaseUrl = 'https://ribvjcjogwukedhhkgbx.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpYnZqY2pvZ3d1a2VkaGhrZ2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5Njk4MDMsImV4cCI6MjA1NjU0NTgwM30.152UN5yiJrWyHIeBnZjSmIhGargSRDTqs1BYF0qohwQ';
+    const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+    let hideTimeout;
+    let updateTimeout;
+    let ultimoEstadoId = null;
+
+    // Busca dados e mostra mensagem
+    async function buscarDados(estado, estadoId) {
+        const mensagemTitulo = document.getElementById('mensagem-titulo');
+        const mensagemLista = document.getElementById('mensagem-lista');
+        mensagemTitulo.textContent = estado;
+        mensagemLista.innerHTML = '';
+
+        try {
+            // Busca todos os artigos do estado na tabela state_articles
+            const { data, error } = await _supabase
+                .from('state_articles')
+                .select('stateContent, state')
+                .eq('state', estadoId);
+
+            if (error) {
+                mensagemLista.innerHTML = '<li>Erro ao buscar dados.</li>';
+                return;
+            }
+
+            if (data && data.length > 0) {
+                // Conta as ocorrências de cada stateContent
+                const contagem = {};
+                data.forEach(item => {
+                    const conteudo = item.stateContent || 'Sem conteúdo';
+                    contagem[conteudo] = (contagem[conteudo] || 0) + 1;
+                });
+
+                // Mostra o conteúdo e a quantidade
+                Object.entries(contagem).forEach(([conteudo, quantidade]) => {
+                    const li = document.createElement('li');
+                    li.textContent = `${conteudo}: ${quantidade}`;
+                    mensagemLista.appendChild(li);
+                });
+            } else {
+                mensagemLista.innerHTML = '<li>Nenhuma publicação encontrada.</li>';
+            }
+        } catch (err) {
+            console.error('Erro ao buscar dados:', err);
+            mensagemLista.innerHTML = '<li>Erro ao buscar dados.</li>';
+        }
+    }
+
+    document.querySelectorAll('svg a path').forEach((estado) => {
+        estado.addEventListener('mousemove', (event) => {
+            clearTimeout(hideTimeout);
+            clearTimeout(updateTimeout);
+            const texto = estado.getAttribute('title');
+            const estadoId = estado.getAttribute('id');
+            mostrarMensagem(event, texto, estadoId);
+        });
+
+        estado.addEventListener('mouseout', () => {
+            hideTimeout = setTimeout(() => {
+                document.getElementById('mensagem-flutuante').style.display = 'none';
+            }, 4000);
+        });
+    });
+
+    function mostrarMensagem(event, estado, estadoId) {
+        const mensagemFlutuante = document.getElementById('mensagem-flutuante');
+        mensagemFlutuante.style.display = 'block';
+        mensagemFlutuante.style.position = 'absolute';
+
+        // Posição ao lado do mouse, ajustando para não sair da tela
+        let left = event.pageX + 20;
+        let top = event.pageY + 10;
+        if (left + 250 > window.innerWidth) left = window.innerWidth - 260;
+        if (top + 120 > window.innerHeight) top = window.innerHeight - 130;
+        mensagemFlutuante.style.left = left + 'px';
+        mensagemFlutuante.style.top = top + 'px';
+
+        // Só busca novamente se mudou de estado, com atraso de 250ms
+        if (ultimoEstadoId !== estadoId) {
+            updateTimeout = setTimeout(() => {
+                buscarDados(estado, estadoId);
+                ultimoEstadoId = estadoId;
+            }, 250);
+        }
+    }
+
+    // Ao esconder a mensagem, libera para mostrar novamente
+    document.addEventListener('mousemove', (e) => {
+        const mensagemFlutuante = document.getElementById('mensagem-flutuante');
+        if (mensagemFlutuante.style.display === 'none') {
+            ultimoEstadoId = null;
+        }
+    });
+
+    // Suporte a toque longo em dispositivos móveis
+    let touchTimer = null;
+    document.querySelectorAll('svg a path').forEach((estado) => {
+        estado.addEventListener('touchstart', (event) => {
+            event.preventDefault();
+            const texto = estado.getAttribute('title');
+            const estadoId = estado.getAttribute('id');
+            touchTimer = setTimeout(() => {
+                mostrarMensagem(event.touches[0], texto, estadoId);
+            }, 600); // 600ms para considerar toque longo
+        });
+        estado.addEventListener('touchend', () => {
+            clearTimeout(touchTimer);
+            hideTimeout = setTimeout(() => {
+                document.getElementById('mensagem-flutuante').style.display = 'none';
+            }, 4000);
+        });
+        estado.addEventListener('touchmove', () => {
+            clearTimeout(touchTimer);
+        });
+    });
+    });
+
+</script>
+
+<style>
+.mensagem-flutuante {
+    min-width: 220px;
+    max-width: 320px;
+    background: #fff;
+    border: 2px solid #90eea0f3;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    padding: 16px 18px 12px 18px;
+    z-index: 9999;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    font-size: 15px;
+}
+.mensagem-flutuante h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #047800;
+    text-align: left;
+}
+#mensagem-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+#mensagem-lista li {
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    background: linear-gradient(90deg, #fdd568 60%, #90eea0f3 100%);
+    color: #222;
+    margin: 0;
+    transition: background 0.2s;
+    word-break: break-word;
+}
+#mensagem-lista li:nth-child(even) {
+    background: linear-gradient(90deg, #90eea0f3 60%, #fdd568 100%);
+}
+</style>
+<div id="mensagem-flutuante" class="mensagem-flutuante" style="display: none;">
+    <h3 id="mensagem-titulo"></h3>
+    <ul id="mensagem-lista"></ul>
+</div>
 
     <style>
     .footer {

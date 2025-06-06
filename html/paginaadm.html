@@ -551,9 +551,6 @@
             await _supabase.from('form_submissions').insert([{ title: ndomural, type: 'mural', imagePath: storageData.path }]);
             fetchHistory();
                         alert('Formulário enviado com sucesso!');
-            form.reset();
-            document.getElementById('imagemPreview').style.display = 'none';
-            location.reload();
             }
         }
 

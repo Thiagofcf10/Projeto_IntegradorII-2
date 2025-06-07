@@ -239,6 +239,7 @@
         }
 
         .button-container button {
+            width: 190px;
             background-color: #fdd568;
             color: #000044;
             border: 1px solid #ccc;
@@ -255,7 +256,22 @@
             transform: scale(1.05);
         }
 
+        @media screen and (max-width: 540px) {
 
+            .button-container button {
+                background-color: #fdd568;
+                color: #000044;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 10px 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.2s;
+            }
+
+
+        }
     </style>
 
     <div class="button-container">

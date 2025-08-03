@@ -609,23 +609,23 @@
         .carousel-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 5px; /* Reduced gap for smaller spacing */
+            gap: 16px; /* Espaçamento consistente entre as imagens */
             justify-items: center;
             align-items: center;
-            height: auto;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .carousel-grid img {
-            margin-top: 20px;
-            width: 100%;
-            height: 100%;
-            max-width: 200px;
-            max-height: 150px;
+            margin: 0; /* Remove o margin-top para usar apenas o gap do grid */
+            width: 200px;
+            height: 150px;
             border-radius: 5px;
             border: #000044 solid 2px;
             cursor: pointer;
             box-shadow: #000044 1px 1px 1px;
+            object-fit: cover;
+            display: block;
         }
 
         .modal {
@@ -745,10 +745,8 @@
         @media screen and (max-width: 1070px) {
             .carousel-grid {
                 grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(3, 1fr);
-                gap: 4px; /* Reduced gap for smaller spacing */
+                gap: 12px;
                 width: 100%;
-                height: auto;
             }
 
             .carousel-grid img {
@@ -760,10 +758,8 @@
         @media screen and (max-width: 785px) {
             .carousel-grid {
                 grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(4, 1fr);
-                gap: 3px; /* Reduced gap for smaller spacing */
+                gap: 8px;
                 width: 100%;
-                height: auto;
             }
 
             .carousel-grid img {
@@ -780,7 +776,7 @@
     <div class="container3">
         <h2 class="tex2" tabindex="0">Mural de fotos</h2>
         <div id="mural-carousels">
-            <div id="carousel1" class="carousel-grid"></div>
+            <div id="carousel1" class="carousel-grid" ></div>
             <div id="carousel2" class="carousel-grid" style="display: none;"></div>
             <div id="carousel3" class="carousel-grid" style="display: none;"></div>
             <div id="carousel4" class="carousel-grid" style="display: none;"></div>

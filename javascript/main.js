@@ -69,101 +69,112 @@ fetchData().then(() => {
 
 //////////////////////////// mural /////////////////////////////////////////
 
-       
-                let currentImgIndex = 0;
-        const images = [];
-        
-        async function fetchImages() {
-            const { data, error } = await _supabase
-                .from('Imagensmural')
-                .select('*');
-        
-            if (error) {
-                console.error('Error fetching images:', error);
-            } else {
-                populateCarousels(data);
-            }
+    let currentImgIndex = 0;
+    const images = [];
+
+    async function fetchImages() {
+        const { data, error } = await _supabase
+            .from('Imagensmural')
+            .select('*');
+
+        if (error) {
+            console.error('Error fetching images:', error);
+        } else {
+            populateCarousels(data);
         }
-        
-        function populateCarousels(items) {
-            const carousel1 = document.getElementById('carousel1');
-            const carousel2 = document.getElementById('carousel2');
-            const carousel3 = document.getElementById('carousel3');
-            const carousel4 = document.getElementById('carousel4');
-            // Adiciona mais carousels dinamicamente se necessário
-            const carousels = [carousel1, carousel2, carousel3, carousel4];
-        
-            // Cria carousels extras se houver mais imagens
-            const imagesPerCarousel = 12;
-            const totalCarouselsNeeded = Math.ceil(items.length / imagesPerCarousel);
-        
-            // Cria elementos de carousel extras se necessário
-            for (let i = carousels.length; i < totalCarouselsNeeded; i++) {
-                const newCarousel = document.createElement('div');
-                newCarousel.id = `carousel${i + 1}`;
-                newCarousel.style.display = 'none';
-                newCarousel.className = 'carousel-grid';
-                document.getElementById('mural-carousels').appendChild(newCarousel);
-                carousels.push(newCarousel);
+    }
+
+    function populateCarousels(items) {
+        const muralCarousels = document.getElementById('mural-carousels');
+        // Busca todos os carousels já existentes (incluindo carousel4)
+        let carousels = [
+            document.getElementById('carousel1'),
+            document.getElementById('carousel2'),
+            document.getElementById('carousel3'),
+            document.getElementById('carousel4')
+        ];
+
+        // Garante que todos os carousels existentes tenham a classe correta e display inicial
+        carousels.forEach((carousel, idx) => {
+            if (carousel) {
+                carousel.className = 'carousel-grid';
+                carousel.style.display = idx === 0 ? 'grid' : 'none';
             }
-        
-            items.forEach((item, index) => {
-                const imgElement = document.createElement('img');
-                imgElement.src = item.image;
-                imgElement.alt = item.title;
-                imgElement.tabIndex = 0; // Make the image focusable
-                imgElement.onclick = () => openModal(imgElement);
-                imgElement.onkeypress = (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        openModal(imgElement);
-                    }
-                };
-                images.push(imgElement);
-                const carouselIndex = Math.floor(index / imagesPerCarousel);
+        });
+
+        // Adiciona mais carousels dinamicamente se necessário
+        const imagesPerCarousel = 12;
+        const totalCarouselsNeeded = Math.ceil(items.length / imagesPerCarousel);
+
+        // Cria elementos de carousel extras se necessário
+        for (let i = carousels.length; i < totalCarouselsNeeded; i++) {
+            const newCarousel = document.createElement('div');
+            newCarousel.id = `carousel${i + 1}`;
+            newCarousel.style.display = 'none';
+            newCarousel.className = 'carousel-grid';
+            muralCarousels.appendChild(newCarousel);
+            carousels.push(newCarousel);
+        }
+
+        items.forEach((item, index) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = item.image;
+            imgElement.alt = item.title;
+            imgElement.tabIndex = 0; // Make the image focusable
+            imgElement.onclick = () => openModal(imgElement);
+            imgElement.onkeypress = (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    openModal(imgElement);
+                }
+            };
+            images.push(imgElement);
+            const carouselIndex = Math.floor(index / imagesPerCarousel);
+            if (carousels[carouselIndex]) {
                 carousels[carouselIndex].appendChild(imgElement);
-            });
-        }
-        
-        function openModal(element) {
-            const modal = document.getElementById("myModal");
-            const modalImg = document.getElementById("img01");
-            const captionText = document.getElementById("caption");
-            modal.style.display = "block";
-            modalImg.src = element.src;
-            captionText.innerHTML = element.alt;
-            currentImgIndex = images.indexOf(element);
-        }
-        
-        function closeModal() {
-            const modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
-        
-        function moveModal(n) {
-            currentImgIndex += n;
-            if (currentImgIndex >= images.length) {
-                currentImgIndex = 0;
-            } else if (currentImgIndex < 0) {
-                currentImgIndex = images.length - 1;
             }
-            const modalImg = document.getElementById("img01");
-            const captionText = document.getElementById("caption");
-            modalImg.src = images[currentImgIndex].src;
-            captionText.innerHTML = images[currentImgIndex].alt;
+        });
+    }
+
+    function openModal(element) {
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("img01");
+        const captionText = document.getElementById("caption");
+        modal.style.display = "block";
+        modalImg.src = element.src;
+        captionText.innerHTML = element.alt;
+        currentImgIndex = images.indexOf(element);
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+
+    function moveModal(n) {
+        currentImgIndex += n;
+        if (currentImgIndex >= images.length) {
+            currentImgIndex = 0;
+        } else if (currentImgIndex < 0) {
+            currentImgIndex = images.length - 1;
         }
-        
-        function showCarousel(n) {
-            const muralCarousels = document.getElementById('mural-carousels');
-            const carousels = muralCarousels.querySelectorAll('[id^="carousel"]');
-            carousels.forEach((carousel, index) => {
-                carousel.style.display = (index + 1) === n ? 'grid' : 'none';
-            });
-        }
-        
-        // Expose modal and carousel functions to global scope if needed
-        window.openModal = openModal;
-        window.closeModal = closeModal;
-        window.moveModal = moveModal;
-        window.showCarousel = showCarousel;
-        
-        fetchImages();
+        const modalImg = document.getElementById("img01");
+        const captionText = document.getElementById("caption");
+        modalImg.src = images[currentImgIndex].src;
+        captionText.innerHTML = images[currentImgIndex].alt;
+    }
+
+    function showCarousel(n) {
+        const muralCarousels = document.getElementById('mural-carousels');
+        const carousels = muralCarousels.querySelectorAll('[id^="carousel"]');
+        carousels.forEach((carousel, index) => {
+            carousel.style.display = (index + 1) === n ? 'grid' : 'none';
+        });
+    }
+
+    // Expose modal and carousel functions to global scope if needed
+    window.openModal = openModal;
+    window.closeModal = closeModal;
+    window.moveModal = moveModal;
+    window.showCarousel = showCarousel;
+
+    fetchImages();

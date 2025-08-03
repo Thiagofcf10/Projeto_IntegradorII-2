@@ -47,12 +47,12 @@
     #logo {
         width: 100vw; 
         display: flex;
-        gap: 120px;
+        gap: 270px;
         justify-content: center;
     }
 
     #logo h1 {
-        font-size: 25px;
+        font-size: 270%;
         display: inline;
         font-family: Arial, Helvetica, sans-serif;
         align-content: center;
@@ -116,6 +116,41 @@
     p {
         padding-left: 10px;
         padding-right: 10px;
+    }
+        @media screen and (max-width: 1340px) {
+        header {
+            font-size: 11px;
+        }
+
+        #logo {
+            gap: 110px;
+        }
+
+        #logo h1 {
+            font-size: 32px;
+        }
+
+        #logo img {
+            height: 75px;
+            width: 90px;
+        }
+
+        .barra_de_menus ul {
+            gap: 3px;
+        }
+
+        .barra_de_menus li {
+            width: 125px;
+            height: 48px;
+        }
+
+        .barra_de_menus button {
+            font-size: 16px;
+        }
+
+        .tex {
+            font-size: 19px;
+        }
     }
 
     @media screen and (max-width: 640px) {

@@ -48,12 +48,12 @@
     #logo {
         width: 100vw; 
         display: flex;
-        gap: 120px;
+        gap: 270px;
         justify-content: center;
     }
 
     #logo h1 {
-        font-size: 25px;
+        font-size: 270%;
         display: inline;
         font-family: Arial, Helvetica, sans-serif;
         align-content: center;
@@ -117,6 +117,41 @@
     p {
         padding-left: 10px;
         padding-right: 10px;
+    }
+        @media screen and (max-width: 1340px) {
+        header {
+            font-size: 11px;
+        }
+
+        #logo {
+            gap: 110px;
+        }
+
+        #logo h1 {
+            font-size: 32px;
+        }
+
+        #logo img {
+            height: 75px;
+            width: 90px;
+        }
+
+        .barra_de_menus ul {
+            gap: 3px;
+        }
+
+        .barra_de_menus li {
+            width: 125px;
+            height: 48px;
+        }
+
+        .barra_de_menus button {
+            font-size: 16px;
+        }
+
+        .tex {
+            font-size: 19px;
+        }
     }
 
     @media screen and (max-width: 640px) {
@@ -744,12 +779,17 @@
 
     <div class="container3">
         <h2 class="tex2" tabindex="0">Mural de fotos</h2>
-        <div id="carousel1" class="carousel-grid" ></div>
-        <div id="carousel2" class="carousel-grid" style="display: none;"></div>
-
+        <div id="mural-carousels">
+            <div id="carousel1" class="carousel-grid"></div>
+            <div id="carousel2" class="carousel-grid" style="display: none;"></div>
+            <div id="carousel3" class="carousel-grid" style="display: none;"></div>
+            <div id="carousel4" class="carousel-grid" style="display: none;"></div>
+        </div>
         <div class="carousel-nav">
             <button onclick="showCarousel(1)" >1</button>
             <button onclick="showCarousel(2)" >2</button>
+            <button onclick="showCarousel(3)" >3</button>
+            <button onclick="showCarousel(4)" >4</button>
         </div>
     </div>
 
@@ -761,8 +801,8 @@
         <a class="next" onclick="moveModal(1)" tabindex="0">&#10095;</a>
     </div>
 
-    
 
+    
 
     <!--////////////////////////////////////////footer///////////////////////////////////////////-->
     <style>
